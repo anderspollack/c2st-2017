@@ -24,7 +24,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'c2st-2017' ); ?></a>
 
 	<nav id="site-navigation" class="main-navigation" role="navigation">
-		<a class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="glyphicon glyphicon-chevron-down"></span><?php esc_html_e( 'Navigation', 'c2st-2017' ); ?></a>
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="glyphicon glyphicon-chevron-down"></span><?php esc_html_e( 'Navigation', 'c2st-2017' ); ?></button>
 		<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
