@@ -105,9 +105,9 @@ add_action( 'widgets_init', 'c2st_2017_widgets_init' );
  * Enqueue scripts and styles.
  */
 function c2st_2017_scripts() {
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css' );
 	
-	wp_enqueue_style( 'c2st-2017-style', get_template_directory_uri() . '/css/style.css' );
+	wp_enqueue_style( 'c2st-2017-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'c2st-2017-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
