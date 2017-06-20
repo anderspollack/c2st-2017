@@ -24,19 +24,27 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'c2st-2017' ); ?></a>
 
 	<nav id="site-navigation" class="main-navigation" role="navigation">
-		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="glyphicon glyphicon-chevron-down"></span><?php esc_html_e( 'Navigation', 'c2st-2017' ); ?></button>
+		<a class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" role="button">
+			<span class="glyphicon glyphicon-chevron-down"></span>
+			<?php esc_html_e( 'Navigation', 'c2st-2017' ); ?>
+		</a>
 		<?php
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
 				'menu_id'        => 'primary-menu',
 			) );
 		?>
+		<!-- TODO add alignright class to desktop-sized search -->
+		<a class="search-toggle" href="#">
+			<span class="glyphicon glyphicon-search"></span>
+		</a>
 	</nav><!-- #site-navigation -->
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
+			<div id="site-logo"></div>
 			<?php
-			if ( is_front_page() && is_home() ) : ?>
+			if ( is_front_page() ) : ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<?php else : ?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>

@@ -47,6 +47,31 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 # Elements
 --------------------------------------------------------------*/
 /* body, blockquotes, figure, table, and similar styles */
+body {
+	color: #252525;
+}
+
+.site-branding {
+	float: left;
+	clear: both;
+	display: block;
+	width: 100%;
+}
+
+#site-logo {
+	width: 195px;
+	height: 74px;
+	background-image: url(img/c2st-logo-dark-gray.png);
+	margin: 32px auto;
+}
+
+.site-title, .site-description {
+	text-align: center;
+}
+
+.site-title a {
+	color: #252525;
+}
 
 /*--------------------------------------------------------------
 # Forms
@@ -61,12 +86,17 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
+	float: left;
 	clear: both;
 	display: block;
-	float: left;
 	width: 100%;
 	background-color: #ebebeb;
-	padding: 28px;
+	text-align: center;
+	padding: 0 30px;
+}
+
+.main-navigation.toggled {
+	padding-bottom: 30px;
 }
 
 .main-navigation ul {
@@ -78,7 +108,6 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 .main-navigation li {
 	display: inline-block;
-	text-align: left;
 }
 
 .main-navigation.toggled li {
@@ -87,8 +116,11 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 }
 
 .main-navigation a {
-	display: block;
 	text-decoration: none;
+}
+
+.main-navigation ul a {
+	display: block;
 }
 
 .main-navigation ul ul {
@@ -142,17 +174,36 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 }
 
 /* Small menu. */
-.menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
 }
 
 .menu-toggle {
-	margin: 0 auto;
+	display: inline-block;
+	line-height: 80px;
+	padding: 0 30px;
+	white-space: nowrap;
 }
 
-.menu-toggle[aria-expanded="true"] {
-	margin-bottom: 15px;
+.menu-toggle, .search-toggle {
+	color: #898989;
+}
+
+.menu-toggle:hover, .search-toggle:hover {
+	color: #898989;
+}
+
+.glyphicon-chevron-down {
+	margin-right: 10px;
+	position: relative;
+	top: 2px;
+}
+
+.search-toggle {
+	position: absolute;
+	top: 30px;
+	right: 32px;
+	margin-left: 32px;
 }
 
 @media screen and (min-width: 37.5em) {
@@ -161,6 +212,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	}
 	.main-navigation ul {
 		display: block;
+		line-height: 80px;
+		white-space: nowrap;
 	}
 }
 
