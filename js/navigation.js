@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, button, menu, links, i, len;
+	var container, button, menu, links, i, len, icon;
 
 	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
@@ -18,6 +18,8 @@
 	}
 
 	menu = container.getElementsByTagName( 'ul' )[0];
+
+	icon = container.getElementsByClassName( 'glyphicon' )[0];
 
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
@@ -35,10 +37,13 @@
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
+			icon.className = icon.className.replace( 'glyphicon glyphicon-remove', 'glyphicon-chevron-down' );
+			console.log('clicked');
 		} else {
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
+			icon.className = icon.className.replace( 'glyphicon-chevron-down', 'glyphicon glyphicon-remove' );
 		}
 	};
 

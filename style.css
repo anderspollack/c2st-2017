@@ -49,6 +49,12 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 /* body, blockquotes, figure, table, and similar styles */
 body {
 	color: #252525;
+	font-size: 15px;
+	font-family: 'Karla', sans-serif;
+}
+
+#page {
+	min-width: 240px;
 }
 
 .site-branding {
@@ -56,13 +62,30 @@ body {
 	clear: both;
 	display: block;
 	width: 100%;
+	padding: 0 15px;
+}
+
+@media screen and (min-width: 37.5em) {
+	.site-branding {
+		padding: 0 30px;
+	}
+	.site-title {
+		font-size: 2em;
+	}
+}
+
+.site-title {	
+    font-family: 'Montserrat', sans-serif;
+	font-weight: normal;
+	font-size: 1.5em;
+	line-height: 1.4em;
 }
 
 #site-logo {
 	width: 195px;
 	height: 74px;
 	background-image: url(img/c2st-logo-dark-gray.png);
-	margin: 32px auto;
+	margin: 30px auto 25px auto;
 }
 
 .site-title, .site-description {
@@ -116,6 +139,7 @@ body {
 }
 
 .main-navigation a {
+	color: #898989;
 	text-decoration: none;
 }
 
@@ -183,17 +207,18 @@ body {
 	line-height: 80px;
 	padding: 0 30px;
 	white-space: nowrap;
-}
 
+}
+/*
 .menu-toggle, .search-toggle {
 	color: #898989;
 }
 
 .menu-toggle:hover, .search-toggle:hover {
 	color: #898989;
-}
+}*/
 
-.glyphicon-chevron-down {
+.menu-toggle .glyphicon {
 	margin-right: 10px;
 	position: relative;
 	top: 2px;
@@ -201,9 +226,23 @@ body {
 
 .search-toggle {
 	position: absolute;
-	top: 30px;
-	right: 32px;
-	margin-left: 32px;
+	top: 0;
+	right: 0;
+	padding: 0 30px;
+}
+
+/* Admin bar absolute positioning fix */
+.admin-bar .search-toggle {
+	top: 46px;
+}
+
+.search-toggle input {
+	display: none;
+}
+
+.search-toggle .glyphicon {
+	line-height: 80px;
+	margin-left: 8px;
 }
 
 @media screen and (min-width: 37.5em) {
@@ -214,6 +253,20 @@ body {
 		display: block;
 		line-height: 80px;
 		white-space: nowrap;
+		float: left;
+	}
+	.main-navigation a {
+		margin-right: 15px;
+	}
+	.search-toggle {
+		position: static;
+		float: right;
+		padding: 0;
+		white-space: nowrap;
+	}
+	.search-toggle input {
+		/*display: inline-block;*/
+		display: inline;
 	}
 }
 

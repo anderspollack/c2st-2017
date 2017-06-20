@@ -15,6 +15,7 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
+<link href="https://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:700" rel="stylesheet"> 
 
 <?php wp_head(); ?>
 </head>
@@ -36,6 +37,7 @@
 		?>
 		<!-- TODO add alignright class to desktop-sized search -->
 		<a class="search-toggle" href="#">
+			<input type="text" class="form-control" placeholder="search">
 			<span class="glyphicon glyphicon-search"></span>
 		</a>
 	</nav><!-- #site-navigation -->
