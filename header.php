@@ -33,13 +33,9 @@
 			wp_nav_menu( array(
 				'theme_location' => 'menu-1',
 				'menu_id'        => 'primary-menu',
+				'depth'			 => '1'
 			) );
 		?>
-		<!-- TODO add alignright class to desktop-sized search -->
-		<a class="search-toggle" href="#">
-			<input type="text" class="form-control" placeholder="search">
-			<span class="glyphicon glyphicon-search"></span>
-		</a>
 	</nav><!-- #site-navigation -->
 
 	<header id="masthead" class="site-header" role="banner">

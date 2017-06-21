@@ -53,52 +53,20 @@ body {
 	font-family: 'Karla', sans-serif;
 }
 
-#page {
-	min-width: 240px;
-}
-
-.site-branding {
-	float: left;
-	clear: both;
-	display: block;
-	width: 100%;
-	padding: 0 15px;
-}
-
-@media screen and (min-width: 37.5em) {
-	.site-branding {
-		padding: 0 30px;
-	}
-	.site-title {
-		font-size: 2em;
-	}
-}
-
-.site-title {	
-    font-family: 'Montserrat', sans-serif;
-	font-weight: normal;
-	font-size: 1.5em;
-	line-height: 1.4em;
-}
-
-#site-logo {
-	width: 195px;
-	height: 74px;
-	background-image: url(img/c2st-logo-dark-gray.png);
-	margin: 30px auto 25px auto;
-}
-
-.site-title, .site-description {
-	text-align: center;
-}
-
-.site-title a {
-	color: #252525;
-}
-
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
+.form-control, .btn {
+	border-radius: 8px;
+	line-height: 1.4em;
+}
+
+.btn-primary {
+	background-color: #3599d5;
+	color: white;
+	border: 0 solid transparent;
+}
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
@@ -111,15 +79,10 @@ body {
 .main-navigation {
 	float: left;
 	clear: both;
-	display: block;
 	width: 100%;
 	background-color: #ebebeb;
 	text-align: center;
 	padding: 0 30px;
-}
-
-.main-navigation.toggled {
-	padding-bottom: 30px;
 }
 
 .main-navigation ul {
@@ -131,11 +94,7 @@ body {
 
 .main-navigation li {
 	display: inline-block;
-}
-
-.main-navigation.toggled li {
-	display: list-item;
-	text-align: center;
+	text-align: left;
 }
 
 .main-navigation a {
@@ -143,80 +102,64 @@ body {
 	text-decoration: none;
 }
 
-.main-navigation ul a {
-	display: block;
+.main-navigation .give a {
+	color: white;
 }
 
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 1.5em;
-	left: -999em;
-	z-index: 99999;
+.main-navigation .social a {
+	display: inline-block;
+	font-size: 0;
+	width: 24px;
+	height: 24px;
+	vertical-align: middle;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
+.main-navigation .facebook a {
+	background-image: url('img/facebook.gif');
+	background-image: -webkit-image-set(url('img/facebook.gif') 1x, url('img/facebook@2x.gif') 2x, url('img/facebook@3x.gif') 3x );
+} 
+
+.main-navigation .twitter a {
+	background-image: url('img/twitter.gif');
+	background-image: -webkit-image-set(url('img/twitter.gif') 1x, url('img/twitter@2x.gif') 2x, url('img/twitter@3x.gif') 3x );
 }
 
-.main-navigation ul ul a {
-	width: 200px;
+.main-navigation .linkedin a {
+	background-image: url('img/linkedin.gif');
+	background-image: -webkit-image-set(url('img/linkedin.gif') 1x, url('img/linkedin@2x.gif') 2x, url('img/linkedin@3x.gif') 3x );
 }
 
-.main-navigation ul ul li {
-
+.main-navigation .youtube a {
+	background-image: url('img/youtube.gif');
+	background-image: -webkit-image-set(url('img/youtube.gif') 1x, url('img/youtube@2x.gif') 2x, url('img/youtube@3x.gif') 3x );
 }
 
-.main-navigation li:hover > a,
-.main-navigation li.focus > a {
+.main-navigation .rss a {
+	background-image: url('img/rss.gif');
+	background-image: -webkit-image-set(url('img/rss.gif') 1x, url('img/rss@2x.gif') 2x, url('img/rss@3x.gif') 3x );
 }
 
-.main-navigation ul ul :hover > a,
-.main-navigation ul ul .focus > a {
+.main-navigation form * {
+	display: inline;
+
+}
+.main-navigation input[type="text"] {
+	width: auto;
 }
 
-.main-navigation ul ul a:hover,
-.main-navigation ul ul a.focus {
-}
-
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
-	left: 100%;
-}
-
-.main-navigation .current_page_item > a,
-.main-navigation .current-menu-item > a,
-.main-navigation .current_page_ancestor > a,
-.main-navigation .current-menu-ancestor > a {
+.main-navigation input[type="submit"] {
+	width: auto;
 }
 
 /* Small menu. */
-.main-navigation.toggled ul {
-	display: block;
-}
-
 .menu-toggle {
 	display: inline-block;
 	line-height: 80px;
 	padding: 0 30px;
 	white-space: nowrap;
-
 }
-/*
-.menu-toggle, .search-toggle {
-	color: #898989;
-}
-
-.menu-toggle:hover, .search-toggle:hover {
-	color: #898989;
-}*/
 
 .menu-toggle .glyphicon {
 	margin-right: 10px;
@@ -224,50 +167,112 @@ body {
 	top: 2px;
 }
 
-.search-toggle {
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding: 0 30px;
+.main-navigation.toggled {
+	padding-bottom: 30px;
 }
 
-/* Admin bar absolute positioning fix */
-.admin-bar .search-toggle {
-	top: 46px;
+.main-navigation.toggled ul {
+	display: block;
 }
 
-.search-toggle input {
-	display: none;
+@media screen and (max-width: 419px) {
+	.main-navigation.toggled li {
+		text-align: left;
+		float: left;
+		margin-right: 2em;
+		line-height: 2em;
+	}
 }
 
-.search-toggle .glyphicon {
-	line-height: 80px;
-	margin-left: 8px;
+@media screen and (min-width: 420px) {
+	.main-navigation.toggled ul {
+		
+	}
+	.main-navigation.toggled .menu-item-object-page {
+		/*width: 50%;*/
+		width: 100%;
+		float: left;
+	}
+	.main-navigation.toggled .give {
+		width: auto;
+		margin-top: 1em;
+		margin-bottom: 0;
+		white-space: nowrap;
+		float: left;
+	}
+	.main-navigation.toggled .facebook {
+		clear: left;
+	}
+	.main-navigation.toggled .social {
+		display: inline;
+		float: left;
+		vertical-align: middle;
+		line-height: 4em;
+		margin-right: 1em;
+	}
+	.main-navigation.toggled .search-form {
+		float: left;
+		clear: left;
+	}
+	.main-navigation.toggled .search-form form {
+		white-space: nowrap;
+	}
+	.main-navigation.toggled .search-field {
+		display: inline-block;
+		width: auto;
+	}
 }
 
-@media screen and (min-width: 37.5em) {
+/*.main-navigation.toggled .give {
+	clear: both;
+	margin: 0 auto;
+}*/
+
+@media screen and (min-width: 800px) {
 	.menu-toggle {
 		display: none;
 	}
 	.main-navigation ul {
 		display: block;
-		line-height: 80px;
-		white-space: nowrap;
-		float: left;
 	}
-	.main-navigation a {
+	
+	.main-navigation li {
 		margin-right: 15px;
+		line-height: 80px;
 	}
-	.search-toggle {
-		position: static;
-		float: right;
-		padding: 0;
-		white-space: nowrap;
+
+	.main-navigation .give {
+		margin: 0 30px 0 15px;
+		line-height: 1.4em;
 	}
-	.search-toggle input {
-		/*display: inline-block;*/
-		display: inline;
+
+	/*.main-navigation .give::after {
+		content:"\000A";
+		white-space: pre;
+	}*/
+
+	.main-navigation .social {
+		margin-left: 0;
+		line-height: 24px;
 	}
+
+	.main-navigation .search-form {
+		margin: -40px 0 0 15px;
+	}
+	/* Adds extra space to every menu item, then removes it from everywhere except the search form and first social media icon */
+	/*.main-navigation li {
+		margin-left: 15px;
+	}
+
+	.main-navigation li:first-of-type,
+	.main-navigation .social ~ .social,
+	.main-navigation .menu-item-object-page ~ .menu-item-object-page {
+		margin-left: 0;
+	}
+
+	.main-navigation .give::before {
+		margin-left: 15px;
+	}*/
 }
 
 .site-main .comment-navigation,
@@ -396,6 +401,67 @@ body {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+#page {
+	min-width: 240px;
+}
+
+/*--------------------------------------------------------------
+## Masthead
+--------------------------------------------------------------*/
+.site-header {
+	border-bottom: 4px solid #ebebeb;
+	padding-bottom: 30px;
+}
+
+.site-branding {
+	float: left;
+	clear: both;
+	display: block;
+	width: 100%;
+	padding: 0 15px;
+}
+
+.site-title {	
+    font-family: 'Montserrat', sans-serif;
+	font-weight: normal;
+	font-size: 1.5em;
+	line-height: 1.4em;
+}
+
+#site-logo {
+	width: 195px;
+	height: 74px;
+	background-image: url(img/c2st-logo-dark-gray.png);
+	margin: 30px auto 25px auto;
+}
+
+.site-title, .site-description {
+	text-align: center;
+	letter-spacing: 0.05em;
+}
+
+.site-title a {
+	color: #252525;
+	text-decoration: none;
+}
+
+.site-title a:hover {
+}
+
+.site-description {
+	font-size: 21px;
+	line-height: 2em;
+}
+
+@media screen and (min-width: 37.5em) {
+	.site-branding {
+		padding: 0 30px;
+	}
+	.site-title {
+		font-size: 2em;
+	}
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/

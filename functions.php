@@ -153,3 +153,12 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Adds a search form to the nav bar http://www.wprecipes.com/how-to-automatically-add-a-search-field-to-your-navigation-menu/
+ */
+add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );
+function add_search_box( $items, $args ) {
+    $items .= '<li class="search-form">' . get_search_form( false ) . '</li>';
+    return $items;
+}
