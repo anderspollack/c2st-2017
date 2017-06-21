@@ -82,7 +82,7 @@ body {
 	width: 100%;
 	background-color: #ebebeb;
 	text-align: center;
-	padding: 0 30px;
+	padding: 0 40px;
 }
 
 .main-navigation ul {
@@ -100,6 +100,10 @@ body {
 .main-navigation a {
 	color: #898989;
 	text-decoration: none;
+}
+
+.main-navigation .give {
+	line-height: 1.4em;
 }
 
 .main-navigation .give a {
@@ -145,6 +149,7 @@ body {
 	display: inline;
 
 }
+
 .main-navigation input[type="text"] {
 	width: auto;
 }
@@ -175,23 +180,24 @@ body {
 	display: block;
 }
 
-@media screen and (max-width: 419px) {
+/*@media screen and (max-width: 419px) {
 	.main-navigation.toggled li {
 		text-align: left;
 		float: left;
 		margin-right: 2em;
 		line-height: 2em;
 	}
-}
+}*/
 
-@media screen and (min-width: 420px) {
+@media screen and (min-width: 240px) {
 	.main-navigation.toggled ul {
-		
+
 	}
 	.main-navigation.toggled .menu-item-object-page {
 		/*width: 50%;*/
 		width: 100%;
 		float: left;
+		line-height: 2em;
 	}
 	.main-navigation.toggled .give {
 		width: auto;
@@ -199,6 +205,7 @@ body {
 		margin-bottom: 0;
 		white-space: nowrap;
 		float: left;
+		line-height: 1.4em
 	}
 	.main-navigation.toggled .facebook {
 		clear: left;
@@ -235,44 +242,38 @@ body {
 	.main-navigation ul {
 		display: block;
 	}
-	
 	.main-navigation li {
 		margin-right: 15px;
 		line-height: 80px;
+		float: left;
 	}
-
 	.main-navigation .give {
-		margin: 0 30px 0 15px;
+		margin: 1.75em 3em 0 2em;
 		line-height: 1.4em;
 	}
-
-	/*.main-navigation .give::after {
-		content:"\000A";
-		white-space: pre;
-	}*/
-
+	.main-navigation .facebook {
+		clear: left;
+	}
 	.main-navigation .social {
 		margin-left: 0;
-		line-height: 24px;
+		line-height: 1em;
 	}
-
 	.main-navigation .search-form {
-		margin: -40px 0 0 15px;
+		margin: -28px 0 0 1em;
 	}
-	/* Adds extra space to every menu item, then removes it from everywhere except the search form and first social media icon */
-	/*.main-navigation li {
-		margin-left: 15px;
-	}
+}
 
-	.main-navigation li:first-of-type,
-	.main-navigation .social ~ .social,
-	.main-navigation .menu-item-object-page ~ .menu-item-object-page {
-		margin-left: 0;
+@media screen and (min-width: 1140px) {
+	.main-navigation .facebook {
+		clear: none;
 	}
-
-	.main-navigation .give::before {
-		margin-left: 15px;
-	}*/
+	.main-navigation .social {
+		line-height: 80px;
+	}
+	.main-navigation .search-form {
+		margin-top: 0;
+		float: right;
+	}
 }
 
 .site-main .comment-navigation,
@@ -432,7 +433,7 @@ body {
 	width: 195px;
 	height: 74px;
 	background-image: url(img/c2st-logo-dark-gray.png);
-	margin: 30px auto 25px auto;
+	margin: 3em auto 2em auto;
 }
 
 .site-title, .site-description {
