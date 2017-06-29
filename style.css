@@ -25,13 +25,16 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 # Navigation
 	## Links
 	## Menus
+# Content
+	## Featured content
+	## Upcoming events
+	## Posts and pages
+	## Comments
+	## Footer
 # Accessibility
 # Alignments
 # Clearings
 # Widgets
-# Content
-	## Posts and pages
-	## Comments
 # Infinite scroll
 # Media
 	## Captions
@@ -299,6 +302,180 @@ body {
 }
 
 /*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Masthead
+--------------------------------------------------------------*/
+.site-header {
+	border-bottom: 4px solid #ebebeb;
+	padding-bottom: 30px;
+}
+
+.site-branding {
+	float: left;
+	clear: both;
+	display: block;
+	width: 100%;
+	padding: 0 15px;
+}
+
+.site-title {	
+    font-family: 'Montserrat', sans-serif;
+	font-weight: normal;
+	font-size: 1.5em;
+	line-height: 1.4em;
+}
+
+#site-logo {
+	width: 195px;
+	height: 74px;
+	background-image: url(img/c2st-logo-dark-gray.png);
+	margin: 3em auto 2em auto;
+}
+
+.site-title, .site-description {
+	text-align: center;
+	letter-spacing: 0.05em;
+}
+
+.site-title a {
+	color: #252525;
+	text-decoration: none;
+}
+
+.site-title a:hover {
+}
+
+.site-description {
+	font-size: 21px;
+	line-height: 2em;
+}
+
+@media screen and (min-width: 800px) {
+	.site-branding {
+		padding: 0 30px;
+	}
+	.site-title {
+		font-size: 2em;
+	}
+}
+
+/*--------------------------------------------------------------
+## Featured content
+--------------------------------------------------------------*/
+.featured-section {
+
+}
+
+.content-image{
+	display: block;
+	width: 100%;
+	/* padding-bottom is to keep a fixed aspect ratio on a div. see here: https://stackoverflow.com/questions/1495407/maintain-the-aspect-ratio-of-a-div-with-css#10441480 */
+	padding-bottom: 56.25%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.subsection-divider {
+	width: 100%;
+	height: 4px;
+	background-color: #ebebeb;
+}
+
+/*--------------------------------------------------------------
+## Upcoming events
+--------------------------------------------------------------*/
+.events {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+/*--------------------------------------------------------------
+## C2ST Supporters
+--------------------------------------------------------------*/
+.previous-supporters {
+	float: left;
+}
+.next-supporters {
+	float: right;
+}
+
+.supporter {
+	float: left;
+	display: block;
+	width: 100%;
+	height: 84px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+#page {
+	min-width: 240px;
+}
+
+section {
+	border-bottom: 4px solid #ebebeb;
+}
+
+section:last-child {
+	border-bottom: 0 solid transparent;
+}
+
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.byline,
+.updated:not(.published) {
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+footer {
+	background-color: #ebebeb;
+}
+
+/*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
 /* Text meant only for screen readers. */
@@ -399,112 +576,8 @@ body {
 	max-width: 100%;
 }
 
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-#page {
-	min-width: 240px;
-}
 
-/*--------------------------------------------------------------
-## Masthead
---------------------------------------------------------------*/
-.site-header {
-	border-bottom: 4px solid #ebebeb;
-	padding-bottom: 30px;
-}
 
-.site-branding {
-	float: left;
-	clear: both;
-	display: block;
-	width: 100%;
-	padding: 0 15px;
-}
-
-.site-title {	
-    font-family: 'Montserrat', sans-serif;
-	font-weight: normal;
-	font-size: 1.5em;
-	line-height: 1.4em;
-}
-
-#site-logo {
-	width: 195px;
-	height: 74px;
-	background-image: url(img/c2st-logo-dark-gray.png);
-	margin: 3em auto 2em auto;
-}
-
-.site-title, .site-description {
-	text-align: center;
-	letter-spacing: 0.05em;
-}
-
-.site-title a {
-	color: #252525;
-	text-decoration: none;
-}
-
-.site-title a:hover {
-}
-
-.site-description {
-	font-size: 21px;
-	line-height: 2em;
-}
-
-@media screen and (min-width: 37.5em) {
-	.site-branding {
-		padding: 0 30px;
-	}
-	.site-title {
-		font-size: 2em;
-	}
-}
-
-/*--------------------------------------------------------------
-## Posts and pages
---------------------------------------------------------------*/
-.sticky {
-	display: block;
-}
-
-.hentry {
-	margin: 0 0 1.5em;
-}
-
-.byline,
-.updated:not(.published) {
-	display: none;
-}
-
-.single .byline,
-.group-blog .byline {
-	display: inline;
-}
-
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
-.page-links {
-	clear: both;
-	margin: 0 0 1.5em;
-}
-
-/*--------------------------------------------------------------
-## Comments
---------------------------------------------------------------*/
-.comment-content a {
-	word-wrap: break-word;
-}
-
-.bypostauthor {
-	display: block;
-}
 
 /*--------------------------------------------------------------
 # Infinite scroll
