@@ -42,6 +42,8 @@ function c2st_2017_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	add_theme_support( 'post-formats', array ( 'audio', 'video' ) );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'c2st-2017' ),
@@ -109,6 +111,9 @@ function c2st_2017_scripts() {
 	
 	wp_enqueue_style( 'c2st-2017-style', get_stylesheet_uri() );
 
+	// add carousel styles
+	wp_enqueue_style( 'carousel-styles', get_template_directory_uri() . '/carousel.css');
+
 	wp_enqueue_script( 'c2st-2017-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'c2st-2017-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -117,9 +122,9 @@ function c2st_2017_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	if ( is_front_page() ) {
-		wp_enqueue_script( 'c2st-2017-supporter-carousel', get_template_directory_uri() . '/js/supporter-carousel.js', array(), '20151215', true );
-	}
+	// if ( is_front_page() ) {
+	// 	wp_enqueue_script( 'c2st-2017-supporter-carousel', get_template_directory_uri() . '/js/supporter-carousel.js', array(), '20151215', true );
+	// }
 }
 add_action( 'wp_enqueue_scripts', 'c2st_2017_scripts' );
 

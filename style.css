@@ -31,6 +31,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	## Posts and pages
 	## Comments
 	## Footer
+# Media Queries
 # Accessibility
 # Alignments
 # Clearings
@@ -52,6 +53,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 /* body, blockquotes, figure, table, and similar styles */
 body {
 	color: #252525;
+	background-color: #ebebeb;
 	font-size: 15px;
 	font-family: 'Karla', sans-serif;
 }
@@ -304,6 +306,19 @@ body {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+/* 783px is when it goes to size sm  */
+
+.site-header, .site-content {
+	background-color: #fff;
+}
+
+.page-title, .section-title {
+	margin: 40px 0;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: normal; 
+}
+
 /*--------------------------------------------------------------
 ## Masthead
 --------------------------------------------------------------*/
@@ -318,6 +333,12 @@ body {
 	display: block;
 	width: 100%;
 	padding: 0 15px;
+}
+
+.site-branding a {
+	width: 100%;
+	height: 100%;
+	display: block;
 }
 
 .site-title {	
@@ -368,7 +389,31 @@ body {
 
 }
 
-.content-image{
+.home-page-primary-feature, .home-page-secondary-feature {
+	padding-bottom: 50px;
+	margin-bottom: 50px;
+}
+
+.home-page-secondary-feature .content-image {
+	margin-bottom: 30px;
+}
+
+.home-page-secondary-feature:last-child {
+	margin-bottom: 0;
+}
+
+/* .home-page-primary-feature .feature-label,
+.home-page-primary-feature .content-title {
+	text-align: center;
+} */
+
+.home-page-primary-feature .content-title,
+.home-page-primary-feature .content-image,
+.home-page-secondary-feature .content-title {
+	margin-bottom: 30px;
+}
+
+.content-image {
 	display: block;
 	width: 100%;
 	/* padding-bottom is to keep a fixed aspect ratio on a div. see here: https://stackoverflow.com/questions/1495407/maintain-the-aspect-ratio-of-a-div-with-css#10441480 */
@@ -376,21 +421,23 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-}
-
-.subsection-divider {
-	width: 100%;
-	height: 4px;
-	background-color: #ebebeb;
+	border: 4px solid #ebebeb;
 }
 
 /*--------------------------------------------------------------
 ## Upcoming events
 --------------------------------------------------------------*/
-.events {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
+#upcoming-events h2 {
+	margin: 30px 0 20px 0;
+}
+
+#upcoming-events .content-image {
+	margin-bottom: 20px;
+}
+
+#upcoming-events button {
+	display: block;
+	margin: 30px auto;
 }
 
 /*--------------------------------------------------------------
@@ -422,6 +469,11 @@ body {
 
 section {
 	border-bottom: 4px solid #ebebeb;
+}
+
+section.home-page-primary-feature, 
+section.home-page-secondary-feature {
+	border-bottom: 2px solid #ebebeb;
 }
 
 section:last-child {
@@ -474,6 +526,34 @@ section:last-child {
 footer {
 	background-color: #ebebeb;
 }
+
+/*--------------------------------------------------------------
+# Media Queries
+--------------------------------------------------------------*/
+/* /* #upcoming-events .content-excerpt {
+	display: block;
+} */
+
+/* Extra Small Devices, Phones */ 
+/* @media only screen and (max-width: 480px) {
+	#upcoming-events .content-excerpt {
+		display: none;
+	}
+} */
+
+/* @media only screen and (min-width: 481px) {
+	#upcoming-events .content-excerpt {
+		display: block;
+	}
+} */
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width: 768px) { 
+	.container {
+		max-width: 480px;
+	}
+}
+
 
 /*--------------------------------------------------------------
 # Accessibility
