@@ -12,19 +12,19 @@ if ( $home_page_secondary_features -> have_posts() ): while ( $home_page_seconda
 	
 	<section class="home-page-secondary-feature">
 		<div class="row">
-			<div class="col-sm-10 col-md-10 col-lg-10 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+			<div class="col-sm-12 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
 				<p class="feature-label"><span class="glyphicon <?php echo $featured_glyphicon; ?>"></span> Featured <?php echo $featured_item_type; ?></p>
 				<h2 class="content-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-5 col-md-5 col-lg-5 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+			<div class="col-sm-6 col-md-5 col-lg-5 col-md-offset-1 col-lg-offset-1">
 				<?php 
 				if ( has_post_thumbnail() ): ?>
 					<a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
 				<?php endif; ?>
 			</div>
-			<div class="col-sm-5 col-md-5 col-lg-5">
+			<div class="col-sm-6 col-md-5 col-lg-5">
 				<p class="content-subtitle event-date">
 					<?php 
 					if ( get_field( 'event_date' ) ) :

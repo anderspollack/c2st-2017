@@ -7,18 +7,20 @@ $other_events = new WP_Query( array(
 	'posts_per_page' => get_field( 'upcoming_events_count' ),
 	'orderby' => 'post_id', 
 	'order' => 'ASC',
-	// 'meta_query' => array(
-	// 	array(
-	// 		'key' => 'start_date',
-	// 		'compare' => '<=',
-	// 		'value' => $today,
-	// 	),
-	// 	array(
-	// 		'key' => 'start_date',
-	// 		'compare' => '>=',
-	// 		'value' => $today,
-	// 	),
-	// ),
+	/*
+	'meta_query' => array(
+		array(
+			'key' => 'start_date',
+			'compare' => '<=',
+			'value' => $today,
+		),
+		array(
+			'key' => 'start_date',
+			'compare' => '>=',
+			'value' => $today,
+		),
+	),
+	*/
 ) );
 if ( $other_events -> have_posts() ) :
 	$event_date = get_field('event_date', false, false);
@@ -37,7 +39,7 @@ if ( $other_events -> have_posts() ) :
 					<a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
 				<?php endif; ?>
 			</div>
-			<div class="col-xs-8 col-sm-4 col-md-4 col-lg-4">
+			<div class="col-xs-8 col-sm-3 col-md-4 col-lg-4">
 				<p class="content-subtitle event-date">
 					<?php 
 					if ( get_field( 'event_date' ) ) :
@@ -81,7 +83,7 @@ if ( $other_events -> have_posts() ) :
 					</a></p>
 				<?php endif; ?>
 			</div>
-			<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 content-excerpt">
+			<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5 content-excerpt">
 				<?php the_content( 'Read more…' ); ?>
 			</div>
 		</div>

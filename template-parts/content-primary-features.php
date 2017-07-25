@@ -8,11 +8,11 @@ if ( $home_page_primary_features -> have_posts() ): while ( $home_page_primary_f
     $featured_glyphicon = get_field('featured_glyphicon');
     $featured_item_type = get_field('featured_item_type');
     $event_date = get_field('event_date', false, false);
-    $event_date = new DateTime( $date ); ?>
+    $event_date = new DateTime( $event_date ); ?>
 
     <section class="home-page-primary-feature">
         <div class="row">
-            <div class="col-sm-8 col-md-8 col-lg-8 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+            <div class="col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
                 <p class="feature-label">
                     <span class="glyphicon <?php echo $featured_glyphicon; ?>"></span> Featured <?php echo $featured_item_type; ?>
                 </p>
@@ -24,7 +24,7 @@ if ( $home_page_primary_features -> have_posts() ): while ( $home_page_primary_f
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-3 col-md-3 col-lg-3 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+            <div class="col-sm-4 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
                 <p class="content-subtitle event-date">
 					<?php 
 					if ( get_field( 'event_date' ) ) :
@@ -59,7 +59,7 @@ if ( $home_page_primary_features -> have_posts() ): while ( $home_page_primary_f
 					</a></p>
 				<?php endif; ?>
             </div>
-            <div class="col-sm-5 col-md-5 col-lg-5">
+            <div class="col-sm-6 col-md-5 col-lg-5">
                 <p class="content-excerpt"><?php the_content( 'Read more…' ); ?></p>
             </div>
         </div>
