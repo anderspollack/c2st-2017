@@ -117,6 +117,16 @@ function c2st_2017_scripts() {
 	wp_enqueue_script( 'c2st-2017-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'c2st-2017-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	// Adds Google Maps support for ACF 
+
+	// https://www.aliciaramirez.com/2015/02/advanced-custom-fields-google-maps-tutorial/
+	wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCmoUzak5irRGL8wqxf263TFwsucrsUBmM', array(), '3', true );
+	wp_enqueue_script( 'google-map-init', get_template_directory_uri() . '/js/google-maps.js', array('google-map', 'jquery'), '0.1', true );
+
+	// https://support.advancedcustomfields.com/forums/topic/google-maps-field-needs-setting-to-add-api-key/
+	// wp_register_script( 'googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCmoUzak5irRGL8wqxf263TFwsucrsUBmM',null,null,true );
+	// wp_enqueue_script( 'googlemaps' );
 		
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -125,6 +135,7 @@ function c2st_2017_scripts() {
 	// if ( is_front_page() ) {
 	// 	wp_enqueue_script( 'c2st-2017-supporter-carousel', get_template_directory_uri() . '/js/supporter-carousel.js', array(), '20151215', true );
 	// }
+
 }
 add_action( 'wp_enqueue_scripts', 'c2st_2017_scripts' );
 
@@ -171,3 +182,24 @@ function add_search_box( $items, $args ) {
     $items .= '<li class="search-form">' . get_search_form( false ) . '</li>';
     return $items;
 }
+
+function my_acf_google_map_api( $api ){ 
+	$api['key'] = 'AIzaSyCmoUzak5irRGL8wqxf263TFwsucrsUBmM';
+	return $api;
+}
+ 
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+// Add JQuery UI datepicker 
+function add_datepicker_in_footer() { ?>
+	<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('.date').datepicker({
+				dateFormat: 'mm-dd-yy'
+			});
+		});
+	</script>
+<?php
+} // close add_datepicker_in_footer() here
+//add an action to call add_datepicker_in_footer function
+add_action('wp_footer','add_datepicker_in_footer',10);

@@ -29,6 +29,8 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	## Featured content
 	## Upcoming events
 	## Posts and pages
+	## About Page Template
+	## Single Event Template
 	## Comments
 	## Footer
 # Media Queries
@@ -70,6 +72,19 @@ body {
 	background-color: #3599d5;
 	color: white;
 	border: 0 solid transparent;
+}
+
+.filters .control-label {
+	width: 100%;
+	text-align: right;
+	position: relative;
+	top: 6px;
+	right: -10px;
+}
+
+/* Bootstrap "form-group" class wasn't working with form elements inside grid columns, so here's a custom fix */
+.custom-form-group {
+	margin: 6px 0;
 }
 
 /*--------------------------------------------------------------
@@ -312,11 +327,16 @@ body {
 	background-color: #fff;
 }
 
-.page-title, .section-title {
+.page-title, .section-title, .entry-title {
 	margin: 40px 0;
-	text-align: center;
+	text-align: left;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: normal; 
+}
+
+.container,
+.row > * {
+	padding: 0 20px;
 }
 
 /*--------------------------------------------------------------
@@ -389,12 +409,16 @@ body {
 
 }
 
+/* .home-page-primary-feature {
+	border-bottom: 4px solid #ebebeb;
+} */
+
 .home-page-primary-feature, .home-page-secondary-feature {
 	padding-bottom: 50px;
-	margin-bottom: 50px;
+	/* margin-bottom: 50px; */
 }
 
-.home-page-secondary-feature .content-image {
+.featured-section .content-image {
 	margin-bottom: 30px;
 }
 
@@ -408,7 +432,6 @@ body {
 } */
 
 .home-page-primary-feature .content-title,
-.home-page-primary-feature .content-image,
 .home-page-secondary-feature .content-title {
 	margin-bottom: 30px;
 }
@@ -435,9 +458,15 @@ body {
 	margin-bottom: 20px;
 }
 
-#upcoming-events button {
+#see-all-events {
 	display: block;
-	margin: 30px auto;
+	margin: 30px auto; 
+}
+
+#see-all-events span {
+	position: relative;
+	top: 3px;
+	margin-right: 8px;
 }
 
 /*--------------------------------------------------------------
@@ -471,6 +500,11 @@ section {
 	border-bottom: 4px solid #ebebeb;
 }
 
+.event-features,
+.filters {
+	padding-bottom: 40px;
+}
+
 section.home-page-primary-feature, 
 section.home-page-secondary-feature {
 	border-bottom: 2px solid #ebebeb;
@@ -478,6 +512,14 @@ section.home-page-secondary-feature {
 
 section:last-child {
 	border-bottom: 0 solid transparent;
+}
+
+.content-title {
+	margin-bottom: 30px;
+}
+
+.entry-title {
+	font-family: 
 }
 
 .sticky {
@@ -507,6 +549,30 @@ section:last-child {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+/* From this ACF tutorial: https://www.aliciaramirez.com/2015/02/advanced-custom-fields-google-maps-tutorial/ */
+.acf-map {
+	width: 100%;
+	height: 400px;
+	border: #ccc solid 1px;
+	margin: 20px 0;
+}
+
+/*--------------------------------------------------------------
+## About Page Template
+--------------------------------------------------------------*/
+.board {
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+	column-count: 3;
+}
+
+/*--------------------------------------------------------------
+## Single Event Template
+--------------------------------------------------------------*/
+.event img {
+	max-width: 100%;
 }
 
 /*--------------------------------------------------------------

@@ -33,13 +33,13 @@ if ( $other_events -> have_posts() ) :
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 				<?php 
 				if ( has_post_thumbnail() ): ?>
 					<a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
 				<?php endif; ?>
 			</div>
-			<div class="col-xs-8 col-sm-3 col-md-4 col-lg-4">
+			<div class="col-xs-8 col-sm-4 col-md-4 col-lg-4">
 				<p class="content-subtitle event-date">
 					<?php 
 					if ( get_field( 'event_date' ) ) :
@@ -83,11 +83,13 @@ if ( $other_events -> have_posts() ) :
 					</a></p>
 				<?php endif; ?>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5 content-excerpt">
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 content-excerpt">
 				<?php the_content( 'Read more…' ); ?>
 			</div>
 		</div>
 <?php endwhile; endif; wp_reset_query(); ?>
 <div class="row">
-	<button id="see-all-events" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span>See All Events</button>
+	<div class="col-xs-4 col-xs-offset-4">
+		<a href="http://c2st.dev/events/" id="see-all-events" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span>See All Events</a>
+	</div>
 </div>
