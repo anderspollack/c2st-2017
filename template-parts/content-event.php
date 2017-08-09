@@ -37,17 +37,17 @@
 					<?php endif; ?>
                 </div>
                 <div class="col-sm-6">
-                    <p class="content-subtitle event-date">
+                    <p class="content-subheading event-date">
 						<?php 
-						if ( get_field( 'event_date' ) ) :
-                            $event_date = get_field('event_date', false, false);
-                            $event_date = new DateTime( $event_date );
-							echo $event_date -> format( 'l, F j, Y' );
+						if ( get_field( 'event_date_time' ) ) :
+                            $event_date_time = get_field('event_date_time', false, false);
+                            $event_date_time = new DateTime( $event_date_time );
+							echo $event_date_time -> format( 'l, F j, Y' );
 						else: echo 'Date TBD';
 						endif; ?>
 					</p>
 					<?php if ( get_field( 'start_time' ) ) : ?>
-						<p class="content-subtitle event-time">
+						<p class="content-subheading event-time">
 						<?php 
 						the_field( 'start_time' );
 						if ( get_field( 'end_time' ) ): 
@@ -55,7 +55,7 @@
 						endif; ?>
 						</p>
 					<?php endif; ?>
-					<p class="content-subtitle event-location">
+					<p class="content-subheading event-location">
 						<?php 
 						if ( get_field( 'event_location_address' ) ): 
 							the_field( 'event_location_name' );
@@ -63,7 +63,7 @@
 						endif; ?>
 					</p>
 					<?php if ( get_field( 'event_location_address' ) ) : ?>
-						<p class="content-subtitle event-address">
+						<p class="content-subheading event-address">
 							<?php the_field( 'event_location_address' ); ?>
 						</p>
 					<?php endif; ?>

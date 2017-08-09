@@ -9,7 +9,7 @@ wp_enqueue_style('jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui
 
 get_header(); ?>
 
-<section id="featured-section" class="featured-section event-features">
+<div id="featured-section" class="page-section featured-section event-features">
 	<div class="container">
 		<h1 class="page-title">Featured</h1>
 
@@ -22,8 +22,8 @@ get_header(); ?>
 			$events_page_features -> the_post();
 			$featured_glyphicon = get_field('featured_glyphicon');
 			$featured_item_type = get_field('featured_item_type');
-			$event_date = get_field('event_date', false, false);
-			$event_date = new DateTime( $event_date ); ?>
+			$event_date_time = get_field('event_date_time', false, false);
+			$event_date_time = new DateTime( $event_date_time ); ?>
 
 			<p class="feature-label">
 				<span class="glyphicon <?php echo $featured_glyphicon; ?>"></span> Featured <?php echo $featured_item_type; ?>
@@ -37,15 +37,15 @@ get_header(); ?>
 					<?php endif; ?>
 				</div>
 				<div class="col-sm-6 col-md-6 col-lg-6">
-					<p class="content-subtitle event-date">
+					<p class="content-subheading event-date">
 						<?php 
-						if ( get_field( 'event_date' ) ) :
-							echo $event_date -> format( 'l, F j, Y' );
+						if ( get_field( 'event_date_time' ) ) :
+							echo $event_date_time -> format( 'l, F j, Y' );
 						else: echo 'Date TBD';
 						endif; ?>
 					</p>
 					<?php if ( get_field( 'start_time' ) ) : ?>
-						<p class="content-subtitle event-time">
+						<p class="content-subheading event-time">
 						<?php 
 						the_field( 'start_time' );
 						if ( get_field( 'end_time' ) ): 
@@ -54,7 +54,7 @@ get_header(); ?>
 						</p>
 					<?php endif; ?>
 					<?php if ( get_field( 'event_location_address' ) ) : ?>
-						<p class="content-subtitle event-address">
+						<p class="content-subheading event-address">
 							<?php the_field( 'event_location_address' ); ?>
 						</p>
 					<?php endif; ?>
@@ -70,9 +70,9 @@ get_header(); ?>
 		<?php endwhile; endif; wp_reset_query(); ?>
 
 	</div>
-</section>
+</div>
 
-<section class="filters">
+<div class="page-section filters">
 	<div class="container">
 		<h1 class="section-title">Filter Events</h1>
 
@@ -139,15 +139,15 @@ get_header(); ?>
 		</form>
 
 	</div>
-</section>
+</div>
 
-<section id="upcoming-events">
+<div id="upcoming-events" class="page-section">
 	<div class="container">
 		<h1 class="section-title">Recent &amp; Upcoming Events</h1>
 
 		<?php get_template_part( 'template-parts/content', 'upcoming-events' ); ?>
 
 	</div>
-</section>
+</div>
 
 <?php get_footer(); ?>

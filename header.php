@@ -38,7 +38,7 @@
 		?>
 	</nav><!-- #site-navigation -->
 
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header page-section" role="banner">
 		<div class="site-branding">
 			<div id="site-logo">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>

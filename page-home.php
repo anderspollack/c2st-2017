@@ -1,164 +1,127 @@
 <?php
 // Template Name: Home
+
 get_header();
+
 $post_types = array( 'post', 'event' );
 
-$home_page_features = new WP_Query( array(
+$home_page_primary_features = new WP_Query( array(
 	'post_type' => $post_types,
 	'category_name' => 'home-page-primary-feature'
-) ); 
-if ( $home_page_features -> have_posts() ) : ?>
-	<section id="featured-section" class="featured-section featured-home">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<h1 class="page-title">Featured</h1>
-				</div>
-			</div>
+) );
 
-			<?php 
-			$home_page_primary_features = new WP_Query( array(
-				'post_type' => $post_types,
-				'category_name' => 'home-page-primary-feature'
-			) );
-			if ( $home_page_primary_features -> have_posts() ) : 
-				while ( $home_page_primary_features -> have_posts() ) : 
-					$home_page_primary_features -> the_post();
-					$featured_glyphicon = get_field('featured_glyphicon');
-					$featured_item_type = get_field('featured_item_type');
-					$event_date = get_field('event_date', false, false);
-					$event_date = new DateTime( $event_date ); ?>
+$home_page_secondary_features = new WP_Query( array(
+	'post_type' => $post_types,
+	'category_name' => 'home-page-secondary-feature'
+) );
 
-					<div class="row">
-						<div class="col-sm-12">
-							<p class="feature-label">
-								<span class="glyphicon <?php echo $featured_glyphicon; ?>"></span> Featured <?php echo $featured_item_type; ?>
-							</p>
-							<h2 class="content-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo the_title(); ?></a></h2>
-						</div>
-					</div>
-					<div class="row home-page-primary-feature">
-						<div class="col-sm-6 col-md-6 col-lg-6">
-							<?php 
-							if ( has_post_thumbnail() ): ?>
-								<a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
-							<?php endif; ?>
-						</div>
-						<div class="col-sm-6 col-md-6 col-lg-6">
-							<p class="content-subtitle event-date">
-								<?php 
-								if ( get_field( 'event_date' ) ) :
-									echo $event_date -> format( 'l, F j, Y' );
-								else: echo 'Date TBD';
-								endif; ?>
-							</p>
-							<?php if ( get_field( 'start_time' ) ) : ?>
-								<p class="content-subtitle event-time">
-								<?php 
-								the_field( 'start_time' );
-								if ( get_field( 'end_time' ) ): 
-									echo' – ' .  the_field( 'end_time' );
-								endif; ?>
-								</p>
-							<?php endif; ?>
-							<p class="content-subtitle event-location">
-								<?php 
-								if ( get_field( 'event_location_address' ) ): 
-									the_field( 'event_location_name' );
-								else: echo 'Location TBD';
-								endif; ?>
-							</p>
-							<?php if ( get_field( 'event_location_address' ) ) : ?>
-								<p class="content-subtitle event-address">
-									<?php the_field( 'event_location_address' ); ?>
-								</p>
-							<?php endif; ?>
-							<?php if ( get_field( 'program_series' ) ) : ?>
-								<p class="program-series"><a href="#">
-									<?php the_field( 'program_series' ) ?>
-								</a></p>
-							<?php endif; ?>
-							<p class="content-excerpt"><?php the_content( 'Read more…' ); ?></p>
-						</div>
-					</div>
+if ( $home_page_primary_features -> have_posts() || $home_page_secondary_features -> have_posts() ) : ?>
+    
+<div id="featured-section" class="page-section featured-section featured-home">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-title">Featured</h1>
+            </div>
+        </div>
 
-				<?php endwhile; 
-			
-			endif; wp_reset_query(); ?>
-			
-			<?php 
-			$home_page_secondary_features = new WP_Query( array(
-				'post_type' => $post_types,
-				'category_name' => 'home-page-secondary-feature'
-			) );
-			if ( $home_page_secondary_features -> have_posts() ) : ?>
-				<div class="row">
-					<?php 
-					while ( $home_page_secondary_features -> have_posts() ) : $home_page_secondary_features -> the_post();
-						$featured_glyphicon = get_field('featured_glyphicon');
-						$featured_item_type = get_field('featured_item_type');
-						$event_date = get_field('event_date', false, false);
-						$event_date = new DateTime( $event_date ); ?>
-						
-						<div class="col-sm-6 col-md-6 col-lg-6">
-							<p class="feature-label"><span class="glyphicon <?php echo $featured_glyphicon; ?>"></span> Featured <?php echo $featured_item_type; ?></p>
-							<h2 class="content-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
+    <?php 
+    /* 
+    Home Page Primary Features
+    */
+    if ( $home_page_primary_features -> have_posts() ) : 
+        while ( $home_page_primary_features -> have_posts() ) : 
+            $home_page_primary_features -> the_post();
 
-							<?php 
-							if ( has_post_thumbnail() ): ?>
-								<a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
-							<?php endif; ?>
+			get_template_part( 'template-parts/content', 'primary-feature' ); ?>
 
-							<p class="content-subtitle event-date">
-								<?php 
-								if ( get_field( 'event_date' ) ) :
-									echo $event_date -> format( 'l, F j, Y' );
-								else: echo 'Date TBD';
-								endif; ?>
-							</p>
-							<?php if ( get_field( 'start_time' ) ) : ?>
-								<p class="content-subtitle event-time">
-								<?php 
-								the_field( 'start_time' );
-								if ( get_field( 'end_time' ) ): 
-									echo' – ' .  the_field( 'end_time' );
-								endif; ?>
-								</p>
-							<?php endif; ?>
-							<p class="content-subtitle event-location">
-								<?php 
-								if ( get_field( 'event_location_address' ) ): 
-									the_field( 'event_location_name' );
-								else: echo 'Location TBD';
-								endif; ?>
-							</p>
-							<?php if ( get_field( 'event_location_address' ) ) : ?>
-								<p class="content-subtitle event-address">
-									<?php the_field( 'event_location_address' ); ?>
-								</p>
-							<?php endif; ?>
-							<?php if ( get_field( 'program_series' ) ) : ?>
-								<p class="program-series"><a href="#">
-									<?php the_field( 'program_series' ) ?>
-								</a></p>
-							<?php endif; ?>
-							<p class="content-excerpt"><?php the_content( 'Read more…' ); ?></p>
-						</div>
-					<?php endwhile; ?>
-				</div>
-			<?php endif; wp_reset_query(); ?>
-		</div>
-	</section>
+        <?php 
+        endwhile;       
+    endif; 
+    wp_reset_query();
+
+    /* 
+    Home Page Secondary Features
+    */
+    if ( $home_page_secondary_features -> have_posts() ) : ?>
+
+        <div class="row">
+
+        <?php 
+        while ( $home_page_secondary_features -> have_posts() ) : 
+            $home_page_secondary_features -> the_post();
+                
+            if ( get_post_type() === 'event' ) {
+                $featured_glyphicon = 'glyphicon-fire';
+            } else if ( get_post_type() === 'post' ) {
+                $featured_glyphicon = 'glyphicon-text-background';
+            } else {
+                $featured_glyphicon = 'glyphicon-bullhorn';
+            }
+
+            $featured_item_type = get_post_type_object( get_post_type() ); ?>
+                
+            <section class="homepage-secondary-feature">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+
+                    <span class="feature-label">
+
+                        <span class="glyphicon <?php echo $featured_glyphicon; ?>"></span>
+                        <?php echo 'Featured ' . $featured_item_type -> labels -> singular_name; ?>
+                        
+                    </span><!-- .feature-label -->
+                    <h2 class="content-title">
+                        
+                        <a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo the_title(); ?></a> 
+
+                    </h2><!-- .content-title -->
+
+            <?php 
+            // Post Thumbnail
+            if ( has_post_thumbnail() ) : ?>
+                
+                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
+                    style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
+                    </a>
+
+            <?php 
+            endif; ?>
+
+            <?php 
+			if ( get_post_type() === 'event' ) {
+				get_template_part( 'template-parts/content' , 'event-details' ); 
+			} ?>
+
+            <?php the_content( 'Read more…' ); ?>
+
+                </div><!-- .row -->
+            </section>
+
+        <?php endwhile; ?>
+
+        </div><!-- .row -->
+        
+    <?php 
+    endif; 
+    wp_reset_query(); ?>
+
+    </div><!-- .container -->
+</div><!-- .featured-section -->
+
 <?php endif;?>
 
-<section id="upcoming-events">
+<div id="upcoming-events" class="page-section">
 	<div class="container">
-		<h1 class="section-title">Recent &amp; Upcoming Events</h1>
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="section-title">Upcoming Events</h1>
+			</div>
+		</div>
 
-		<?php get_template_part( 'template-parts/content', 'upcoming-events' ); ?>
+		<?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
 
 	</div>
-</section>
+</div>
 
 <!-- <section id="supporters">
 	<div class="container">
