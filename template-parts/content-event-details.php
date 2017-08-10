@@ -42,7 +42,7 @@ if ( get_field( 'address' ) ) : ?>
 
         <a href="http://maps.apple.com/?q=<?php the_field( 'address' ); ?>" target="_blank">
 
-        <?php echo get_field( 'address' )['address'] ; ?>
+        <?php echo get_field( 'address' )[ 'address' ]; ?>
 
         </a>
 

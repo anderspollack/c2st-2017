@@ -345,7 +345,7 @@ body {
 .page-title, 
 .section-title, 
 .entry-title,
-h2 {
+.c2st-collaborators h2 {
 	text-align: left;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: normal;
@@ -571,6 +571,7 @@ a {
 .primary-feature, 
 .content-title a:hover,
 .columns {
+	text-decoration: none;
 	border-bottom: 2px solid #c6c6c6;
 }
 
@@ -602,10 +603,6 @@ a {
 
 .content-title a {
 	color: #252525;
-}
-
-.content-title a:hover {
-	text-decoration: none;
 }
 
 .entry-title {
