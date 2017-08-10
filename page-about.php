@@ -2,24 +2,27 @@
 /*
  * Template Name: About
  */
-get_header();
 
 $post_types = array( 'post', 'event' );
 
 $featured_on_about_page = new WP_Query( array(
 	'post_type' => $post_types,
 	'category_name' => 'featured-on-about-page'
-) ); ?>
+) );
 
-<div id="featured-section" class="page-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <header class="entry-header">
-                    <h1 class="page-title"><?php the_title(); ?></h1>
-                </header><!-- .entry-header -->
-            </div>
-        </div>
+get_header(); ?>
+
+<div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+        <div class="page-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <header class="entry-header">
+                            <h1 class="page-title"><?php the_title(); ?></h1>
+                        </header><!-- .entry-header -->
+                    </div>
+                </div>
 
 <?php 
 /* 
@@ -35,52 +38,64 @@ if ( $featured_on_about_page -> have_posts() ) :
 endif; 
 wp_reset_query(); ?>
 
-        <div id="primary" class="content-area">
-            <main id="main" class="site-main" role="main">
+        
 
 <?php
 while ( have_posts() ) : the_post(); ?>
 
-                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <!-- <article id="post-<?php //the_ID(); ?>" <?php //post_class(); ?>> -->
 
-                    <div id="about" class="page-section">
-                        <div class="entry-content">
-                            <div class="row">
-                                <div class="col-sm-8">
+                <div class="entry-content">
+                    <div class="row">
+                        <div class="col-sm-8 col-lg-6">
+                            <h2 class="section-title">Mission</h2>
 
     <?php
     the_content();
+
     wp_link_pages( array(
         'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'c2st-2017' ),
         'after'  => '</div>',
     ) ); ?>
 
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h2>Board of Directors</h2>
-                                </div>
-                                <div class="col-sm-12 board">
+                        </div>
+                    </div><!-- .row -->
+                </div><!-- .entry-content -->
+            </div><!-- .container -->
+        </div><!-- .page-section -->
+        <div class="page-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="section-title">Board of Directors</h2>
+                        <section class="columns">
 
     <?php the_field( 'board_of_directors' ); ?>
 
-                                </div>
-                                <div class="col-sm-12">
-                                    <h2>Auxiliary Board</h2>
-                                </div>
-                                <div class="col-sm-12 board">
+                        </section>
+                        <h2 class="section-title">Auxiliary Board</h2>
+                        <section class="columns">
 
     <?php the_field( 'auxiliary_board' ); ?>
 
-                                </div>
-                            </div>
-                        </div><!-- .entry-content -->
+                        </section>
+                        <section class="columns c2st-collaborators">
+
+    <?php the_field( 'c2st_collaborators' ); ?>
+
+                        </section>
+                        <h2 class="section-title">C2ST Staff</h2>
+                        <section class="columns">
+
+    <?php the_field( 'c2st_staff' ); ?>
+
+                        </section>
                     </div>
+                </div>
 
     <?php if ( get_edit_post_link() ) : ?>
 
-                    <footer class="entry-footer">
+                <footer class="entry-footer">
                         
         <?php
         edit_post_link(
@@ -100,11 +115,11 @@ while ( have_posts() ) : the_post(); ?>
             '</span>'
         ); ?>
 
-                    </footer><!-- .entry-footer -->
+                </footer><!-- .entry-footer -->
 
     <?php endif; ?>
 
-                </article><!-- #post-<?php the_ID(); ?> -->
+                <!-- </article> --><!-- #post-<?php //the_ID(); ?> -->
     
     <?php
     // If comments are open or we have at least one comment, load up the comment template.
@@ -115,10 +130,10 @@ while ( have_posts() ) : the_post(); ?>
 
 endwhile; // End of the loop. ?>
 
-            </main><!-- #main -->
-        </div><!-- #primary -->
-    </div><!-- .container -->
-</div><!-- .page-section -->
+            </div><!-- .container -->
+        </div><!-- .page-section -->
+    </main><!-- #main -->
+</div><!-- #primary -->
 
 <?php
 // get_sidebar();

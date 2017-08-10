@@ -118,8 +118,30 @@ if ( $home_page_primary_features -> have_posts() || $home_page_secondary_feature
 			</div>
 		</div>
 
+<?php
+$today = date( 'yymmdd' );
+$other_events = new WP_Query( array(
+	// 'cat' => '-195,-196',
+	'category__not_in' => array( -195, -196 ),
+	'post_type' => 'event',
+	'posts_per_page' => get_field( 'upcoming_events_count' ),
+	'orderby' => 'post_id', 
+	'order' => 'ASC',
+) );
+if ( $other_events -> have_posts() ) :
+	while ( $other_events -> have_posts() ) :
+		$other_events -> the_post(); ?>
+		
 		<?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
 
+	<?php endwhile;
+endif; ?>
+
+		<div class="row see-all-events">
+			<div class="col-lg-2 col-lg-offset-5">
+				<a href="http://c2st.dev/events/" id="see-all-events" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span>See All Events</a>
+			</div>
+		</div>
 	</div>
 </div>
 

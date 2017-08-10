@@ -7,73 +7,39 @@ wp_enqueue_script('jquery-ui-core');
 wp_enqueue_script('jquery-ui-datepicker');
 wp_enqueue_style('jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css');
 
+$post_types = array( 'post', 'event' );
+
+$featured_on_events_page = new WP_Query( array(
+	'post_type' => $post_types,
+	'category_name' => 'featured-on-events-page'
+) );
+
 get_header(); ?>
 
-<div id="featured-section" class="page-section featured-section event-features">
-	<div class="container">
-		<h1 class="page-title">Featured</h1>
+<div class="page-section events-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <header class="entry-header">
+                    <h1 class="page-title"><?php the_title(); ?></h1>
+                </header><!-- .entry-header -->
+            </div>
+        </div>
 
-		<?php 
-		$events_page_features = new WP_Query( array(
-			'post_type' => array( 'post', 'event' ),
-			'category_name' => 'featured-on-events-page'
-		) );
-		if ( $events_page_features -> have_posts() ) : while ( $events_page_features -> have_posts() ) : 
-			$events_page_features -> the_post();
-			$featured_glyphicon = get_field('featured_glyphicon');
-			$featured_item_type = get_field('featured_item_type');
-			$event_date_time = get_field('event_date_time', false, false);
-			$event_date_time = new DateTime( $event_date_time ); ?>
+<?php 
+/* 
+ * Events Page Primary Features
+ */
+if ( $featured_on_events_page -> have_posts() ) : 
+    while ( $featured_on_events_page -> have_posts() ) : 
+        $featured_on_events_page -> the_post();
 
-			<p class="feature-label">
-				<span class="glyphicon <?php echo $featured_glyphicon; ?>"></span> Featured <?php echo $featured_item_type; ?>
-			</p>
-			<h2 class="content-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo the_title(); ?></a></h2>
-			<div class="row">
-				<div class="col-sm-6 col-md-6 col-lg-6">
-					<?php 
-					if ( has_post_thumbnail() ): ?>
-						<a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
-					<?php endif; ?>
-				</div>
-				<div class="col-sm-6 col-md-6 col-lg-6">
-					<p class="content-subheading event-date">
-						<?php 
-						if ( get_field( 'event_date_time' ) ) :
-							echo $event_date_time -> format( 'l, F j, Y' );
-						else: echo 'Date TBD';
-						endif; ?>
-					</p>
-					<?php if ( get_field( 'start_time' ) ) : ?>
-						<p class="content-subheading event-time">
-						<?php 
-						the_field( 'start_time' );
-						if ( get_field( 'end_time' ) ): 
-							echo' – ' .  the_field( 'end_time' );
-						endif; ?>
-						</p>
-					<?php endif; ?>
-					<?php if ( get_field( 'event_location_address' ) ) : ?>
-						<p class="content-subheading event-address">
-							<?php the_field( 'event_location_address' ); ?>
-						</p>
-					<?php endif; ?>
-					<?php if ( get_field( 'program_series' ) ) : ?>
-						<p class="program-series"><a href="#">
-							<?php the_field( 'program_series' ) ?>
-						</a></p>
-					<?php endif; ?>
-					<p class="content-excerpt"><?php the_content( 'Read more…' ); ?></p>
-				</div>
-			</div>
+        get_template_part( 'template-parts/content', 'primary-feature' );
 
-		<?php endwhile; endif; wp_reset_query(); ?>
+    endwhile;
+endif;
+wp_reset_query(); ?>
 
-	</div>
-</div>
-
-<div class="page-section filters">
-	<div class="container">
 		<h1 class="section-title">Filter Events</h1>
 
 		<form action="">
@@ -94,7 +60,7 @@ get_header(); ?>
 
 						if ( ! empty( $program_series ) && ! is_wp_error( $program_series ) ) {
 							foreach ( $program_series as $series ) {
-									echo '<option>' . $series -> name . '</option>';
+								echo '<option>' . $series -> name . '</option>';
 							}
 						} ?>
 					</select>
@@ -141,13 +107,31 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="upcoming-events" class="page-section">
+<div id="events-list" class="page-section">
 	<div class="container">
-		<h1 class="section-title">Recent &amp; Upcoming Events</h1>
+		<!-- <div class="row">
+			<div class="col-lg-12">
+				<h1 class="section-title">Upcoming Events</h1>
+			</div>
+		</div> -->
 
-		<?php get_template_part( 'template-parts/content', 'upcoming-events' ); ?>
+<?php
+$today = date( 'yymmdd' );
+$events = new WP_Query( array(
+	// 'cat' => '-197',
+	'category__not_in' => array( '-197' ),
+	'post_type' => 'event',
+	// 'posts_per_page' => '10',
+	// 'orderby' => 'post_id', 
+	// 'order' => 'ASC',
+) );
+if ( $events -> have_posts() ) :
+	while ( $events -> have_posts() ) :
+		$events -> the_post(); ?>
+		
+		<?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
 
-	</div>
-</div>
+	<?php endwhile;
+endif; ?>
 
 <?php get_footer(); ?>

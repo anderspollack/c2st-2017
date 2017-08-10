@@ -40,11 +40,19 @@ if ( get_field( 'address' ) ) : ?>
 
     if ( $iPad || $iPhone ): ?>
 
-        <a href="http://maps.apple.com/?q=<?php the_field( 'address' ); ?>" target="_blank"><?php the_field( 'address' ); ?></a>
+        <a href="http://maps.apple.com/?q=<?php the_field( 'address' ); ?>" target="_blank">
+
+        <?php echo get_field( 'address' )['address'] ; ?>
+
+        </a>
 
     <?php else: ?>
 
-        <a href="http://maps.google.com/?q=<?php the_field( 'address' ); ?>" target="_blank"><?php the_field( 'address' ); ?></a>
+        <a href="http://maps.google.com/?q=<?php the_field( 'address' ); ?>" target="_blank">
+
+        <?php echo get_field( 'address' )['address'] ; ?>
+
+        </a>
 
     <?php endif; ?>
                 
