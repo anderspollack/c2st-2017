@@ -50,7 +50,7 @@ if ( get_field( 'address' ) ) : ?>
 
         <?php 
         $address = get_field( 'address' );
-        echo $address[ 'address' ] ?>
+        echo $address[ 'address' ]; ?>
 
         </a>
                 

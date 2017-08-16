@@ -47,16 +47,17 @@ while ( have_posts() ) : the_post(); ?>
 
                 <div class="entry-content">
                     <div class="row">
-                        <div class="col-sm-8 col-lg-6">
+                        <div class="col-sm-12">
                             <h2 class="section-title">Mission</h2>
+                        </div>
+                        <div class="col-sm-6">
 
-    <?php
-    the_content();
+    <?php the_content(); ?>
 
-    wp_link_pages( array(
-        'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'c2st-2017' ),
-        'after'  => '</div>',
-    ) ); ?>
+                        </div>
+                        <div class="col-sm-6">
+
+    <?php the_field( 'second_column' ); ?>
 
                         </div>
                     </div><!-- .row -->
@@ -134,6 +135,11 @@ endwhile; // End of the loop. ?>
         </div><!-- .page-section -->
     </main><!-- #main -->
 </div><!-- #primary -->
+
+<!-- <script type="text/javascript">
+    // adds column break CSS to the parent 'p' of 'span.column-break'
+    // jQuery(".column-break").parents('p').css("break-after", "column");
+</script> -->
 
 <?php
 // get_sidebar();
