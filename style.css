@@ -64,6 +64,7 @@ body {
 
 body, 
 .main-navigation,
+.featured-home-4 .primary-feature,
 footer {
 	background-color: #e1e1e1;
 }
@@ -545,7 +546,8 @@ a {
 }
 
 .home-page-primary-feature .content-image {
-	padding-bottom: 42.9%;
+	/*padding-bottom: 42.9%;*/
+	padding-bottom: 56.25%;
 }
 
 .home-page-primary-feature-2 .content-image {
@@ -563,6 +565,22 @@ a {
 	left: -62px;
 	width: 113.5%;
 	padding-bottom: 56.25%;
+}
+
+.featured-home-4 {
+	margin-top: 0;
+}
+
+.featured-home-4 .primary-feature {
+	padding-top: 40px;
+}
+
+.featured-home-4 .primary-feature .content-image {
+	border-color: #898989;
+}
+
+.featured-home-4 .primary-feature .content-image:hover {
+	border-color: #252525;
 }
 
 /*--------------------------------------------------------------
