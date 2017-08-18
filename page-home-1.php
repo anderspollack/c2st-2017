@@ -1,5 +1,5 @@
 <?php
-// Template Name: Home
+// Template Name: Home 1
 
 get_header();
 
@@ -33,7 +33,7 @@ if ( $home_page_primary_features -> have_posts() || $home_page_secondary_feature
         while ( $home_page_primary_features -> have_posts() ) : 
             $home_page_primary_features -> the_post();
 
-			get_template_part( 'template-parts/content', 'primary-feature' ); ?>
+			get_template_part( 'template-parts/content', 'primary-feature-home' ); ?>
 
         <?php 
         endwhile;       
