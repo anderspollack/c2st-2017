@@ -1,6 +1,6 @@
 <?php
 /*
- * Template Name: About
+ * Template Name: Support
  */
 
 $post_types = array( 'post', 'event' );
@@ -16,29 +16,29 @@ get_header(); ?>
     <main id="main" class="site-main" role="main">
         <div class="page-section">
             <div class="container">
+
+<?php 
+/* 
+ * Support Page Primary Features
+ */
+if ( get_field( 'featured_post' ) ) : 
+    get_template_part( 'template-parts/content', 'primary-feature' );
+    // while ( $featured_on_about_page -> have_posts() ) : 
+    //     $featured_on_about_page -> the_post();
+
+    //     get_template_part( 'template-parts/content', 'primary-feature' );
+
+    // endwhile;
+endif; 
+// wp_reset_query(); ?>
+
                 <div class="row">
                     <div class="col-lg-12">
                         <header class="entry-header">
                             <h1 class="page-title"><?php the_title(); ?></h1>
                         </header><!-- .entry-header -->
                     </div>
-                </div>
-
-<?php 
-/* 
- * About Page Primary Features
- */
-if ( $featured_on_about_page -> have_posts() ) : 
-    while ( $featured_on_about_page -> have_posts() ) : 
-        $featured_on_about_page -> the_post();
-
-        get_template_part( 'template-parts/content', 'primary-feature' );
-
-    endwhile;
-endif; 
-wp_reset_query(); ?>
-
-        
+                </div>        
 
 <?php
 while ( have_posts() ) : the_post(); ?>
@@ -47,9 +47,6 @@ while ( have_posts() ) : the_post(); ?>
 
                 <div class="entry-content">
                     <div class="row">
-                        <div class="col-sm-12">
-                            <h2 class="section-title">Mission</h2>
-                        </div>
                         <div class="col-sm-6">
 
     <?php the_content(); ?>
@@ -68,58 +65,16 @@ while ( have_posts() ) : the_post(); ?>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="section-title">Board of Directors</h2>
+                        <h2 class="section-title">Donate</h2>
                     </div>
-                            
-    <?php 
-    $board = get_field( 'board_of_directors_columns' ); 
-    echo '<div class="col-sm-4">' . 
-    $board['column_1'] . 
-    '</div><div class="col-sm-4">' . 
-    $board['column_2'] . 
-    '</div><div class="col-sm-4">' . 
-    $board['column_3'] . 
-    '</div>';?>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
 
-                    <div class="col-sm-12"><hr></div>
-                    <div class="col-sm-12">
-                        <h2 class="section-title">Auxiliary Board</h2>
-                    </div>
-
-    <?php 
-    $auxiliary_board = get_field( 'auxiliary_board_columns' ); 
-    echo '<div class="col-sm-4">' . 
-    $auxiliary_board['auxiliary_board_column_1'] . 
-    '</div><div class="col-sm-4">' . 
-    $auxiliary_board['auxiliary_board_column_2'] . 
-    '</div><div class="col-sm-4">' . 
-    $auxiliary_board['auxiliary_board_column_3'] . 
-    '</div>';?>
-
-                    <div class="col-sm-12"><hr></div>
-                    <div class="col-sm-12 c2st-collaborators">
-                        
-    <?php the_field( 'c2st_collaborators' ); ?>
+    <?php the_field( 'donate_section' ); ?>
 
                     </div>
-                    <div class="col-sm-12"><hr></div>
-                    <div class="col-sm-12">
-                        <h2 class="section-title">C2ST Staff</h2>
-                    </div>
-
-    <?php 
-    $staff = get_field( 'c2st_staff_columns' ); 
-    echo '<div class="col-sm-4">' . 
-    $staff['column_1'] . 
-    '</div><div class="col-sm-4">' . 
-    $staff['column_2'] . 
-    '</div><div class="col-sm-4">' . 
-    $staff['column_3'] . 
-    '</div>';?>
-
-                    
-
-                </div><!-- .row -->
+                </div>
 
     <?php if ( get_edit_post_link() ) : ?>
 

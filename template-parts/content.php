@@ -8,9 +8,10 @@
  */
 
 ?>
-<div class="col-sm-12">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
+			<div class="col-sm-12">
+
 			<?php
 			if ( is_singular() ) :
 				the_title( '<h1 class="entry-title">', '</h1>' );
@@ -24,10 +25,28 @@
 			</div><!-- .entry-meta -->
 			<?php
 			endif; ?>
+
+			</div>
 		</header><!-- .entry-header -->
 
 		<!-- <div class="entry-content"> -->
 			<?php
+			if ( 'post' === get_post_type() ) : ?>
+
+		<div class="col-sm-8 col-md-6">
+
+				<?php 
+			    // Post Thumbnail
+			    if ( has_post_thumbnail() ) : ?>
+	        
+            <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
+            style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
+            </a>
+
+			    <?php 
+			    endif; ?>
+
+				<?php
 				the_content( sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
@@ -44,8 +63,15 @@
 				wp_link_pages( array(
 					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'c2st-2017' ),
 					'after'  => '</div>',
-				) );
-			?>
+				) ); ?>
+
+		</div>
+		<div class="col-sm-4 col-md-6">
+
+
+		</div>
+
+			<?php endif; ?>
 		<!-- </div> --><!-- .entry-content -->
 
 		<!-- <footer class="entry-footer"> -->
