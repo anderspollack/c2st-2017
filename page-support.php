@@ -73,6 +73,9 @@ while ( have_posts() ) : the_post(); ?>
 
     <?php the_field( 'donate_section' ); ?>
 
+                        <p>
+                            <a href="/give-now/" class="btn btn-primary">Give now</a>
+                        </p>
                     </div>
                 </div>
 

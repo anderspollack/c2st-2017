@@ -11,7 +11,6 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
 			<div class="col-sm-12">
-
 			<?php
 			if ( is_singular() ) :
 				the_title( '<h1 class="entry-title">', '</h1>' );
@@ -68,6 +67,7 @@
 		</div>
 		<div class="col-sm-4 col-md-6">
 
+			
 
 		</div>
 

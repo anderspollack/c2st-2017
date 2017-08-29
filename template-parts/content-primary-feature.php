@@ -10,37 +10,38 @@ if ( get_post_type() === 'event' ) {
 $featured_item_type = get_post_type_object( get_post_type() ); ?>
 
 <section class="primary-feature">
-    <div class="row">
-        <div class="col-sm-12">
-            <span class="feature-label">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <span class="feature-label">
 
-                <span class="glyphicon <?php echo $featured_glyphicon; ?>"></span>
+                    <span class="glyphicon <?php echo $featured_glyphicon; ?>"></span>
                 <?php echo 'Featured ' . $featured_item_type -> labels -> singular_name; ?>
                 
-            </span><!-- .feature-label -->
-            <h2 class="content-title">
-                
-                <a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo the_title(); ?></a> 
+                </span><!-- .feature-label -->
+                <h2 class="content-title">
+                    
+                    <a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo the_title(); ?></a> 
 
-            </h2><!-- .content-title -->
+                </h2><!-- .content-title -->
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="row">
+            <div class="col-sm-6">
 
     <?php 
     // Post Thumbnail
     if ( has_post_thumbnail() ) : ?>
         
-            <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
-            style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
-            </a>
+                <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
+                style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
+                </a>
 
     <?php 
     endif; ?>
 
-        </div><!-- .col- -->
-        <div class="col-sm-6 col-md-6 col-lg-6">
+            </div><!-- .col- -->
+            <div class="col-sm-6">
             
     <?php 
     if ( get_post_type() === 'event' ) {
@@ -51,8 +52,12 @@ $featured_item_type = get_post_type_object( get_post_type() ); ?>
                 <!-- Program Series -->
             <!-- </p> -->
 
+            </div><!-- .col- -->
+            <div class="col-sm-6">
+
     <?php the_content( 'Read more…' ); ?>
 
-        </div><!-- .col- -->
-    </div><!-- .row -->
+            </div><!-- .col- -->
+        </div><!-- .row -->
+    </div><!-- .container -->
 </section><!-- .primary-feature -->

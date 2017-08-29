@@ -64,7 +64,7 @@ body {
 
 body, 
 .main-navigation,
-.featured-home-4 .primary-feature,
+#featured-section .primary-feature,
 footer {
 	background-color: #e1e1e1;
 }
@@ -435,6 +435,11 @@ hr {
 	border-top: 2px solid #e1e1e1;
 }
 
+/* Social Media Share */
+div.fb-share-button {
+	padding: 0;
+}
+
 /*--------------------------------------------------------------
 ## Masthead
 --------------------------------------------------------------*/
@@ -539,7 +544,7 @@ hr {
 
 .feature-label {
 	font-size: 18px;
-	color: #898989;
+	color: #606060;
 }
 
 .feature-label .glyphicon {
@@ -548,41 +553,24 @@ hr {
 	margin-right: 4px;
 }
 
-.home-page-primary-feature .content-image {
-	/*padding-bottom: 42.9%;*/
+/*.home-page-primary-feature .content-image {
+	padding-bottom: 42.9%;
 	padding-bottom: 56.25%;
-}
+}*/
 
-.home-page-primary-feature-2 .content-image {
-	padding-bottom: 33.3%;
-}
-
-.home-page-primary-feature-3 {
-	padding: 40px 60px;
-	/*border: 2px solid #c6c6c6;*/
-	border: 2px solid #e1e1e1;
-}
-
-.home-page-primary-feature-3 .content-image {
-	position: relative;
-	left: -62px;
-	width: 113.5%;
-	padding-bottom: 56.25%;
-}
-
-.featured-home-4 {
+#featured-section {
 	margin-top: 0;
 }
 
-.featured-home-4 .primary-feature {
+#featured-section .primary-feature {
 	padding-top: 40px;
 }
 
-.featured-home-4 .primary-feature .content-image {
+#featured-section .primary-feature .content-image {
 	border-color: #898989;
 }
 
-.featured-home-4 .primary-feature .content-image:hover {
+#featured-section .primary-feature .content-image:hover {
 	border-color: #252525;
 }
 

@@ -1,114 +1,56 @@
 <?php
 // Template Name: Home
 
-get_header();
-
-$post_types = array( 'post', 'event' );
-
-$home_page_primary_features = new WP_Query( array(
-	'post_type' => $post_types,
-	'category_name' => 'home-page-primary-feature'
-) );
-
-$home_page_secondary_features = new WP_Query( array(
-	'post_type' => $post_types,
-	'category_name' => 'home-page-secondary-feature'
-) );
-
-if ( $home_page_primary_features -> have_posts() || $home_page_secondary_features -> have_posts() ) : ?>
+get_header(); ?>
     
-<div id="featured-section" class="page-section featured-section featured-home">
-    <div class="container">
-        <!-- <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-title">Featured</h1>
-            </div>
-        </div> -->
+<div id="featured-section" class="page-section featured-section">
 
     <?php 
     /* 
     Home Page Primary Features
     */
-    if ( $home_page_primary_features -> have_posts() ) : 
-        while ( $home_page_primary_features -> have_posts() ) : 
-            $home_page_primary_features -> the_post();
+    $primary_featured_post = get_field( 'primary_featured_post' );
+    if ( $primary_featured_post ) :
+    	global $post;
+		$post = $primary_featured_post;
+    	setup_postdata( $post );
+		get_template_part( 'template-parts/content', 'primary-feature' );
+		wp_reset_postdata();
+    endif; ?>
 
-			get_template_part( 'template-parts/content', 'primary-feature' ); ?>
-
-        <?php 
-        endwhile;       
-    endif; 
-    wp_reset_query();
-
-    /* 
-    Home Page Secondary Features
-    */
-    if ( $home_page_secondary_features -> have_posts() ) : ?>
-
+	<div class="container">
         <div class="row">
 
         <?php 
-        while ( $home_page_secondary_features -> have_posts() ) : 
-            $home_page_secondary_features -> the_post();
-                
-            if ( get_post_type() === 'event' ) {
-                $featured_glyphicon = 'glyphicon-fire';
-            } else if ( get_post_type() === 'post' ) {
-                $featured_glyphicon = 'glyphicon-text-background';
-            } else {
-                $featured_glyphicon = 'glyphicon-bullhorn';
-            }
+        /* 
+	    Home Page Secondary Features
+	    */
+        $secondary_featured_posts = get_field( 'secondary_featured_posts' );
+        $secondary_featured_post_1 = $secondary_featured_posts['secondary_featured_post_1'];
+        $secondary_featured_post_2 = $secondary_featured_posts['secondary_featured_post_2'];
+	    if ( $secondary_featured_post_1 ) :
 
-            $featured_item_type = get_post_type_object( get_post_type() ); ?>
-                
-            <section class="homepage-secondary-feature">
-                <div class="col-sm-6 col-md-6 col-lg-6">
+	    	global $post;
+			$post = $secondary_featured_post_1;
+	    	setup_postdata( $post );
+			get_template_part( 'template-parts/content', 'secondary-feature' );
+			wp_reset_postdata();
+	    
+	    endif;
+	    if ( $secondary_featured_post_2 ) :
 
-                    <span class="feature-label">
+	    	global $post;
+			$post = $secondary_featured_post_2;
+	    	setup_postdata( $post );
+			get_template_part( 'template-parts/content', 'secondary-feature' );
+			wp_reset_postdata();
 
-                        <span class="glyphicon <?php echo $featured_glyphicon; ?>"></span>
-                        <?php echo 'Featured ' . $featured_item_type -> labels -> singular_name; ?>
-                        
-                    </span><!-- .feature-label -->
-                    <h2 class="content-title">
-                        
-                        <a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo the_title(); ?></a> 
-
-                    </h2><!-- .content-title -->
-
-            <?php 
-            // Post Thumbnail
-            if ( has_post_thumbnail() ) : ?>
-                
-                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
-                    style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
-                    </a>
-
-            <?php 
-            endif; ?>
-
-            <?php 
-			if ( get_post_type() === 'event' ) {
-				get_template_part( 'template-parts/content' , 'event-details' ); 
-			} ?>
-
-            <?php the_content( 'Read more…' ); ?>
-
-                </div><!-- .row -->
-            </section>
-
-        <?php endwhile; ?>
+	    endif; ?>
 
         </div><!-- .row -->
-        
-    <?php 
-    endif; 
-    wp_reset_query(); ?>
 
     </div><!-- .container -->
 </div><!-- .featured-section -->
-
-<?php endif;?>
 
 <div id="upcoming-events" class="page-section">
 	<div class="container">
@@ -122,19 +64,29 @@ if ( $home_page_primary_features -> have_posts() || $home_page_secondary_feature
 $today = date( 'yymmdd' );
 $other_events = new WP_Query( array(
 	// 'cat' => '-195,-196',
-	'category__not_in' => array( -195, -196 ),
+	// 'category__not_in' => array( -195, -196 ),
 	'post_type' => 'event',
+	// 'posts_per_page' => get_field( 'upcoming_events_count' ),
 	'posts_per_page' => get_field( 'upcoming_events_count' ),
 	'orderby' => 'post_id', 
 	'order' => 'ASC',
 ) );
 if ( $other_events -> have_posts() ) :
-	while ( $other_events -> have_posts() ) :
-		$other_events -> the_post(); ?>
-		
-		<?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
+	while ( $other_events -> have_posts() ) : 
+		$other_events -> the_post();
+		$event_ID = get_the_id(); ?>
 
-	<?php endwhile;
+		<?php 
+		if ( 
+			$event_ID !== $primary_featured_post && $event_ID !== $secondary_featured_post_1 && $event_ID !== $secondary_featured_post_2
+		) : ?>
+	
+			<?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
+
+		<?php endif; ?>
+
+	<?php 
+	endwhile;
 endif; ?>
 
 		<div class="row see-all-events">
@@ -256,18 +208,5 @@ endif; ?>
 
 	<!-- </div>
 </section> -->
-
-<!-- <section class="main-content"> -->
-	<?php 
-	// while ( have_posts() ) : the_post(); ?>
-
-		<!-- <div class="container"> -->
-			<?php 
-			// the_content(); ?>
-		<!-- </div> -->
-	
-	<?php 
-	// endwhile; // end of the loop ?>
-<!-- </section> -->
 
 <?php get_footer(); ?>
