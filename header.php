@@ -24,7 +24,7 @@
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="<?php echo the_title(); ?>" />
 <meta property="og:description"   content="<?php echo get_the_content(); ?>" />
-<meta property="og:image"         content="<?php echo site_url() . '/img/c2st-logo-dark-gray.png'; ?>" />
+<meta property="og:image"         content="<?php echo esc_url( the_post_thumbnail_url() ); ?>" />
 <!-- End FB Share Meta -->
 
 <?php wp_head(); ?>
