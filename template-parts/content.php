@@ -105,11 +105,13 @@
 					'order' => 'DSC',
 				) );
 
-				if ( $other_blog_posts -> have_posts() ) :
+				if ( $other_blog_posts -> have_posts() ) : ?>
+
+					<h2 class="section-title">Recent Blog Posts:</h2>
+
+					<?php
 					while ( $other_blog_posts -> have_posts() ) : 
 						$other_blog_posts -> the_post(); ?>
-
-						<h2 class="section-title">Recent Blog Posts:</h2>
 
 						<h3 class="content-title">
 	                
