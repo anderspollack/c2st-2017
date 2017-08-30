@@ -3,7 +3,7 @@
 
 get_header(); ?>
 
-<div class="page-section">
+<div id="initiatives" class="page-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

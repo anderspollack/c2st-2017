@@ -9,6 +9,26 @@ wp_enqueue_style('jquery-ui-css', 'http://ajax.googleapis.com/ajax/libs/jqueryui
 
 get_header(); ?>
 
+<?php 
+/* 
+Events Page Primary Features
+*/
+$primary_featured_post = get_field( 'primary_featured_post' );
+if ( $primary_featured_post ) : ?>
+
+    <div id="static-page-featured-section" class="page-section featured-section">
+
+    <?php
+    global $post;
+    $post = $primary_featured_post;
+    setup_postdata( $post );
+    get_template_part( 'template-parts/content', 'primary-feature' );
+    wp_reset_postdata(); ?>
+
+    </div>
+
+<?php endif; ?>
+
 <div class="page-section events-heading">
     <div class="container">
         <div class="row">
@@ -17,28 +37,8 @@ get_header(); ?>
                     <h1 class="page-title"><?php the_title(); ?></h1>
                 </header><!-- .entry-header -->
             </div>
+            <div class="col-sm-12"><hr></div>
         </div>
-
-<?php 
-/* 
- * Events Page Primary Features
- */
-$post_types = array( 'post', 'event' );
-
-$featured_on_events_page = new WP_Query( array(
-	'post_type' => $post_types,
-	'category_name' => 'featured-on-events-page'
-) );
-
-if ( $featured_on_events_page -> have_posts() ) : 
-    while ( $featured_on_events_page -> have_posts() ) : 
-        $featured_on_events_page -> the_post();
-
-        get_template_part( 'template-parts/content', 'primary-feature' );
-
-    endwhile;
-endif;
-wp_reset_query(); ?>
 
 		<h1 class="section-title">Filter Events</h1>
 
@@ -67,9 +67,14 @@ $events = new WP_Query( array(
 ) );
 if ( $events -> have_posts() ) :
 	while ( $events -> have_posts() ) :
-		$events -> the_post(); ?>
-		
-		<?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
+		$events -> the_post();
+		$event_ID = get_the_id(); ?>
+
+		<?php if ( $event_ID !== $primary_featured_post ) : ?>
+	
+			<?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
+
+		<?php endif; ?>
 
 	<?php endwhile;
 endif; ?>

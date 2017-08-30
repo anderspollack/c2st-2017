@@ -3,40 +3,46 @@
  * Template Name: About
  */
 
-$post_types = array( 'post', 'event' );
-
-$featured_on_about_page = new WP_Query( array(
-	'post_type' => $post_types,
-	'category_name' => 'featured-on-about-page'
-) );
-
 get_header(); ?>
+
+<?php 
+/* 
+About Page Primary Features
+*/
+$primary_featured_post = get_field( 'primary_featured_post' );
+if ( $primary_featured_post ) : ?>
+
+    <div id="static-page-featured-section" class="page-section featured-section">
+
+    <?php
+    global $post;
+    $post = $primary_featured_post;
+    setup_postdata( $post );
+    get_template_part( 'template-parts/content', 'primary-feature' );
+    wp_reset_postdata(); ?>
+
+    </div>
+
+<?php endif; ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
         <div class="page-section">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <header class="entry-header">
-                            <h1 class="page-title"><?php the_title(); ?></h1>
-                        </header><!-- .entry-header -->
-                    </div>
-                </div>
 
 <?php 
 /* 
  * About Page Primary Features
  */
-if ( $featured_on_about_page -> have_posts() ) : 
-    while ( $featured_on_about_page -> have_posts() ) : 
-        $featured_on_about_page -> the_post();
+// if ( $featured_on_about_page -> have_posts() ) : 
+//     while ( $featured_on_about_page -> have_posts() ) : 
+//         $featured_on_about_page -> the_post();
 
-        get_template_part( 'template-parts/content', 'primary-feature' );
+//         get_template_part( 'template-parts/content', 'primary-feature' );
 
-    endwhile;
-endif; 
-wp_reset_query(); ?>
+//     endwhile;
+// endif; 
+// wp_reset_query(); ?>
 
         
 
@@ -47,6 +53,12 @@ while ( have_posts() ) : the_post(); ?>
 
                 <div class="entry-content">
                     <div class="row">
+                        <div class="col-lg-12">
+                            <header class="entry-header">
+                                <h1 class="page-title"><?php the_title(); ?></h1>
+                            </header><!-- .entry-header -->
+                        </div>
+                        <div class="col-sm-12"><hr></div>
                         <div class="col-sm-12">
                             <h2 class="section-title">Mission</h2>
                         </div>

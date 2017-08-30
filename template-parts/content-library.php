@@ -26,37 +26,50 @@
 			endif; ?>
 		</header><!-- .entry-header -->
 
-<?php if ( has_post_thumbnail() ): ?>
+		<?php 
+	    // Post Thumbnail
+	    if ( has_post_thumbnail() &&  'Video' !== get_field( 'content_type' ) ) : ?>
+	    
+		    <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
+		    style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
+		    </a>
 
-		<a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
+    	<?php 
+    	// Embedded Video Player
+    	elseif ( 'Video' === get_field( 'content_type' ) ) : 
+	    	$video_url = get_field( 'youtube_video_url' );
+	    	$code_pos = strrpos( $video_url, 'watch?v=' );
+	    	$embed_video_url = substr_replace( $video_url, 'embed/', $code_pos, 8 )
+    	 ?>
 
-<?php endif; ?>
+		    <div class="video-container">
 
-		<!-- <div class="entry-content"> -->
-			<?php
-				the_content( sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'c2st-2017' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
+		    	<iframe class="video" src="<?php echo $embed_video_url; ?>" frameborder="0" allowfullscreen></iframe>
+
+		    </div>
+
+	    <?php 
+	    endif; ?>
+
+    	<?php if ( get_field( 'author' ) ) : ?>
+
+    		<p class="bold">By <?php the_field( 'author' ); ?></p>
+
+    	<?php endif; ?>
+
+		<?php
+		the_content( sprintf(
+			wp_kses(
+				/* translators: %s: Name of current post. Only visible to screen readers */
+				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'c2st-2017' ),
+				array(
+					'span' => array(
+						'class' => array(),
 					),
-					get_the_title()
-				) );
-
-				// wp_link_pages( array(
-				// 	'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'c2st-2017' ),
-				// 	'after'  => '</div>',
-				// ) );
-			?>
-		<!-- </div> --><!-- .entry-content -->
-
-		<!-- <footer class="entry-footer">
-			<?php 
-			// c2st_2017_entry_footer(); ?>
-		</footer>--><!-- .entry-footer -->
+				)
+			),
+			get_the_title()
+		) ); ?>
+		
 	</article><!-- #post-<?php the_ID(); ?> -->
 </div>
