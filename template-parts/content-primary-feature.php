@@ -9,6 +9,9 @@ if ( get_post_type() === 'event' ) {
 } else if ( get_field( 'content_type' ) === 'Video' ) {
     $featured_glyphicon = 'glyphicon-film';
     $featured_item_type = get_field( 'content_type' );
+} else if ( get_post_type() === 'give_forms' ) {
+    $featured_glyphicon = 'glyphicon-gift';
+    $featured_item_type = 'Donation Initiative';
 } else {
     $featured_glyphicon = 'glyphicon-bullhorn';
     $featured_item_type = get_field( 'content_type' );
@@ -26,7 +29,13 @@ if ( get_post_type() === 'event' ) {
                 </span><!-- .feature-label -->
                 <h2 class="content-title">
                     
-                    <a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo the_title(); ?></a> 
+                    <a href="<?php 
+                        if ( get_post_type() === 'give_forms' ) {
+                            echo esc_url( get_permalink( 1795) );
+                        } else {
+                            echo esc_url( get_permalink() ); 
+                        }
+                    ?>"><?php echo the_title(); ?></a> 
 
                 </h2><!-- .content-title -->
             </div>
@@ -38,7 +47,13 @@ if ( get_post_type() === 'event' ) {
                 // Post Thumbnail
                 if ( has_post_thumbnail() &&  'Video' !== get_field( 'content_type' ) ) : ?>
                 
-                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
+                    <a href="<?php 
+                        if ( get_post_type() === 'give_forms' ) {
+                            echo esc_url( get_permalink( 1795) );
+                        } else {
+                            echo esc_url( get_permalink() ); 
+                        }
+                    ?>" class="content-image" 
                     style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
                     </a>
 
@@ -74,7 +89,20 @@ if ( get_post_type() === 'event' ) {
             </div><!-- .col- -->
             <div class="col-sm-6">
 
-    <?php the_content( 'Read more…' ); ?>
+    <?php 
+    if ( get_post_type() === 'give_forms' ) {
+        the_excerpt(); ?>
+
+        <?php if ( get_queried_object_id() !== 1795 ) : ?>
+
+            <a href="<?php echo get_permalink( 1795 ); ?>" class="btn btn-success">Give Now</a>
+
+        <?php endif; ?>
+
+    <?php
+    } else {
+        the_content( 'Read more…' );
+    } ?>
 
             </div><!-- .col- -->
         </div><!-- .row -->

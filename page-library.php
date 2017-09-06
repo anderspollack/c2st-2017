@@ -39,7 +39,7 @@ if ( $primary_featured_post ) : ?>
                     <h1 class="page-title"><?php single_post_title(); ?></h1>
                 </header><!-- .entry-header -->
             </div>
-            <div class="col-sm-12"><hr></div>
+            <!-- <div class="col-sm-12"><hr></div> -->
         </div>
 
 		<h1 class="section-title">Filter Media</h1>

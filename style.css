@@ -34,6 +34,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	## About Page Template
 	## Events Page Template
 	## Single Event Template
+	## Give Now Page
 	## Comments
 # Media Queries
 # Accessibility
@@ -353,6 +354,19 @@ footer {
 	width: 50%;
 }
 
+.current-menu-item {
+	border-bottom: 6px solid #898989;
+}
+
+.current-menu-item a {
+	color: #828282;
+}
+
+.current-menu-item.btn, 
+.toggled .current-menu-item {
+	border-bottom: none;
+}
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -369,7 +383,7 @@ footer {
 	padding: 0 30px;
 }
 
-div.entry-meta, div.powerpress_player {
+div.entry-meta, div.powerpress_player, .row-give div {
 	padding: 0;
 }
 
@@ -593,11 +607,14 @@ div.video-container {
 }
 
 #featured-section .primary-feature .content-image,
-#featured-section .primary-feature .video {
+#featured-section .primary-feature .video,
+#static-page-featured-section .primary-feature .content-image,
+#static-page-featured-section .primary-feature .video {
 	border-color: #898989;
 }
 
-#featured-section .primary-feature .content-image:hover {
+#featured-section .primary-feature .content-image:hover,
+#static-page-featured-section .primary-feature .content-image:hover {
 	border-color: #252525;
 }
 
@@ -897,6 +914,18 @@ a.content-subheading.indent::before {
 }
 
 #partnership .col-sm-12:last-child > hr {
+	display: none;
+}
+
+/*--------------------------------------------------------------
+## Give Now Page
+--------------------------------------------------------------*/
+.give-form-wrap {
+	/*max-width: 500px;*/
+	margin: 60px auto 0 auto;
+}
+
+.give-form-title {
 	display: none;
 }
 

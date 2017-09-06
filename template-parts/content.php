@@ -129,12 +129,29 @@
 	        wp_reset_query(); ?>
 
 		</div>
+	<?php elseif ( 'initiative' === get_post_type() ) : ?>
 
-		<?php endif; ?>
+		<?php
+	    // check if the repeater field has rows of data
+	    // if( have_rows('related_content') ) : 
+	    // 	while ( have_rows('related_content') ) : the_row(); ?>
+
+		    	<!-- <div class="col-sm-6"> -->
+		    		
+		    		<?php 
+		    		// global $post;
+		    		// $post = the_sub_field( 'related_post' );
+		    		// setup_postdata( $post );
+		    		// get_template_part( 'template-parts/content', 'library' );
+		    		// wp_reset_postdata(); ?>
+
+
+		    	<!-- </div> -->
+
+			<?php //endwhile;
+		// endif; ?>
+
+	<?php endif; ?>
 	<!-- </div> --><!-- .entry-content -->
 
-	<!-- <footer class="entry-footer"> -->
-		<?php 
-		// c2st_2017_entry_footer(); ?>
-	<!-- </footer> --><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

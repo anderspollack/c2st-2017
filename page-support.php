@@ -3,35 +3,32 @@
  * Template Name: Support
  */
 
-$post_types = array( 'post', 'event' );
-
-$featured_on_about_page = new WP_Query( array(
-	'post_type' => $post_types,
-	'category_name' => 'featured-on-about-page'
-) );
-
 get_header(); ?>
+
+<?php 
+/* 
+Support Page Primary Features
+*/
+$primary_featured_post = get_field( 'primary_featured_post' );
+if ( $primary_featured_post ) : ?>
+
+    <div id="static-page-featured-section" class="page-section featured-section">
+
+    <?php
+    global $post;
+    $post = $primary_featured_post;
+    setup_postdata( $post );
+    get_template_part( 'template-parts/content', 'primary-feature' );
+    wp_reset_postdata(); ?>
+
+    </div>
+
+<?php endif; ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
         <div class="page-section">
             <div class="container">
-
-<?php 
-/* 
- * Support Page Primary Features
- */
-if ( get_field( 'featured_post' ) ) : 
-    get_template_part( 'template-parts/content', 'primary-feature' );
-    // while ( $featured_on_about_page -> have_posts() ) : 
-    //     $featured_on_about_page -> the_post();
-
-    //     get_template_part( 'template-parts/content', 'primary-feature' );
-
-    // endwhile;
-endif; 
-// wp_reset_query(); ?>
-
                 <div class="row">
                     <div class="col-lg-12">
                         <header class="entry-header">
@@ -74,47 +71,12 @@ while ( have_posts() ) : the_post(); ?>
     <?php the_field( 'donate_section' ); ?>
 
                         <p>
-                            <a href="/give-now/" class="btn btn-primary">Give now</a>
+                            <a href="/give-now/" class="btn btn-success">Give now</a>
                         </p>
                     </div>
                 </div>
 
-    <?php if ( get_edit_post_link() ) : ?>
-
-                <!-- <footer class="entry-footer"> -->
-                        
-        <?php
-        // edit_post_link(
-        //     sprintf(
-        //         wp_kses(
-        //             /* translators: %s: Name of current post. Only visible to screen readers */
-        //             __( 'Edit <span class="screen-reader-text">%s</span>', 'c2st-2017' ),
-        //             array(
-        //                 'span' => array(
-        //                     'class' => array(),
-        //                 ),
-        //             )
-        //         ),
-        //         get_the_title()
-        //     ),
-        //     '<span class="edit-link">',
-        //     '</span>'
-        // ); ?>
-
-                <!-- </footer> --><!-- .entry-footer -->
-
-    <?php endif; ?>
-
-                <!-- </article> --><!-- #post-<?php //the_ID(); ?> -->
-    
-    <?php
-    // If comments are open or we have at least one comment, load up the comment template.
-    if ( comments_open() || get_comments_number() ) :
-        comments_template();
-
-    endif;
-
-endwhile; // End of the loop. ?>
+<?php endwhile; // End of the loop. ?>
 
             </div><!-- .container -->
         </div><!-- .page-section -->
