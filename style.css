@@ -21,6 +21,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 ----------------------------------------------------------------
 # Typography
 # Elements
+# Bootstrap Overrides
 # Forms
 # Navigation
 	## Links
@@ -34,6 +35,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 	## About Page Template
 	## Events Page Template
 	## Single Event Template
+	## Single Initiative Template
 	## Give Now Page
 	## Comments
 # Media Queries
@@ -58,14 +60,13 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 /* body, blockquotes, figure, table, and similar styles */
 body {
 	color: #252525;
-	/*background-color: #ebebeb;*/
+	background-color: #898989;
 	font-size: 15px;
 	font-family: 'Karla', sans-serif;
 }
 
-body, 
 .main-navigation,
-#featured-section .primary-feature,
+.primary-feature .container:first-child,
 #static-page-featured-section, 
 footer {
 	background-color: #e1e1e1;
@@ -74,6 +75,19 @@ footer {
 #static-page-featured-section {
 	padding-top: 40px;
 	margin-top: 0;
+}
+
+/*--------------------------------------------------------------
+# Bootstrap Overrides
+--------------------------------------------------------------*/
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12, .container {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.row {
+	margin-right: -30px;
+	margin-left: -30px;
 }
 
 /*--------------------------------------------------------------
@@ -139,6 +153,7 @@ footer {
 	/*background-color: #ebebeb;*/
 	text-align: center;
 	padding: 0 40px;
+	border-top: 4px solid #898989;
 }
 
 .main-navigation ul {
@@ -154,9 +169,28 @@ footer {
 }
 
 .main-navigation a {
-	color: #252525;
+	color: #606060;
 	text-decoration: none;
+	padding-bottom: 2px;
+	border-bottom: 2px solid transparent;
 }
+
+.menu-item-object-page a:hover,
+.menu-item-object-page.current-menu-item a {
+	color: #252525;
+	border-bottom-color: #252525;
+}
+
+.give a:hover,
+.give.current-menu-item a {
+	border-bottom-color: transparent;
+}
+
+.current-menu-item.btn, 
+.toggled .current-menu-item {
+	border-bottom: none;
+}
+
 
 .main-navigation .give {
 	line-height: 1.4em;
@@ -354,17 +388,9 @@ footer {
 	width: 50%;
 }
 
-.current-menu-item {
-	border-bottom: 6px solid #898989;
-}
-
-.current-menu-item a {
-	color: #828282;
-}
-
-.current-menu-item.btn, 
-.toggled .current-menu-item {
-	border-bottom: none;
+.search-submit {
+	position: relative;
+	top: -1px;
 }
 
 /*--------------------------------------------------------------
@@ -378,19 +404,14 @@ footer {
 
 /* Override Bootstrap grid column padding */
 
-.container,
+/*.container,
 .row div {
 	padding: 0 30px;
-}
+}*/
 
-div.entry-meta, div.powerpress_player, .row-give div {
+/*div.entry-meta, div.powerpress_player, .row-give div {
 	padding: 0;
-}
-
-.row {
-	margin-right: -30px;
-	margin-left: -30px;
-}
+}*/
 
 .page-title, 
 .section-title, 
@@ -399,7 +420,12 @@ div.entry-meta, div.powerpress_player, .row-give div {
 	text-align: left;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: normal;
-	margin: 60px 0;
+	margin: 60px 0 40px 0;
+}
+
+/* <main>  */
+.main-index {
+	margin-top: 30px;
 }
 
 .section-title,
@@ -456,9 +482,14 @@ hr {
 	margin-bottom: 18px;
 }
 
+.entry-content {
+	padding: 30px 0 0 0;
+}
+
 /* Social Media Share */
 div.fb-share-button {
 	padding: 0;
+	margin-bottom: 30px;
 }
 
 .bold {
@@ -471,14 +502,13 @@ div.fb-share-button {
 
 div.video-container {
 	position: relative;
-    width: 100%;
     height: 0;
-    padding: 0 0 56.25% 0;
+    padding-bottom: 56.25%;
     margin-bottom: 30px;
 }
 
 .video {
-	position: relative;
+	position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -488,8 +518,12 @@ div.video-container {
 /*--------------------------------------------------------------
 ## Masthead
 --------------------------------------------------------------*/
+.site-header.home-page .site-branding {
+	margin: 120px 0 180px 0;
+}
+
 .site-header {
-	padding-bottom: 30px;
+	/*padding-bottom: 30px;*/
 	background-image: url(img/chicago-skyline.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -501,7 +535,8 @@ div.video-container {
 	clear: both;
 	display: block;
 	width: 100%;
-	padding: 0 15px;
+	/*padding: 0 15px;*/
+	margin: 40px 0 60px 0;
 }
 
 .site-branding a {
@@ -515,7 +550,7 @@ div.video-container {
 	height: 74px;
 	position: relative;
 	background-image: url(img/c2st-logo-dark-gray.png); 
-	margin: 60px auto 2em auto;
+	margin: 1em auto 2em auto;
 }
 
 #site-logo a:hover {
@@ -602,15 +637,16 @@ div.video-container {
 	margin-top: 0;
 }
 
-#featured-section .primary-feature {
+.primary-feature .container {
 	padding-top: 40px;
+	padding-bottom: 40px;
+	margin-top: -60px;
 }
 
-#featured-section .primary-feature .content-image,
-#featured-section .primary-feature .video,
-#static-page-featured-section .primary-feature .content-image,
-#static-page-featured-section .primary-feature .video {
+.primary-feature .content-image,
+.primary-feature .video {
 	border-color: #898989;
+}
 }
 
 #featured-section .primary-feature .content-image:hover,
@@ -629,7 +665,7 @@ div.video-container {
 .see-all-events {
 	text-align: center;
 	margin-top: 30px;
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 
 #see-all-events {
@@ -672,33 +708,38 @@ div.video-container {
 	min-width: 240px;
 }
 
-#primary {
-	padding-bottom: 40px;
+.page-section,
+.site-header {
+	/*border-bottom: 10px solid #ebebeb;*/
+	border-bottom: 6px solid #e1e1e1;
 }
 
 .page-section {
-	/*border-bottom: 10px solid #ebebeb;*/
-	border-bottom: 6px solid #e1e1e1;
 	padding-bottom: 40px;
 }
 
-#static-page-featured-section, 
-.page-section:last-child {
-	border-bottom: none;
+#featured-section {
 	padding-bottom: 0;
+}
+
+/*#static-page-featured-section, */
+.page-section:last-child/*,
+.page-section:first-child*/ {
+	border-bottom: none;
+	/*padding-bottom: 0;*/
 }
 
 .page-section.posts {
 	margin-top: 50px;
 }
 
-.primary-feature, 
 .columns {
 	/*border-bottom: 2px solid #c6c6c6;*/
 	border-bottom: 2px solid #e1e1e1;
 }
 .content-title a:hover {
 	text-decoration: none;
+	padding-bottom: 2px;
 	border-bottom: 2px solid #252525;
 }
 
@@ -710,9 +751,9 @@ div.video-container {
 	border-bottom: none;
 }
 
-.primary-feature {
+/*.primary-feature {
 	padding-bottom: 40px;
-}
+}*/
 
 .content-image,
 .video,
@@ -745,10 +786,6 @@ div.video-container {
 	display: block;
 }
 
-.hentry {
-	margin: 0 0 1.5em;
-}
-
 .byline,
 .updated:not(.published) {
 	display: none;
@@ -768,10 +805,6 @@ div.video-container {
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
-}
-
-.events-heading {
-	 padding-bottom: 50px; 
 }
 
 /* From this ACF tutorial: https://www.aliciaramirez.com/2015/02/advanced-custom-fields-google-maps-tutorial/ */
@@ -821,7 +854,13 @@ a.content-subheading.indent::before {
 /*--------------------------------------------------------------
 ## Home Page Template
 --------------------------------------------------------------*/
+.secondary-features {
+	margin-top: 60px;
+}
 
+.secondary-features .col-sm-6 {
+	margin-bottom: 60px;
+}
 
 /*--------------------------------------------------------------
 ## About Page Template
@@ -880,17 +919,13 @@ a.content-subheading.indent::before {
 	margin: 0 15px 10px 0;
 }
 
-.entry-content > .row {
-	/*margin-top: 20px ;*/
-}
-
 #featured-guests h3, 
 #partnership h3 {
 	margin-top: 0;
 }
 
 #featured-guests p:last-child {
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 }
 
 #partnership .col-sm-6 {
@@ -915,6 +950,13 @@ a.content-subheading.indent::before {
 
 #partnership .col-sm-12:last-child > hr {
 	display: none;
+}
+
+/*--------------------------------------------------------------
+## Single Event Template
+--------------------------------------------------------------*/
+.single-initiative article {
+	padding-bottom: 30px;
 }
 
 /*--------------------------------------------------------------

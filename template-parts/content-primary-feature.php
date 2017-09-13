@@ -95,7 +95,7 @@ if ( get_post_type() === 'event' ) {
 
         <?php if ( get_queried_object_id() !== 1795 ) : ?>
 
-            <a href="<?php echo get_permalink( 1795 ); ?>" class="btn btn-success">Give Now</a>
+            <a href="<?php echo get_permalink( 1795 ); ?>" class="btn btn-primary">Give Now</a>
 
         <?php endif; ?>
 

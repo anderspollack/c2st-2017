@@ -60,25 +60,33 @@
 		?>
 	</nav><!-- #site-navigation -->
 
-	<header id="masthead" class="site-header page-section" role="banner">
+	<header id="masthead" class="site-header<?php if ( is_front_page() ) { echo ' home-page'; } ?>" role="banner" <?php 
+	$header_image_url = get_header_image();
+	echo 'style="' . 'background-image: url(' . $header_image_url . ');"' ; ?>>
 		<div class="site-branding">
-			<div id="site-logo">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>
-			</div>
-			<?php
-			// if ( is_front_page() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php 
-			// else : ?>
-				<!-- <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p> -->
-			<?php
-			// endif;
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div id="site-logo">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>
+						</div>
+						<?php
+						// if ( is_front_page() ) : ?>
+							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						<?php 
+						// else : ?>
+							<!-- <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p> -->
+						<?php
+						// endif;
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
+						$description = get_bloginfo( 'description', 'display' );
+						if ( $description || is_customize_preview() ) : ?>
+							<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+						<?php
+						endif; ?>
+					</div>
+				</div><!-- .row -->
+			</div><!-- .container -->
 		</div><!-- .site-branding -->
 	</header><!-- #masthead -->
 

@@ -30,12 +30,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6">
-                        <?php
-                        if ( has_post_thumbnail() ): ?>
+                    <?php if ( has_post_thumbnail() ): ?>
+                        <div class="col-sm-6">
                           <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
-    					<?php endif; ?>
-                    </div>
+                        </div>
+                    <?php endif; ?>
                     <div class="col-sm-6">
 
                         <?php get_template_part( 'template-parts/content' , 'event-details' ); ?>

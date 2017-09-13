@@ -24,10 +24,10 @@ get_header(); ?>
 /* 
 Library Page Primary Features
 */
-$primary_featured_post = get_field( 'primary_featured_post' );
+$primary_featured_post = get_field( 'primary_featured_post', get_option('page_for_posts') );
 if ( $primary_featured_post ) : ?>
 
-    <div id="featured-section" class="page-section featured-section">
+    <!-- <div id="featured-section" class="page-section featured-section"> -->
 
     <?php
     global $post;
@@ -36,7 +36,7 @@ if ( $primary_featured_post ) : ?>
     get_template_part( 'template-parts/content', 'primary-feature' );
     wp_reset_postdata(); ?>
 
-    </div>
+    <!-- </div> -->
 
 <?php endif; ?>
 
@@ -50,64 +50,40 @@ if ( $primary_featured_post ) : ?>
             </div>
         </div>
 
-		<h1 class="section-title">Filter Media</h1>
+		<h3 class="section-subtitle filter-label">Filter Media</h3>
 
 		<?php echo do_shortcode('[searchandfilter fields="search" submit_label="Filter" post_types="post"]'); ?>
 
-	</div>
-</div>
-<div id="primary" class="content-area">
-	<main id="main" class="site-main" role="main">
-		<div class="page-section posts">
-            <div class="container">
-                <div class="row">
+		<div class="row"><div class="col-sm-12"><hr></div></div>
 
-<?php 
-$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-$args = array(
-  'posts_per_page' => 3,
-  'paged'          => $paged
-); ?>
+		<main id="main" class="site-main main-index" role="main">
+            <div class="row">
 
-<?php
-// $posts = new WP_Query( array(
-	// 'cat' => '-197',
-	// 'category__not_in' => array( '-198' ),
-	// 'post_type' => 'post',
-	// 'posts_per_page' => '10',
-	// 'orderby' => 'post_id', 
-	// 'order' => 'ASC',
-// ) );
-// if ( $posts -> have_posts() ) :
+				<?php 
+				$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+				$args = array(
+				  'posts_per_page' => 3,
+				  'paged'          => $paged
+				); ?>
 
-	/* Start the Loop */
-	// while ( $posts -> have_posts() ) : 
-	while ( have_posts() ) : 
-		// $posts -> the_post();
-		the_post();
+				<?php
+				while ( have_posts() ) : 
+					// $posts -> the_post();
+					the_post();
 
-		/*
-		 * Include the Post-Format-specific template for the content.
-		 * If you want to override this in a child theme, then include a file
-		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-		 */
-		get_template_part( 'template-parts/content', 'library' );
+					/*
+					 * Include the Post-Format-specific template for the content.
+					 * If you want to override this in a child theme, then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
+					get_template_part( 'template-parts/content', 'library' );
 
-	endwhile;
+				endwhile; ?>
 
-	// the_posts_navigation();
-
-// else :
-
-	// get_template_part( 'template-parts/content', 'none' );
-
-// endif; ?>
-
-				</div><!-- .row -->
-			</div><!-- .container -->
-        </div><!-- .page-section -->
-	</main><!-- #main -->
-</div><!-- #primary -->
+			</div><!-- .row -->
+		</main><!-- #main -->
+	</div><!-- .container -->
+</div><!-- .page-section -->
 
 <?php
 // get_sidebar();

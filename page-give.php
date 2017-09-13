@@ -13,16 +13,12 @@ Give Page Primary Features
 $primary_featured_post = get_field( 'primary_featured_post' );
 if ( $primary_featured_post ) : ?>
 
-    <div id="static-page-featured-section" class="page-section featured-section">
-
     <?php
     global $post;
     $post = $primary_featured_post;
     setup_postdata( $post );
-    get_template_part( 'template-parts/content', 'primary-feature' );
+    // get_template_part( 'template-parts/content', 'primary-feature' );
     // wp_reset_postdata(); ?>
-
-    </div>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">

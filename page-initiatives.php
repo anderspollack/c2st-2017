@@ -12,18 +12,18 @@ get_header(); ?>
                 </header><!-- .entry-header -->
             </div>
 
-<?php
-$initiatives = new WP_Query( array(
-	'post_type' => 'initiative',
-) );
-if ( $initiatives -> have_posts() ) :
-	while ( $initiatives -> have_posts() ) :
-		$initiatives -> the_post(); ?>
-		
-		<?php get_template_part( 'template-parts/content', 'library' ); ?>
+            <?php
+            $initiatives = new WP_Query( array(
+            	'post_type' => 'initiative',
+            ) );
+            if ( $initiatives -> have_posts() ) :
+            	while ( $initiatives -> have_posts() ) :
+            		$initiatives -> the_post(); ?>
+            		
+            		<?php get_template_part( 'template-parts/content', 'library' ); ?>
 
-	<?php endwhile;
-endif; ?>
+            	<?php endwhile;
+            endif; ?>
 
         </div><!-- .row -->
 	</div><!-- .container -->

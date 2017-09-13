@@ -19,7 +19,7 @@ get_header(); ?>
     endif; ?>
 
 	<div class="container">
-        <div class="row">
+        <div class="row secondary-features">
 
         <?php 
         /* 
@@ -48,54 +48,117 @@ get_header(); ?>
 	    endif; ?>
 
         </div><!-- .row -->
-
+        <!-- <div class="row"><div class="col-sm-12"><hr></div></div> -->
     </div><!-- .container -->
 </div><!-- .featured-section -->
 
-<div id="upcoming-events" class="page-section">
+<!-- <div id="upcoming-events" class="page-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="section-title">Upcoming Events</h1>
 			</div>
-		</div>
+		</div> -->
 
 <?php
-$today = date( 'yymmdd' );
-$other_events = new WP_Query( array(
-	// 'cat' => '-195,-196',
-	// 'category__not_in' => array( -195, -196 ),
-	'post_type' => 'event',
-	// 'posts_per_page' => get_field( 'upcoming_events_count' ),
-	'posts_per_page' => get_field( 'upcoming_events_count' ),
-	'orderby' => 'post_id', 
-	'order' => 'ASC',
+// $today = date( 'yymmdd' );
+// $upcoming_events = new WP_Query( array(
+// 	// 'cat' => '-195,-196',
+// 	// 'category__not_in' => array( -195, -196 ),
+// 	'post_type' => 'event',
+// 	// 'posts_per_page' => get_field( 'upcoming_events_count' ),
+// 	'posts_per_page' => get_field( 'upcoming_events_count' ),
+// 	'orderby' => 'post_id', 
+// 	'order' => 'ASC',
+// ) );
+
+// find date time now
+$date_now = date('Y-m-d H:i:s');
+$time_now = strtotime($date_now);
+
+
+// find date time in 7 days
+$time_next_week = strtotime('+300 day', $time_now);
+$date_next_week = date('Y-m-d H:i:s', $time_next_week);
+
+global $post;
+
+$upcoming_events = get_posts( array(
+	'posts_per_page'	=> -1,
+	'post_type'			=> 'event',
+	'meta_query' 		=> array(
+		array(
+	        'key'			=> 'event_date_time',
+	        'compare'		=> 'BETWEEN',
+	        'value'			=> array( $date_now, $date_next_week ),
+	        'type'			=> 'DATETIME'
+	    )
+    ),
+	'order'				=> 'ASC',
+	'orderby'			=> 'meta_value',
+	'meta_key'			=> 'event_date_time',
+	'meta_type'			=> 'DATETIME'
 ) );
-if ( $other_events -> have_posts() ) :
-	while ( $other_events -> have_posts() ) : 
-		$other_events -> the_post();
-		$event_ID = get_the_id(); ?>
+
+// if ( $upcoming_events -> have_posts() ) :
+// 	while ( $upcoming_events -> have_posts() ) : 
+// 		$upcoming_events -> the_post();
+// 		$event_ID = get_the_id(); ?>
 
 		<?php 
-		if ( 
-			$event_ID !== $primary_featured_post && $event_ID !== $secondary_featured_post_1 && $event_ID !== $secondary_featured_post_2
-		) : ?>
+		// if ( 
+		// 	$event_ID !== $primary_featured_post && $event_ID !== $secondary_featured_post_1 && $event_ID !== $secondary_featured_post_2
+		// ) : ?>
 	
-			<?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
+			<?php // get_template_part( 'template-parts/content', 'event-listing' ); ?>
 
-		<?php endif; ?>
+		<?php // endif; ?>
 
 	<?php 
-	endwhile;
-endif; ?>
+	// endwhile;
+// endif; ?>
 
-		<div class="row see-all-events">
+<?php 
+if ( $upcoming_events ) : ?>
+	
+	<div id="upcoming-events" class="page-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h1 class="section-title">Upcoming Events</h1>
+				</div>
+			</div>
+
+			<?php
+			foreach ( $upcoming_events as $post ) : 
+				setup_postdata( $post );
+				$event_ID = get_the_id();
+				if ( 
+					$event_ID !== $primary_featured_post && 
+					$event_ID !== $secondary_featured_post_1 && 
+					$event_ID !== $secondary_featured_post_2 ) : 
+					get_template_part( 'template-parts/content', 'event-listing' );
+				endif;
+			endforeach;
+			wp_reset_postdata(); ?>
+
+			<div class="row see-all-events">
+				<div class="col-lg-2 col-lg-offset-5">
+					<a href="http://c2st.dev/events/" id="see-all-events" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span>See All Events</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<?php endif; ?>
+
+		<!-- <div class="row see-all-events">
 			<div class="col-lg-2 col-lg-offset-5">
 				<a href="http://c2st.dev/events/" id="see-all-events" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span>See All Events</a>
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <!-- <section id="supporters">
 	<div class="container">

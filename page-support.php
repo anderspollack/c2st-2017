@@ -12,16 +12,12 @@ Support Page Primary Features
 $primary_featured_post = get_field( 'primary_featured_post' );
 if ( $primary_featured_post ) : ?>
 
-    <div id="static-page-featured-section" class="page-section featured-section">
-
     <?php
     global $post;
     $post = $primary_featured_post;
     setup_postdata( $post );
     get_template_part( 'template-parts/content', 'primary-feature' );
     wp_reset_postdata(); ?>
-
-    </div>
 
 <?php endif; ?>
 
@@ -32,7 +28,7 @@ if ( $primary_featured_post ) : ?>
                 <div class="row">
                     <div class="col-lg-12">
                         <header class="entry-header">
-                            <h1 class="page-title"><?php the_title(); ?></h1>
+                            <h1 class="page-title" id="support"><?php the_title(); ?></h1>
                         </header><!-- .entry-header -->
                     </div>
                 </div>        
@@ -62,7 +58,7 @@ while ( have_posts() ) : the_post(); ?>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h2 class="section-title">Donate</h2>
+                        <h2 class="section-title" id="donate">Donate</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -71,7 +67,7 @@ while ( have_posts() ) : the_post(); ?>
     <?php the_field( 'donate_section' ); ?>
 
                         <p>
-                            <a href="/give-now/" class="btn btn-success">Give now</a>
+                            <a href="/give-now/" class="btn btn-primary">Give now</a>
                         </p>
                     </div>
                 </div>
