@@ -819,6 +819,23 @@ div.video-container {
 	padding-bottom: 40px;
 }
 
+.pagination {
+	display: block;
+	margin: 30px 0;
+}
+
+.nav-links {
+	text-align: center;
+}
+
+.page-numbers:after {
+	content: " | ";
+}
+
+.page-numbers:last-child:after {
+	content: none;
+}
+
 /*--------------------------------------------------------------
 ## Footer
 --------------------------------------------------------------*/

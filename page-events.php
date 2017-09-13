@@ -62,18 +62,24 @@ if ( $primary_featured_post ) : ?>
 			if ( $events -> have_posts() ) :
 				while ( $events -> have_posts() ) :
 					$events -> the_post();
+					// $post = $events -> the_post();
+					// setup_postdata( $post );
 					$event_ID = get_the_id(); ?>
 
 					<?php if ( $event_ID !== $primary_featured_post ) : ?>
 				
-						<?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
+						<?php get_template_part( 'template-parts/content', 'event-listing' );
+							// wp_reset_postdata(); ?>
 
 					<?php endif; ?>
 
 				<?php endwhile; ?>
 				
-				<?php
-				the_posts_navigation();
+				<?php //the_posts_pagination( array(
+				//     'mid_size'  => 2,
+				//     'prev_text' => __( 'Back', 'textdomain' ),
+				//     'next_text' => __( 'Onward', 'textdomain' ),
+				// ) );
 
 				// global $wp_query;
 

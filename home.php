@@ -60,11 +60,11 @@ if ( $primary_featured_post ) : ?>
             <div class="row">
 
 				<?php 
-				$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-				$args = array(
-				  'posts_per_page' => 3,
-				  'paged'          => $paged
-				); ?>
+				// $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+				// $args = array(
+				//   'posts_per_page' => 3,
+				//   'paged'          => $paged
+				// ); ?>
 
 				<?php
 				while ( have_posts() ) : 
@@ -80,6 +80,15 @@ if ( $primary_featured_post ) : ?>
 
 				endwhile; ?>
 
+				<div class="col-sm-12">
+
+					<?php the_posts_pagination( array(
+					    'mid_size'  => 2,
+					    'prev_text' => __( 'Newer', 'textdomain' ),
+					    'next_text' => __( 'Older', 'textdomain' ),
+					) ); ?>
+
+				</div>
 			</div><!-- .row -->
 		</main><!-- #main -->
 	</div><!-- .container -->
