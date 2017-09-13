@@ -29,6 +29,7 @@ function c2st_2017_customize_register( $wp_customize ) {
 
 	$wp_customize -> remove_section( 'colors' );
 	$wp_customize -> remove_section( 'background_image' );
+	$wp_customize -> remove_section( 'static_front_page' );
 
 	$wp_customize -> add_section( 'footer_options', array(
 		'title' => __( 'Footer Options' ),
