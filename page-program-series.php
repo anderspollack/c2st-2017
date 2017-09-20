@@ -46,7 +46,13 @@ get_header(); ?>
 								<p class="program-series-description"><?php echo wpautop( wptexturize( $term->description ) ); ?></p>
 
 							</div>
-						</div>
+						</div><!-- .row -->
+
+					<?php endif?>
+
+					<?php if ( $count % 2 !== 0 ) : ?>
+
+						</div><!-- .row -->
 
 					<?php endif?>
 

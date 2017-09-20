@@ -88,6 +88,15 @@ if ( get_field( 'address' ) ) : ?>
 
 <?php endif; ?>
 
-<!-- <p class="content-subheading"> -->
-    <!-- Program Series -->
-<!-- </p> -->
+<p class="content-subheading program-series-link">
+
+    <?php 
+    $program_series = get_the_terms( get_the_ID(), 'program_series' );
+
+    if ( $program_series ) {
+        foreach ($program_series as $term ) {
+        echo '<a href="' . get_site_url() . '/program-series/">' . $term->name . '</a>';  
+    }
+    } ?>
+
+</p>

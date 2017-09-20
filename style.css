@@ -538,6 +538,10 @@ div.video-container {
 	width: 100%;
 }
 
+.program-series-link {
+	font-weight: bold;
+}
+
 article.hentry,
 .program-series {
 	margin: 30px 0;
