@@ -1,36 +1,65 @@
 <p class="content-subheading">
 
 <?php 
-// Event Date & Time
-if ( get_field( 'event_date_time' ) ) : ?>
+// Event Date
+if ( get_field( 'event_date' ) ) : ?>
 
-    <span class="event-date"><?php echo the_field( 'event_date_time' ); ?></span>
-    <br>
+    <span class="event-date"><?php 
+
+        // echo the_field( 'event_date_time' );
+        $date = get_field( 'event_date', false, false );
+
+        // make date object
+        $date = new DateTime($date);
+
+        echo $date -> format( 'F j, Y' );
+
+    ?></span><br>
 
 <?php else : ?>
 
-    <span class="event-date">Date TBD</span>
-    <br>
+    <span class="event-date">Date TBD</span><br>
+
+<?php endif; ?>
+
+<?php 
+// Event Date Time
+if ( get_field( 'event_time' ) ) : ?>
+
+    <span class="event-time"><?php echo the_field( 'event_time' );?>
+
+    <?php if ( get_field( 'event_end_time' ) ) : ?>
+
+        <?php 
+        $event_end_time = get_field( 'event_end_time' );
+        echo ' &ndash; ' . $event_end_time; ?>
+
+        </span><br></p>
+
+    <?php else : ?>
+
+        </span><br></p>
+
+    <?php endif; ?>
 
 <?php endif; ?>
 
 <?php
 // Event Location 
-if ( get_post_type() === 'event' && get_field( 'location_name' ) ) : ?>
+if ( get_field( 'location_name' ) ) : ?>
 
-    <span class="event-location"><?php echo the_field( 'location_name' ); ?></span>
-</p><!-- .content-subheading -->
+<p class="content-subheading">
+    <span class="event-location"><?php echo the_field( 'location_name' ); ?></span><br>
 
 <?php else : ?>
 
-</p><!-- .content-subheading -->
+<p class="content-subheading">
 
 <?php endif; ?>
 
 <?php 
 if ( get_field( 'address' ) ) : ?>
 
-<p class="content-subheading">
     <span class="event-location">
 
     <?php 

@@ -48,37 +48,37 @@ if ( $primary_featured_post ) : ?>
                     <h1 class="page-title"><?php single_post_title(); ?></h1>
                 </header><!-- .entry-header -->
             </div>
-        </div>
+            <div class="col-sm-12">
+				<h3 class="section-subtitle filter-label">Filter Media</h3>
 
-		<h3 class="section-subtitle filter-label">Filter Media</h3>
+				<?php echo do_shortcode('[searchandfilter id="2154"]'); ?>
 
-		<?php echo do_shortcode('[searchandfilter fields="search" submit_label="Filter" post_types="post"]'); ?>
+			</div>
+		</div><!-- .row -->
 
 		<div class="row"><div class="col-sm-12"><hr></div></div>
 
 		<main id="main" class="site-main main-index" role="main">
-            <div class="row">
-
-				<?php 
-				// $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-				// $args = array(
-				//   'posts_per_page' => 3,
-				//   'paged'          => $paged
-				// ); ?>
 
 				<?php
 				while ( have_posts() ) : 
-					// $posts -> the_post();
-					the_post();
+					the_post(); ?>
 
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/content', 'library' );
+					<?php if ($wp_query->current_post % 2 == 0): ?>
 
-				endwhile; ?>
+			            <div class="row">
+
+							<?php get_template_part( 'template-parts/content', 'library' ); ?>
+
+    				<?php else: ?>
+
+							<?php get_template_part( 'template-parts/content', 'library' ); ?>
+
+						</div>
+						
+    				<?php endif; ?>
+
+				<?php endwhile; ?>
 
 				<div class="col-sm-12">
 
@@ -95,5 +95,4 @@ if ( $primary_featured_post ) : ?>
 </div><!-- .page-section -->
 
 <?php
-// get_sidebar();
 get_footer();

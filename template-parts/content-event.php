@@ -150,7 +150,7 @@
                                     <?php 
                                     if ( get_sub_field('partner_logo') ): ?>
 
-                                        <img src="<?php the_sub_field('partner_logo'); ?>" align="center">
+                                        <img src="<?php the_sub_field('partner_logo'); ?>" align="center" class="img-thumbnail">
 
                                     <?php else : ?>
 

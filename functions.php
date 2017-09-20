@@ -203,3 +203,17 @@ function add_datepicker_in_footer() { ?>
 } // close add_datepicker_in_footer() here
 //add an action to call add_datepicker_in_footer function
 add_action('wp_footer','add_datepicker_in_footer',10);
+
+
+// Hook my above function to the pre_get_posts action
+add_action( 'pre_get_posts', 'my_modify_main_query' );
+// My function to modify the main query object
+function my_modify_main_query( $query ) {
+	if ( $query->is_home() && $query->is_main_query() ) { // Run only on the homepage
+		// $query->query_vars[‘cat’] = -2; // Exclude my featured category because I display that elsewhere
+		// $query->query_vars['posts_per_page'] = 2; // Show only 5 posts on the homepage only
+		$query->set( "search_filter_id", 2154 );
+	} else if ( $query->is_search ) {
+		$query->set('post_type', array( 'post', 'event', 'initiative', ) );
+	}
+}

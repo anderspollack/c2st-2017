@@ -33,13 +33,14 @@ if ( $primary_featured_post ) : ?>
                     <h1 class="page-title"><?php the_title(); ?></h1>
                 </header><!-- .entry-header -->
             </div>
+            <div class="col-lg-12">
+            	<h3 class="section-subtitle filter-label">Filter Events</h3>
+
+				<?php echo do_shortcode('[searchandfilter id="2131"]'); ?>
+
+        	</div>
+        	<div class="col-sm-12"><hr></div>
         </div>
-
-		<h3 class="section-subtitle filter-label">Filter Events</h3>
-
-		<?php echo do_shortcode('[searchandfilter fields="search,program_series,event_types" submit_label="Filter" post_types="event"]'); ?>
-
-        <div class="row"><div class="col-sm-12"><hr></div></div>
 
 		<!-- <div class="row">
 			<div class="col-lg-12">
@@ -49,37 +50,37 @@ if ( $primary_featured_post ) : ?>
 		<main id="main" class="site-main main-index" role="main">
 
 			<?php
-			$today = date( 'yymmdd' );
-			$events = new WP_Query( array(
-				// 'cat' => '-197',
-				// 'category__not_in' => array( '-197' ),
+			global $wp_query;
+			// $today = date( 'yymmdd' );
+			$wp_query = new WP_Query( array(
 				'post_type' => 'event',
 				'paged' => $paged,
-				// 'posts_per_page' => '10',
+				'posts_per_page' => '6',
+				'meta_key' => 'event_date', // name of custom field
+				'orderby' => 'meta_value_num',
+				'search_filter_id' => '2131'
 				// 'orderby' => 'post_id', 
 				// 'order' => 'ASC',
 			) );
-			if ( $events -> have_posts() ) :
-				while ( $events -> have_posts() ) :
-					$events -> the_post();
-					// $post = $events -> the_post();
-					// setup_postdata( $post );
+			if ( $wp_query -> have_posts() ) :
+				while ( $wp_query -> have_posts() ) :
+					$wp_query -> the_post();
 					$event_ID = get_the_id(); ?>
 
 					<?php if ( $event_ID !== $primary_featured_post ) : ?>
 				
-						<?php get_template_part( 'template-parts/content', 'event-listing' );
-							// wp_reset_postdata(); ?>
+						<?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
 
 					<?php endif; ?>
 
 				<?php endwhile; ?>
-				
-				<?php //the_posts_pagination( array(
-				//     'mid_size'  => 2,
-				//     'prev_text' => __( 'Back', 'textdomain' ),
-				//     'next_text' => __( 'Onward', 'textdomain' ),
-				// ) );
+
+				<?php 
+				the_posts_pagination( array(
+				    'mid_size'  => 2,
+				    'prev_text' => __( 'Newer', 'textdomain' ),
+				    'next_text' => __( 'Older', 'textdomain' ),
+				) );
 
 				// global $wp_query;
 
@@ -99,4 +100,4 @@ if ( $primary_featured_post ) : ?>
 	</div><!-- .container -->
 </div><!-- .page-section -->
 
-	<?php get_footer(); ?>
+<?php get_footer(); ?>

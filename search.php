@@ -9,43 +9,73 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
+<div class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+            	<header>
+					<h1 class="page-title"><?php
+						/* translators: %s: search query. */
+						printf( esc_html__( 'Search Results for: %s', 'c2st-2017' ), '<span>' . get_search_query() . '</span>' );
+					?></h1>
+				</header><!-- .page-header -->
+			</div>
+
+			<div class="col-sm-12"><hr></div>
+		</div><!-- .row -->
+
 		<main id="main" class="site-main" role="main">
 
-		<?php
-		if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title"><?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'c2st-2017' ), '<span>' . get_search_query() . '</span>' );
-				?></h1>
-			</header><!-- .page-header -->
-
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			if ( have_posts() ) : ?>
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) : the_post(); ?>
 
-			endwhile;
+					<?php if ($wp_query->current_post % 2 == 0): ?>
 
-			the_posts_navigation();
+			            <div class="row">
 
-		else :
+							<?php get_template_part( 'template-parts/content', 'library' ); ?>
 
-			get_template_part( 'template-parts/content', 'none' );
+    				<?php else: ?>
 
-		endif; ?>
+							<?php get_template_part( 'template-parts/content', 'library' ); ?>
+
+						</div>
+					
+    				<?php endif; ?>
+
+				<?php endwhile; ?>
+
+				<div class="col-sm-12">
+
+					<?php the_posts_pagination( array(
+					    'mid_size'  => 2,
+					    'prev_text' => __( 'Newer', 'textdomain' ),
+					    'next_text' => __( 'Older', 'textdomain' ),
+					) ); ?>
+
+				</div>
+
+			<?php 
+			else : ?>
+
+		        <div class="row">
+					<div class="col-sm-12">
+
+						<?php get_template_part( 'template-parts/content', 'none' ); ?>
+
+					</div>
+				</div>
+
+			<?php 
+			endif; ?>
 
 		</main><!-- #main -->
-	</section><!-- #primary -->
+	</div><!-- .container -->
+</div><!-- .page-section -->
 
 <?php
-get_sidebar();
 get_footer();

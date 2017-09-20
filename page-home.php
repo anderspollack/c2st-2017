@@ -61,16 +61,6 @@ get_header(); ?>
 		</div> -->
 
 <?php
-// $today = date( 'yymmdd' );
-// $upcoming_events = new WP_Query( array(
-// 	// 'cat' => '-195,-196',
-// 	// 'category__not_in' => array( -195, -196 ),
-// 	'post_type' => 'event',
-// 	// 'posts_per_page' => get_field( 'upcoming_events_count' ),
-// 	'posts_per_page' => get_field( 'upcoming_events_count' ),
-// 	'orderby' => 'post_id', 
-// 	'order' => 'ASC',
-// ) );
 
 // find date time now
 $date_now = date('Y-m-d H:i:s');

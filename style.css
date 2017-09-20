@@ -486,6 +486,10 @@ hr {
 	padding: 30px 0 0 0;
 }
 
+.entry-content img {
+	max-width: 100%;
+}
+
 /* Social Media Share */
 div.fb-share-button {
 	padding: 0;
@@ -513,6 +517,34 @@ div.video-container {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+.searchandfilter ul {
+	padding: 0;
+}
+
+.searchandfilter ul li {
+	display: inline-block;
+	/*width: 33.333333333%;*/
+	margin-right: 60px;
+	padding: 15px 0;
+}
+
+.searchandfilter ul li li:last-of-type {
+	margin-right: 0
+}
+
+.searchandfilter ul li .sf-field-search {
+	width: 100%;
+}
+
+article.hentry,
+.program-series {
+	margin: 30px 0;
+}
+
+.program-series-description {
+	white-space: pre;
 }
 
 /*--------------------------------------------------------------
@@ -828,12 +860,30 @@ div.video-container {
 	text-align: center;
 }
 
-.page-numbers:after {
-	content: " | ";
+span.page-numbers.current {
+	background-color: #f6f6f6;
+	border-color: #252525;
 }
 
-.page-numbers:last-child:after {
-	content: none;
+.page-numbers {
+	margin: 0 4px;
+}
+
+a.page-numbers, 
+span.page-numbers.current {
+	padding: 8px 12px;
+	border-radius: 8px;
+	border-width: 1px;
+	border-style: solid;
+}
+a.page-numbers {
+	text-decoration: none;
+	background-color: #e1e1e1;
+	border-color: transparent;
+}
+
+a.page-numbers:hover {
+	background-color: #898989;
 }
 
 /*--------------------------------------------------------------
@@ -926,10 +976,7 @@ a.content-subheading.indent::before {
 
 /*--------------------------------------------------------------
 ## Single Event Template
---------------------------------------------------------------*/
-.event img {
-	max-width: 100%;
-}
+--------------------------------------------------------------*/ 
 
 #featured-guests img {
 	width: 33%;
@@ -945,14 +992,17 @@ a.content-subheading.indent::before {
 	margin-bottom: 40px;
 }
 
-#partnership .col-sm-6 {
-	display: table-cell;
-	vertical-align: middle;
-}
-
 #partnership img {
 	display: block;
 	margin: 30px auto;
+}
+
+.img-thumbnail {
+	padding: 1em;
+	border: 2px solid #e1e1e1;
+	border-radius: 0;
+	max-height: 14em;
+	max-width: 75%
 }
 
 #partnership p {

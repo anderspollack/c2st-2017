@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-8 col-sm-4 col-md-4 col-lg-4">
+		<div class="col-sm-4 col-md-4 col-lg-4">
 
 <?php if ( has_post_thumbnail() ): ?>
 
