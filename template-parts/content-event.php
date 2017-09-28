@@ -39,11 +39,26 @@
 
                         <?php get_template_part( 'template-parts/content' , 'event-details' ); ?>
 
-                        <h3>Share</h3>
+                        <h3 class="event-share-heading">Share</h3>
 
                         <!-- FB Share Button -->
                         <div class="fb-share-button" data-href="<?php the_permalink(); ?>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
                         <!-- End FB Share Button -->
+
+                        <!-- Tweet Button -->
+                        <a class="twitter-share-button"
+                            href="https://twitter.com/intent/tweet"
+                            data-size="large"
+                            data-text="<?php get_the_title(); ?>"
+                            data-url="<?php get_the_permalink(); ?>">
+                            Tweet
+                        </a>
+                        <!-- End Tweet Button -->
+
+                        <!-- Linkedin Button -->
+                        <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+                        <script type="IN/Share" data-url="<?php get_the_permalink(); ?>"></script>
+                        <!-- End Linkedin Button -->
 
                     </div>
                     <div class="col-sm-12"><hr></div>
@@ -109,6 +124,8 @@
                             <img src="<?php the_sub_field('photo'); ?>" align="left">
 
                             <?php the_sub_field('bio'); ?>
+
+                            <a href="mailto:<?php the_sub_field('email_address'); ?>" title="Email C2ST"><?php the_sub_field('email_address'); ?></a>
 
                         </div>
 

@@ -74,35 +74,31 @@ if ( get_post_type() === 'event' ) {
                 <?php 
                 endif; ?>
 
-                    </div><!-- .col- -->
-                    <div class="col-sm-6">
-            
-    <?php 
-    if ( get_post_type() === 'event' ) {
-        get_template_part( 'template-parts/content' , 'event-details' ); 
-    } ?>
-                   
-            <!-- <p class="content-subheading"> -->
-                <!-- Program Series -->
-            <!-- </p> -->
+            </div><!-- .col- -->
+            <div class="col-sm-6">
+    
+                <?php 
+                if ( get_post_type() === 'event' ) {
+                    get_template_part( 'template-parts/content' , 'event-details' ); 
+                } ?>
 
             </div><!-- .col- -->
             <div class="col-sm-6">
 
-    <?php 
-    if ( get_post_type() === 'give_forms' ) {
-        the_excerpt(); ?>
+                <?php 
+                if ( get_post_type() === 'give_forms' ) {
+                    the_excerpt(); ?>
 
-        <?php if ( get_queried_object_id() !== 1795 ) : ?>
+                    <?php if ( get_queried_object_id() !== 1795 ) : ?>
 
-            <a href="<?php echo get_permalink( 1795 ); ?>" class="btn btn-primary">Give Now</a>
+                        <a href="<?php echo get_permalink(); ?>" class="btn btn-primary">Give Now</a>
 
-        <?php endif; ?>
+                    <?php endif; ?>
 
-    <?php
-    } else {
-        the_content( 'Read more…' );
-    } ?>
+                <?php
+                } else {
+                    the_content( 'Read more…' );
+                } ?>
 
             </div><!-- .col- -->
         </div><!-- .row -->

@@ -35,8 +35,8 @@ do_action( 'give_before_single_form' );
 	<?php the_excerpt(); ?>
 
 </div>
-
-<div id="give-form-<?php the_ID(); ?>-content" class="give-form">
+<div class="col-sm-12"><hr></div>
+<div id="give-form-<?php the_ID(); ?>-content" class="give-form col-sm-12">
 
 	<div class="<?php echo apply_filters( 'give_forms_single_summary_classes', 'summary entry-summary' ); ?>">
 

@@ -48,7 +48,7 @@ if ( $primary_featured_post ) : ?>
                     <h1 class="page-title"><?php single_post_title(); ?></h1>
                 </header><!-- .entry-header -->
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-12 filter">
 				<h3 class="section-subtitle filter-label">Filter Media</h3>
 
 				<?php echo do_shortcode('[searchandfilter id="2154"]'); ?>

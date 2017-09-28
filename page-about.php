@@ -89,6 +89,12 @@ if ( $primary_featured_post ) : ?>
                     $board['column_3'] . 
                     '</div>';?>
 
+                    <?php if ( get_field( 'board_photo' ) ): ?>
+                        <div class="col-sm-12">
+                            <img src="<?php echo get_field( 'board_photo' ); ?>" class="board-photo">
+                        </div>
+                    <?php endif; ?>
+
                     <div class="col-sm-12"><hr></div>
                     <div class="col-sm-12">
                         <h2 class="section-title" id="auxiliary-board">Auxiliary Board</h2>
@@ -104,6 +110,12 @@ if ( $primary_featured_post ) : ?>
                     $auxiliary_board['auxiliary_board_column_3'] . 
                     '</div>';?>
 
+                    <?php if ( get_field( 'auxiliary_board_photo' ) ): ?>
+                        <div class="col-sm-12">
+                            <img src="<?php echo get_field( 'auxiliary_board_photo' ); ?>" class="board-photo">
+                        </div>
+                    <?php endif; ?>
+
                     <div class="col-sm-12"><hr></div>
                     <div class="col-sm-12 c2st-collaborators" id="c2st-collaborators">
                         
@@ -115,16 +127,32 @@ if ( $primary_featured_post ) : ?>
                         <h2 class="section-title" id="c2st-staff">C2ST Staff</h2>
                     </div>
 
-                    <?php 
-                    $staff = get_field( 'c2st_staff_columns' ); 
-                    echo '<div class="col-sm-4">' . 
-                    $staff['column_1'] . 
-                    '</div><div class="col-sm-4">' . 
-                    $staff['column_2'] . 
-                    '</div><div class="col-sm-4">' . 
-                    $staff['column_3'] . 
-                    '</div>';?>
+                    <?php
+                    // check if the repeater field has rows of data
+                    if( have_rows('c2st_staff') ): ?>
+                                    
+                        <?php 
+                        // loop through the rows of data
+                        while ( have_rows('c2st_staff') ) : the_row(); ?>
 
+                            <div class="col-sm-4 c2st-staff">
+                                <?php if ( get_sub_field('photo') ): ?>
+
+                                    <img src="<?php the_sub_field('photo'); ?>" align="left">
+
+                                <?php endif; ?>
+
+                                <h3 class="section-subtitle"><?php the_sub_field('name'); ?></h3>
+
+                                <?php the_sub_field('title'); ?>
+
+                                <a href="mailto:<?php get_sub_field('email_address'); ?>"><?php the_sub_field('email_address'); ?></a>
+
+                            </div>
+
+                        <?php endwhile; ?>
+
+                    <?php endif; ?>
                     
 
                 </div><!-- .row -->

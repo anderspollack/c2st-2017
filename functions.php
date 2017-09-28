@@ -124,6 +124,10 @@ function c2st_2017_scripts() {
 	wp_enqueue_script( 'google-map', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCmoUzak5irRGL8wqxf263TFwsucrsUBmM', array(), '3', true );
 	wp_enqueue_script( 'google-map-init', get_template_directory_uri() . '/js/google-maps.js', array('google-map', 'jquery'), '0.1', true );
 
+	wp_enqueue_script( 'parallax-banner', get_template_directory_uri() . '/js/parallax-banner.js', array('jquery'), null, true);
+
+	wp_enqueue_script( 'twitter', get_template_directory_uri() . '/js/twitter.js' );
+
 	// https://support.advancedcustomfields.com/forums/topic/google-maps-field-needs-setting-to-add-api-key/
 	// wp_register_script( 'googlemaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCmoUzak5irRGL8wqxf263TFwsucrsUBmM',null,null,true );
 	// wp_enqueue_script( 'googlemaps' );
@@ -179,7 +183,8 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );
 function add_search_box( $items, $args ) {
-    $items .= '<li class="search-form">' . get_search_form( false ) . '</li>';
+    // $items .= '<li class="form-control">' . get_search_form( false ) . '</li>';
+    $items .= '<li class="search-form main-navigation-search-form">' . do_shortcode('[searchandfilter id="2159"]') . '</li>';
     return $items;
 }
 
@@ -209,7 +214,7 @@ add_action('wp_footer','add_datepicker_in_footer',10);
 add_action( 'pre_get_posts', 'my_modify_main_query' );
 // My function to modify the main query object
 function my_modify_main_query( $query ) {
-	if ( $query->is_home() && $query->is_main_query() ) { // Run only on the homepage
+	if ( $query -> is_home() && $query -> is_main_query() ) { // Run only on the homepage
 		// $query->query_vars[‘cat’] = -2; // Exclude my featured category because I display that elsewhere
 		// $query->query_vars['posts_per_page'] = 2; // Show only 5 posts on the homepage only
 		$query->set( "search_filter_id", 2154 );

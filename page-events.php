@@ -33,14 +33,14 @@ if ( $primary_featured_post ) : ?>
                     <h1 class="page-title"><?php the_title(); ?></h1>
                 </header><!-- .entry-header -->
             </div>
-            <div class="col-lg-12">
+            <div class="col-lg-12 filter">
             	<h3 class="section-subtitle filter-label">Filter Events</h3>
 
 				<?php echo do_shortcode('[searchandfilter id="2131"]'); ?>
 
         	</div>
         	<div class="col-sm-12"><hr></div>
-        </div>
+        </div><!-- .row -->
 
 		<!-- <div class="row">
 			<div class="col-lg-12">
@@ -50,19 +50,90 @@ if ( $primary_featured_post ) : ?>
 		<main id="main" class="site-main main-index" role="main">
 
 			<?php
+			$today = date('Ymd');
+
+			$upcoming_events = get_posts( array(
+				'fields' 			=> 'ids',
+				'posts_per_page' 	=> -1,
+				'post_type'			=> 'event',
+				'meta_query' 		=> array(
+					array(
+				        'key'			=> 'event_date',
+				        'compare'		=> '>=',
+				        'value'			=> $today,
+					    'type'			=> 'DATE'
+				    )
+			    ),
+				'meta_key'			=> 'event_date',
+				'order'				=> 'ASC',
+				'orderby'			=> 'meta_value_num',
+			) );
+
+			// foreach ( $upcoming_events as $event ) {
+			// 	echo '<p>' . get_the_title( $event ) . ' ' . get_post_field( 'event_date', $event ) . '</p>';
+			// }
+
+			// $listed_first = array();
+			// if ( $upcoming_events -> have_posts() ) {
+			// 	while ( $upcoming_events -> have_posts() ) {
+			// 		$upcoming_events -> the_post();
+			// 		$listed_first[] = get_the_id();
+			// 	}
+			// }
+
+			$past_events = get_posts( array(
+				'fields' => 'ids',
+				'posts_per_page' => -1,
+				'post_type' => 'event',
+				'meta_query' 		=> array(
+					array(
+				        'key'			=> 'event_date',
+				        'compare'		=> '<',
+				        'value'			=> $today,
+					    'type'			=> 'DATE'
+				    )
+			    ),
+				'meta_key' => 'event_date', // name of custom field
+				'orderby' => 'meta_value_num',
+				'order' => 'DSC' 
+			) );
+
+
+			// $listed_next = array();
+			// if ( $all_events -> have_posts() ) {
+			// 	while ( $all_events -> have_posts() ) {
+			// 		$all_events -> the_post();
+			// 		$listed_next[] = get_the_id();
+			// 	}
+			// }
+
+			$master_events_list = array_merge( $upcoming_events, $past_events );
+			// $master_events_list = array_unique( $master_events_list );
+
+			// foreach ( $master_events_list as $event ) {
+			// 	echo '<p>' . get_the_title( $event ) . ' ' . get_post_field( 'event_date', $event ) . '</p>';
+			// }
+
 			global $wp_query;
-			// $today = date( 'yymmdd' );
 			$wp_query = new WP_Query( array(
 				'post_type' => 'event',
 				'paged' => $paged,
-				'posts_per_page' => '6',
+				// 'posts_per_page' => '6',
 				'meta_key' => 'event_date', // name of custom field
-				'orderby' => 'meta_value_num',
-				'search_filter_id' => '2131'
-				// 'orderby' => 'post_id', 
+				'orderby' => 'meta_value',
+				'search_filter_id' => '2131',
 				// 'order' => 'ASC',
 			) );
-			if ( $wp_query -> have_posts() ) :
+
+			if ( $wp_query -> have_posts() ) : ?>
+
+				<!-- <div class="row">
+					<div class="col-lg-12">
+						<h1 class="section-title">Past Events</h1>
+					</div>
+				</div>--><!-- .row -->
+
+				<?php 
 				while ( $wp_query -> have_posts() ) :
 					$wp_query -> the_post();
 					$event_ID = get_the_id(); ?>
@@ -80,21 +151,10 @@ if ( $primary_featured_post ) : ?>
 				    'mid_size'  => 2,
 				    'prev_text' => __( 'Newer', 'textdomain' ),
 				    'next_text' => __( 'Older', 'textdomain' ),
-				) );
+				) ); ?>
 
-				// global $wp_query;
-
-				// $big = 999999999; // need an unlikely integer
-
-				// echo paginate_links( array(
-				// 	'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-				// 	'format' => '?paged=%#%',
-				// 	'current' => max( 1, get_query_var('paged') ),
-				// 	'total' => $wp_query->max_num_pages
-				// ) );
-				?>
-
-			<?php endif; ?>
+			<?php 
+			endif; ?>
 
 		</main><!-- .site-main -->
 	</div><!-- .container -->

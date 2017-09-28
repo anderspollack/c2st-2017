@@ -9,6 +9,9 @@ if ( get_post_type() === 'event' ) {
 } else if ( get_field( 'content_type' ) === 'Video' ) {
     $featured_glyphicon = 'glyphicon-film';
     $featured_item_type = get_field( 'content_type' );
+} else if ( get_post_type() === 'give_forms' ) {
+    $featured_glyphicon = 'glyphicon-gift';
+    $featured_item_type = 'Donation Initiative';
 } else {
     $featured_glyphicon = 'glyphicon-bullhorn';
     $featured_item_type = get_field( 'content_type' );
@@ -39,10 +42,24 @@ if ( has_post_thumbnail() ) : ?>
 <?php endif; ?>
 
 <?php 
-if ( get_post_type() === 'event' ) {
-	get_template_part( 'template-parts/content' , 'event-details' ); 
-} ?>
+    if ( get_post_type() === 'event' ) {
+        get_template_part( 'template-parts/content' , 'event-details' ); 
+    } ?>
+                   
 
-<?php the_content( 'Read more…' ); ?>
+    <?php 
+    if ( get_post_type() === 'give_forms' ) {
+        the_excerpt(); ?>
+
+        <?php if ( get_queried_object_id() !== 1795 ) : ?>
+
+            <a href="<?php echo get_permalink( 1795 ); ?>" class="btn btn-primary">Give Now</a>
+
+        <?php endif; ?>
+
+    <?php
+    } else {
+        the_content( 'Read more…' );
+    } ?>
 
 </div><!-- .row -->

@@ -88,6 +88,12 @@ if ( get_field( 'address' ) ) : ?>
 
 <?php endif; ?>
 
+<?php if ( get_field( 'registration_url' ) ): ?>
+
+    <p class="content-subheading program-series-link"><a href="" class="btn btn-primary"><?php the_field( 'registration_button_text' ); ?></a></p>
+
+<?php endif; ?>
+
 <p class="content-subheading program-series-link">
 
     <?php 
@@ -95,8 +101,8 @@ if ( get_field( 'address' ) ) : ?>
 
     if ( $program_series ) {
         foreach ($program_series as $term ) {
-        echo '<a href="' . get_site_url() . '/program-series/">' . $term->name . '</a>';  
-    }
+        echo 'Program Series: ' . '<a href="' . get_site_url() . '/program-series/">' . $term->name . '</a>';  
+        }
     } ?>
 
 </p>

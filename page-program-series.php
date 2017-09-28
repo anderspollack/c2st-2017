@@ -34,6 +34,9 @@ get_header(); ?>
 							<div class="col-sm-6 program-series">
 
 								<h3 class="content-title"><?php echo $term->name; ?></h3>
+								<p>
+									<a href="<?php echo esc_url( home_url( '/events/?_sft_program_series=' ) ) . $term->slug; ?>">See all <?php echo $term->name; ?> Events</a>
+								</p>
 								<p class="program-series-description"><?php echo wpautop( wptexturize( $term->description ) ); ?></p>
 
 							</div>
@@ -43,6 +46,9 @@ get_header(); ?>
 							<div class="col-sm-6 program-series">
 
 								<h3 class="content-title"><?php echo $term->name; ?></h3>
+								<p>
+									<a href="<?php echo esc_url( home_url( '/events/?_sft_program_series=' ) ) . $term->slug; ?>">See all <?php echo $term->name; ?> Events</a>
+								</p>
 								<p class="program-series-description"><?php echo wpautop( wptexturize( $term->description ) ); ?></p>
 
 							</div>

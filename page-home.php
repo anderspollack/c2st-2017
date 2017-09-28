@@ -63,50 +63,45 @@ get_header(); ?>
 <?php
 
 // find date time now
+$today = date('Ymd');
 $date_now = date('Y-m-d H:i:s');
 $time_now = strtotime($date_now);
 
 
 // find date time in 7 days
-$time_next_week = strtotime('+300 day', $time_now);
+$time_next_week = strtotime('+1000 day', $time_now);
 $date_next_week = date('Y-m-d H:i:s', $time_next_week);
 
 global $post;
 
 $upcoming_events = get_posts( array(
 	'posts_per_page'	=> -1,
+	// 'post_type'			=> 'event',
+	// 'meta_query' 		=> array(
+	// 	array(
+	//         'key'			=> 'event_date',
+	//         'compare'		=> 'BETWEEN',
+	//         'value'			=> array( $date_now, $date_next_week ),
+	//         'type'			=> 'DATE'
+	//     )
+ //    ),
+	// 'order'				=> 'ASC',
+	// 'orderby'			=> 'meta_value',
+	// 'meta_key'			=> 'event_date',
+	// 'meta_type'			=> 'DATE'
 	'post_type'			=> 'event',
-	'meta_query' 		=> array(
-		array(
-	        'key'			=> 'event_date_time',
-	        'compare'		=> 'BETWEEN',
-	        'value'			=> array( $date_now, $date_next_week ),
-	        'type'			=> 'DATETIME'
-	    )
-    ),
-	'order'				=> 'ASC',
-	'orderby'			=> 'meta_value',
-	'meta_key'			=> 'event_date_time',
-	'meta_type'			=> 'DATETIME'
-) );
+				'meta_query' 		=> array(
+					array(
+				        'key'			=> 'event_date',
+				        'compare'		=> '>=',
+				        'value'			=> $today,
+					    // 'type'			=> 'DATE'
+				    )
+			    ),
+				'order'				=> 'ASC',
+				'orderby'			=> 'meta_value',
 
-// if ( $upcoming_events -> have_posts() ) :
-// 	while ( $upcoming_events -> have_posts() ) : 
-// 		$upcoming_events -> the_post();
-// 		$event_ID = get_the_id(); ?>
-
-		<?php 
-		// if ( 
-		// 	$event_ID !== $primary_featured_post && $event_ID !== $secondary_featured_post_1 && $event_ID !== $secondary_featured_post_2
-		// ) : ?>
-	
-			<?php // get_template_part( 'template-parts/content', 'event-listing' ); ?>
-
-		<?php // endif; ?>
-
-	<?php 
-	// endwhile;
-// endif; ?>
+) ); ?>
 
 <?php 
 if ( $upcoming_events ) : ?>

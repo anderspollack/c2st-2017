@@ -21,7 +21,7 @@ if ( $primary_featured_post ) : ?>
     // wp_reset_postdata(); ?>
 
 <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
+    <main id="main" class="site-main give-now" role="main">
         <div class="page-section">
             <div class="container">
 
