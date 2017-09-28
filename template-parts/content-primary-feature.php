@@ -29,13 +29,7 @@ if ( get_post_type() === 'event' ) {
                 </span><!-- .feature-label -->
                 <h2 class="content-title">
                     
-                    <a href="<?php 
-                        if ( get_post_type() === 'give_forms' ) {
-                            echo esc_url( get_permalink( 1795) );
-                        } else {
-                            echo esc_url( get_permalink() ); 
-                        }
-                    ?>"><?php echo the_title(); ?></a> 
+                    <a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo the_title(); ?></a> 
 
                 </h2><!-- .content-title -->
             </div>
@@ -47,15 +41,8 @@ if ( get_post_type() === 'event' ) {
                 // Post Thumbnail
                 if ( has_post_thumbnail() &&  'Video' !== get_field( 'content_type' ) ) : ?>
                 
-                    <a href="<?php 
-                        if ( get_post_type() === 'give_forms' ) {
-                            echo esc_url( get_permalink( 1795) );
-                        } else {
-                            echo esc_url( get_permalink() ); 
-                        }
-                    ?>" class="content-image" 
-                    style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
-                    </a>
+                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
+                    style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');"></a>
 
                 <?php 
                 // Embedded Video Player

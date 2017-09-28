@@ -51,11 +51,7 @@ if ( has_post_thumbnail() ) : ?>
     if ( get_post_type() === 'give_forms' ) {
         the_excerpt(); ?>
 
-        <?php if ( get_queried_object_id() !== 1795 ) : ?>
-
-            <a href="<?php echo get_permalink( 1795 ); ?>" class="btn btn-primary">Give Now</a>
-
-        <?php endif; ?>
+        <a href="<?php echo get_permalink(); ?>" class="btn btn-primary">Give Now</a>
 
     <?php
     } else {
