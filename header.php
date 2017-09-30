@@ -62,7 +62,9 @@
 
 	<header id="masthead" class="site-header<?php if ( is_front_page() ) { echo ' home-page'; } ?>" role="banner" <?php 
 	$header_image_url = get_header_image();
-	echo 'style="' . 'background-image: url(' . $header_image_url . ');"' ; ?> data-type="background" data-speed="10">
+	// echo 'style="' . 'background-image: url(' . esc_url( home_url( '/' ) ) /*$header_image_url*/ . 'img/c2st-10-year-banner.jpg' . ');"' ;
+	echo 'style="' . 'background-image: url(' . get_template_directory_uri() . '/img/c2st-10-year-banner.jpg' . ');"' ; ?>
+	 data-type="background" data-speed="10">
 		<div class="site-branding">
 			<div class="container">
 				<div class="row">
