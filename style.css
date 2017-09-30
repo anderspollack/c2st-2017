@@ -680,7 +680,7 @@ article.hentry,
 
 #site-logo a {
 	width: 195px;
-	height: 74px;
+	height: 94px;
 	position: relative;
 	background-image: url('img/c2st-logo-light.png');
 	background-image: -webkit-image-set(url('img/c2st-logo-light.png') 1x, url('img/c2st-logo-light@2x.png') 2x, url('img/c2st-logo-light@3x.png') 3x );
@@ -696,7 +696,7 @@ article.hentry,
     display: block;
 	position: absolute;
 	width: 195px;
-	height: 74px;  
+	height: 94px;  
     background-image: url('img/c2st-logo-light.png');
 	opacity : 0.5;
 }
