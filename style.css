@@ -682,7 +682,8 @@ article.hentry,
 	width: 195px;
 	height: 74px;
 	position: relative;
-	background-image: url(img/c2st-logo-dark-gray.png); 
+	background-image: url('img/c2st-logo-light.png');
+	background-image: -webkit-image-set(url('img/c2st-logo-light.png') 1x, url('img/c2st-logo-light@2x.png') 2x, url('img/c2st-logo-light@3x.png') 3x );
 	margin: 1em auto 2em auto;
 }
 
@@ -696,7 +697,7 @@ article.hentry,
 	position: absolute;
 	width: 195px;
 	height: 74px;  
-    background-image: url(img/c2st-logo-dark-gray.png);
+    background-image: url('img/c2st-logo-light.png');
 	opacity : 0.5;
 }
 
@@ -712,8 +713,13 @@ article.hentry,
 	line-height: 1.4em;
 }
 
+.site-title a, 
+.site-description {
+	color: #f6f6f6;
+	text-shadow: 0 2px 8px #252525;
+}
+
 .site-title a {
-	color: #252525;
 	text-decoration: none;
 }
 
