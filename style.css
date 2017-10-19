@@ -671,6 +671,7 @@ article.hentry,
 	/*background-image: url(img/chicago-skyline.jpg);*/
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	background-position: 50% 0px;
 	background-size: auto;
 }
 
