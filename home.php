@@ -64,11 +64,19 @@ if ( $primary_featured_post ) : ?>
 				while ( have_posts() ) : 
 					the_post(); ?>
 
-					<?php if ($wp_query->current_post % 2 == 0): ?>
+					<?php if ($wp_query->current_post % 2 == 0 && $wp_query->current_post < $wp_query->post_count): ?>
 
 			            <div class="row">
 
 							<?php get_template_part( 'template-parts/content', 'library' ); ?>
+
+					<?php elseif ($wp_query->current_post % 2 == 0 && $wp_query->current_post < $wp_query->post_count): ?>
+
+						<div class="row">
+
+							<?php get_template_part( 'template-parts/content', 'library' ); ?>
+
+						</div>
 
     				<?php else: ?>
 

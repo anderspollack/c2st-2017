@@ -11,12 +11,14 @@
 <div class="col-sm-6">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header class="entry-header">
-			<?php
-			// if ( is_singular() ) :
-				// the_title( '<h1 class="entry-title">', '</h1>' );
-			// else :
-				the_title( '<h3 class="content-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-			// endif;
+		
+			<span class="feature-label">
+
+	            <?php the_field( 'content_type' ); ?>
+            
+            </span><!-- .feature-label -->
+
+			<?php the_title( '<h3 class="content-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 
 			if ( 'post' === get_post_type() ) : ?>
 			<div class="entry-meta">
