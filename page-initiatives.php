@@ -11,21 +11,42 @@ get_header(); ?>
                     <h1 class="page-title">C2ST Initiatives</h1>
                 </header><!-- .entry-header -->
             </div>
+        </div>
 
-            <?php
-            $initiatives = new WP_Query( array(
-            	'post_type' => 'initiative',
-            ) );
-            if ( $initiatives -> have_posts() ) :
-            	while ( $initiatives -> have_posts() ) :
-            		$initiatives -> the_post(); ?>
+        <?php
+        $initiatives = new WP_Query( array(
+        	'post_type' => 'initiative',
+        ) );
+        if ( $initiatives -> have_posts() ) :
+        	while ( $initiatives -> have_posts() ) :
+        		$initiatives -> the_post();
+                if ($initiatives->current_post % 2 == 0 && $initiatives->current_post < $initiatives->post_count): ?>
+
+                    <div class="row">
             		
-            		<?php get_template_part( 'template-parts/content', 'library' ); ?>
+                        <?php get_template_part( 'template-parts/content', 'library' ); ?>
 
-            	<?php endwhile;
-            endif; ?>
 
-        </div><!-- .row -->
+                <?php elseif ($initiatives->current_post % 2 == 1 && $initiatives->current_post == $initiatives->post_count): ?>
+
+                    <div class="row">
+                    
+                        <?php get_template_part( 'template-parts/content', 'library' ); ?>
+
+                    </div>
+
+
+                <?php else: ?>
+
+                        <?php get_template_part( 'template-parts/content', 'library' ); ?>
+
+                    </div>
+
+                <?php endif; ?>
+
+        	<?php endwhile;
+        endif; ?>
+
 	</div><!-- .container -->
 </div><!-- .page-section -->
 
