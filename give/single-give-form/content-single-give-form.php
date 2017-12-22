@@ -4,22 +4,22 @@ do_action( 'give_before_single_form' );
 
 // if ( has_post_thumbnail() ) {
 
-// 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'donate-header' );
-// 	$headerbkgrnd = "url('" . $image[0] . "');";
+//     $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'donate-header' );
+//     $headerbkgrnd = "url('" . $image[0] . "');";
 // } else {
-// 	$headerbkgrnd = '#777;';
+//     $headerbkgrnd = '#777;';
 // }
 
 ?>
 
 <div class="col-sm-12">
 
-	<h1 itemprop="name" class="give-form-title entry-title"><?php the_title(); ?></h1>
+    <h1 itemprop="name" class="give-form-title entry-title"><?php the_title(); ?></h1>
 
 </div>
 <div class="col-sm-6">
-	
-	<?php 
+    
+    <?php 
     // Post Thumbnail
     if ( has_post_thumbnail() &&  'Video' !== get_field( 'content_type' ) ) : ?>
     
@@ -32,22 +32,22 @@ do_action( 'give_before_single_form' );
 </div>
 <div class="col-sm-6">
 
-	<?php the_excerpt(); ?>
+    <?php the_excerpt(); ?>
 
 </div>
 <div class="col-sm-12"><hr></div>
 <div id="give-form-<?php the_ID(); ?>-content" class="give-form col-sm-12">
 
-	<div class="<?php echo apply_filters( 'give_forms_single_summary_classes', 'summary entry-summary' ); ?>">
+    <div class="<?php echo apply_filters( 'give_forms_single_summary_classes', 'summary entry-summary' ); ?>">
 
 
-		<?php give_get_donation_form( $args = array() ); ?>
+        <?php give_get_donation_form( $args = array() ); ?>
 
-	</div>
+    </div>
 
-	<!-- .summary -->
+    <!-- .summary -->
 
-	<?php	do_action( 'give_after_single_form_summary' );	?>
+    <?php    do_action( 'give_after_single_form_summary' );    ?>
 
 </div><!-- #give-form-<?php the_ID(); ?> -->
 

@@ -13,68 +13,68 @@ get_header(); ?>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-            	<header>
-					<h1 class="page-title"><?php
-						/* translators: %s: search query. */
-						printf( esc_html__( 'Search Results for: %s', 'c2st-2017' ), '<span>' . get_search_query() . '</span>' );
-					?></h1>
-				</header><!-- .page-header -->
-			</div>
+                <header>
+                    <h1 class="page-title"><?php
+                        /* translators: %s: search query. */
+                        printf( esc_html__( 'Search Results for: %s', 'c2st-2017' ), '<span>' . get_search_query() . '</span>' );
+                    ?></h1>
+                </header><!-- .page-header -->
+            </div>
 
-			<div class="col-sm-12"><hr></div>
-		</div><!-- .row -->
+            <div class="col-sm-12"><hr></div>
+        </div><!-- .row -->
 
-		<main id="main" class="site-main" role="main">
+        <main id="main" class="site-main" role="main">
 
-			<?php
-			if ( have_posts() ) : ?>
+            <?php
+            if ( have_posts() ) : ?>
 
-				<?php
-				/* Start the Loop */
-				while ( have_posts() ) : the_post(); ?>
+                <?php
+                /* Start the Loop */
+                while ( have_posts() ) : the_post(); ?>
 
-					<?php if ($wp_query->current_post % 2 == 0): ?>
+                    <?php if ($wp_query->current_post % 2 == 0): ?>
 
-			            <div class="row">
+                        <div class="row">
 
-							<?php get_template_part( 'template-parts/content', 'library' ); ?>
+                            <?php get_template_part( 'template-parts/content', 'library' ); ?>
 
-    				<?php else: ?>
+                    <?php else: ?>
 
-							<?php get_template_part( 'template-parts/content', 'library' ); ?>
+                            <?php get_template_part( 'template-parts/content', 'library' ); ?>
 
-						</div>
-					
-    				<?php endif; ?>
+                        </div>
+                    
+                    <?php endif; ?>
 
-				<?php endwhile; ?>
+                <?php endwhile; ?>
 
-				<div class="col-sm-12">
+                <div class="col-sm-12">
 
-					<?php the_posts_pagination( array(
-					    'mid_size'  => 2,
-					    'prev_text' => __( 'Newer', 'textdomain' ),
-					    'next_text' => __( 'Older', 'textdomain' ),
-					) ); ?>
+                    <?php the_posts_pagination( array(
+                        'mid_size'  => 2,
+                        'prev_text' => __( 'Newer', 'textdomain' ),
+                        'next_text' => __( 'Older', 'textdomain' ),
+                    ) ); ?>
 
-				</div>
+                </div>
 
-			<?php 
-			else : ?>
+            <?php 
+            else : ?>
 
-		        <div class="row">
-					<div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
 
-						<?php get_template_part( 'template-parts/content', 'none' ); ?>
+                        <?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-					</div>
-				</div>
+                    </div>
+                </div>
 
-			<?php 
-			endif; ?>
+            <?php 
+            endif; ?>
 
-		</main><!-- #main -->
-	</div><!-- .container -->
+        </main><!-- #main -->
+    </div><!-- .container -->
 </div><!-- .page-section -->
 
 <?php

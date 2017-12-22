@@ -9,7 +9,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+    exit; // Exit if accessed directly.
 }
 
 get_header();
@@ -25,7 +25,7 @@ do_action( 'give_before_main_content' );
 
 while ( have_posts() ) : the_post();
 
-	give_get_template_part( 'single-give-form/content', 'single-give-form' );
+    give_get_template_part( 'single-give-form/content', 'single-give-form' );
 
 endwhile; // end of the loop.
 

@@ -44,53 +44,53 @@
 <!-- End FB Share Buttons Script -->
 
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'c2st-2017' ); ?></a>
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'c2st-2017' ); ?></a>
 
-	<nav id="site-navigation" class="main-navigation" role="navigation">
-		<a class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" role="button">
-			<span class="glyphicon glyphicon-chevron-down"></span>
-			<?php esc_html_e( 'Navigation', 'c2st-2017' ); ?>
-		</a>
-		<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-				'depth'			 => '1'
-			) );
-		?>
-	</nav><!-- #site-navigation -->
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+        <a class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" role="button">
+            <span class="glyphicon glyphicon-chevron-down"></span>
+            <?php esc_html_e( 'Navigation', 'c2st-2017' ); ?>
+        </a>
+        <?php
+            wp_nav_menu( array(
+                'theme_location' => 'menu-1',
+                'menu_id'        => 'primary-menu',
+                'depth'             => '1'
+            ) );
+        ?>
+    </nav><!-- #site-navigation -->
 
-	<header id="masthead" class="site-header<?php if ( is_front_page() ) { echo ' home-page'; } ?>" role="banner" <?php 
-	$header_image_url = get_header_image();
-	// echo 'style="' . 'background-image: url(' . esc_url( home_url( '/' ) ) /*$header_image_url*/ . 'img/c2st-10-year-banner.jpg' . ');"' ;
-	echo 'style="' . 'background-image: url(' . get_template_directory_uri() . '/img/c2st-10-year-banner.jpg' . ');"' ; ?>
-	 data-type="background" data-speed="10">
-	 	<div class="banner-dimmer"></div>
-		<div class="site-branding">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<div id="site-logo">
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>
-						</div>
-						<?php
-						// if ( is_front_page() ) : ?>
-							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-						<?php 
-						// else : ?>
-							<!-- <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p> -->
-						<?php
-						// endif;
+    <header id="masthead" class="site-header<?php if ( is_front_page() ) { echo ' home-page'; } ?>" role="banner" <?php 
+    $header_image_url = get_header_image();
+    // echo 'style="' . 'background-image: url(' . esc_url( home_url( '/' ) ) /*$header_image_url*/ . 'img/c2st-10-year-banner.jpg' . ');"' ;
+    echo 'style="' . 'background-image: url(' . get_template_directory_uri() . '/img/c2st-10-year-banner.jpg' . ');"' ; ?>
+     data-type="background" data-speed="10">
+         <div class="banner-dimmer"></div>
+        <div class="site-branding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="site-logo">
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>
+                        </div>
+                        <?php
+                        // if ( is_front_page() ) : ?>
+                            <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                        <?php 
+                        // else : ?>
+                            <!-- <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p> -->
+                        <?php
+                        // endif;
 
-						$description = get_bloginfo( 'description', 'display' );
-						if ( $description || is_customize_preview() ) : ?>
-							<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-						<?php
-						endif; ?>
-					</div>
-				</div><!-- .row -->
-			</div><!-- .container -->
-		</div><!-- .site-branding -->
-	</header><!-- #masthead -->
+                        $description = get_bloginfo( 'description', 'display' );
+                        if ( $description || is_customize_preview() ) : ?>
+                            <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+                        <?php
+                        endif; ?>
+                    </div>
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- .site-branding -->
+    </header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+    <div id="content" class="site-content">

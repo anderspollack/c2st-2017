@@ -15,15 +15,15 @@ get_header(); ?>
 
         <?php
         $initiatives = new WP_Query( array(
-        	'post_type' => 'initiative',
+            'post_type' => 'initiative',
         ) );
         if ( $initiatives -> have_posts() ) :
-        	while ( $initiatives -> have_posts() ) :
-        		$initiatives -> the_post();
+            while ( $initiatives -> have_posts() ) :
+                $initiatives -> the_post();
                 if ($initiatives->current_post % 2 == 0 && $initiatives->current_post < $initiatives->post_count): ?>
 
                     <div class="row">
-            		
+                    
                         <?php get_template_part( 'template-parts/content', 'library' ); ?>
 
 
@@ -44,10 +44,10 @@ get_header(); ?>
 
                 <?php endif; ?>
 
-        	<?php endwhile;
+            <?php endwhile;
         endif; ?>
 
-	</div><!-- .container -->
+    </div><!-- .container -->
 </div><!-- .page-section -->
 
 <?php get_footer(); ?>
