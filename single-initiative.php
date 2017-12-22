@@ -33,36 +33,40 @@ get_header(); ?>
                     ?>
 
                 </div><!-- .row -->
-                <div class="row">
+                
+                <?php
+                $counter = 0;
+                // check if the repeater field has rows of data
+                if( have_rows('related_content') ): ?>
+
+                    <div class="row">
                     
-                    <div class="col-sm-12">
-                        <hr>
-                        <h2 class="section-title">Related Content</h3>
-                    </div>
+                        <div class="col-sm-12">
+                            <hr>
+                            <h2 class="section-title">Related Content</h3>
+                        </div>
+
+                    </div><!-- .row -->
+
                     <?php
-                    // check if the repeater field has rows of data
-                    if( have_rows('related_content') ):
+                    // loop through the rows of data
+                    while ( have_rows('related_content') ) : 
+                        the_row();
 
-                        // loop through the rows of data
-                        while ( have_rows('related_content') ) : the_row();
-
-                            // display a sub field value
-                            // the_sub_field('related_post');
+                        if ( $counter % 2 === 0 ) { echo '<div class="row">'; }
                             global $post;
                             $post = get_sub_field('related_post');
                             setup_postdata( get_sub_field('related_post') );
                             get_template_part( 'template-parts/content', 'library' );
                             wp_reset_postdata();
+                        if ( $counter % 2 === 1 ) { echo '</div><!-- .row -->'; }
 
-                        endwhile;
+                        $counter++;
 
-                    else :
+                    endwhile;
+                    if ( $counter % 2 === 0 ) { echo '</div><!-- .row -->'; }
+                endif; ?>
 
-                        // no rows found
-
-                    endif; ?>
-
-                </div>
             </div><!-- .container -->
         </main><!-- #main -->
     </div><!-- #primary -->
