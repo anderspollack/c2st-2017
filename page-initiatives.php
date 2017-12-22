@@ -24,21 +24,21 @@ get_header(); ?>
 
                     <div class="row">
                     
-                        <?php get_template_part( 'template-parts/content', 'library' ); ?>
+                        <?php get_template_part( 'template-parts/content', 'initiative' ); ?>
 
 
                 <?php elseif ($initiatives->current_post % 2 == 1 && $initiatives->current_post == $initiatives->post_count): ?>
 
                     <div class="row">
                     
-                        <?php get_template_part( 'template-parts/content', 'library' ); ?>
+                        <?php get_template_part( 'template-parts/content', 'initiative' ); ?>
 
                     </div>
 
 
                 <?php else: ?>
 
-                        <?php get_template_part( 'template-parts/content', 'library' ); ?>
+                        <?php get_template_part( 'template-parts/content', 'initiative' ); ?>
 
                     </div>
 

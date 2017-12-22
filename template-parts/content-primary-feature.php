@@ -1,32 +1,34 @@
 <?php 
-if ( get_post_type() === 'event' ) {
+if ( 'post' === get_post_type() ) {
+    $terms = get_the_terms($post, 'content_type');
+    foreach ($terms as $term) {
+       $content_type = $term; 
+    }
+    if ('blog-post' === $content_type->slug) { $featured_glyphicon = 'glyphicon-text-background'; } 
+    else if ('video' === $content_type->slug) { $featured_glyphicon = 'glyphicon-film'; }
+    else if ('press-release' === $content_type->slug) { $featured_glyphicon = 'glyphicon-file'; }
+    else if ('c2st-in-the-news' === $content_type->slug) { $featured_glyphicon = 'glyphicon-paperclip'; }
+    else { $featured_glyphicon = 'glyphicon-star'; }
+    $featured_item_type = $content_type->name;
+} else if ( 'event' === get_post_type() ) {
     $featured_glyphicon = 'glyphicon-fire';
-    $featured_item_type = get_post_type_object( get_post_type() );
-    $featured_item_type = $featured_item_type -> labels -> singular_name;
-} else if ( get_field( 'content_type' ) === 'Blog Post' ) {
-    $featured_glyphicon = 'glyphicon-text-background';
-    $featured_item_type = get_field( 'content_type' );
-} else if ( get_field( 'content_type' ) === 'Video' ) {
-    $featured_glyphicon = 'glyphicon-film';
-    $featured_item_type = get_field( 'content_type' );
-} else if ( get_post_type() === 'give_forms' ) {
-    $featured_glyphicon = 'glyphicon-gift';
-    $featured_item_type = 'Donation Initiative';
-} else {
+    $featured_item_type = get_post_type_object( get_post_type() ) -> labels -> singular_name;
+} else if ( 'initiative' === get_post_type() ) {
     $featured_glyphicon = 'glyphicon-bullhorn';
-    $featured_item_type = get_field( 'content_type' );
-} ?>
+    $featured_item_type = get_post_type_object( get_post_type() ) -> labels -> singular_name;
+} else if ( 'give_forms' === get_post_type() ) {
+    $featured_glyphicon = 'glyphicon-bullhorn';
+    $featured_item_type = get_post_type_object( get_post_type() ) -> labels -> singular_name;
+}
+?>
 
 <section class="primary-feature">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <span class="feature-label">
 
-                    <span class="glyphicon <?php echo $featured_glyphicon; ?>"></span>
-                <?php echo 'Featured ' . $featured_item_type; ?>
-                
-                </span><!-- .feature-label -->
+                <?php echo '<span class="feature-label"><span class="glyphicon ' . $featured_glyphicon . '"></span>Featured ' . $featured_item_type . '</span>'; ?>
+
                 <h2 class="content-title">
                     
                     <a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo the_title(); ?></a> 

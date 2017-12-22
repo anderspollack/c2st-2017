@@ -6,25 +6,29 @@
  *
  * @package C2ST_2017
  */
-
+$terms = get_the_terms($post, 'content_type');
+// add label to account for display on single initiative pages
+if ( 'event' === get_post_type() ) :
+    $item_type = get_post_type_object( get_post_type() ) -> labels -> singular_name;
+else :
+    if ($terms) {
+        foreach ($terms as $term) {
+           $content_type = $term;
+        }
+        $item_type = $content_type->name;
+    }
+endif; 
 ?>
 <div class="col-sm-6">
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <header class="entry-header">
         
-            <span class="feature-label">
+            <?php 
+            if ($terms) {
+                echo '<span class="feature-label">' . $item_type . '</span>';
+            }
 
-                <?php 
-                // add label to account for display on single initiative pages
-                if ( 'event' === get_post_type() ) :
-                    echo 'Event';
-                else :
-                    the_field( 'content_type' ); 
-                endif; ?>
-            
-            </span><!-- .feature-label -->
-
-            <?php the_title( '<h3 class="content-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+            the_title( '<h3 class="content-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 
             if ( 'post' === get_post_type() ) : ?>
             <div class="entry-meta">
