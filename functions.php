@@ -209,16 +209,27 @@ function add_datepicker_in_footer() { ?>
 //add an action to call add_datepicker_in_footer function
 add_action('wp_footer','add_datepicker_in_footer',10);
 
-
-// Hook my above function to the pre_get_posts action
-add_action( 'pre_get_posts', 'my_modify_main_query' );
-// My function to modify the main query object
-function my_modify_main_query( $query ) {
-    if ( $query -> is_home() && $query -> is_main_query() ) { // Run only on the homepage
-        // $query->query_vars[‘cat’] = -2; // Exclude my featured category because I display that elsewhere
-        // $query->query_vars['posts_per_page'] = 2; // Show only 5 posts on the homepage only
-        $query->set( "search_filter_id", 2154 );
-    } else if ( $query->is_search ) {
-        $query->set('post_type', array( 'post', 'event', 'initiative', ) );
+// Adds taxonomy filter dropdowns on custom post admin pages
+// https://rudrastyh.com/wordpress/filter-posts-by-terms.html
+function rudr_posts_taxonomy_filter() {
+    global $typenow; // this variable stores the current custom post type
+    if( $typenow == 'event' ){ // choose one or more post types to apply taxonomy filter for them if( in_array( $typenow  array('post','games') )
+        $taxonomy_names = array('program_series', 'event_types');
+        foreach ($taxonomy_names as $single_taxonomy) {
+            $current_taxonomy = isset( $_GET[$single_taxonomy] ) ? $_GET[$single_taxonomy] : '';
+            $taxonomy_object = get_taxonomy( $single_taxonomy );
+            $taxonomy_name = strtolower( $taxonomy_object->labels->name );
+            $taxonomy_terms = get_terms( $single_taxonomy );
+            if(count($taxonomy_terms) > 0) {
+                echo "<select name='$single_taxonomy' id='$single_taxonomy' class='postform'>";
+                echo "<option value=''>All $taxonomy_name</option>";
+                foreach ($taxonomy_terms as $single_term) {
+                    echo '<option value='. $single_term->slug, $current_taxonomy == $single_term->slug ? ' selected="selected"' : '','>' . $single_term->name .' (' . $single_term->count .')</option>'; 
+                }
+                echo "</select>";
+            }
+        }
     }
 }
+ 
+add_action( 'restrict_manage_posts', 'rudr_posts_taxonomy_filter' );
