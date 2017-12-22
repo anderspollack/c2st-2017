@@ -54,8 +54,10 @@ get_header(); ?>
                         the_row();
 
                         if ( $counter % 2 === 0 ) { echo '<div class="row">'; }
-                            global $post;
-                            $post = get_sub_field('related_post');
+                            if ( get_sub_field('related_post') ) { 
+                                global $post;
+                                $post = get_sub_field('related_post');
+                            }
                             setup_postdata( get_sub_field('related_post') );
                             get_template_part( 'template-parts/content', 'library' );
                             wp_reset_postdata();
