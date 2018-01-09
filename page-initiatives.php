@@ -11,6 +11,17 @@ get_header(); ?>
                     <h1 class="page-title">C2ST Initiatives</h1>
                 </header><!-- .entry-header -->
             </div>
+
+            <?php while ( have_posts() ) : the_post(); ?>
+
+                <div class="col-lg-12">
+
+                    <?php the_content(); ?>
+
+                </div>
+
+            <?php endwhile; ?>
+            
         </div>
 
         <?php

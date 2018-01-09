@@ -33,6 +33,11 @@ if ( $primary_featured_post ) : ?>
                     <h1 class="page-title"><?php the_title(); ?></h1>
                 </header><!-- .entry-header -->
             </div>
+            <div class="col-lg-12">
+
+                <?php the_content(); ?>
+
+            </div>
             <div class="col-lg-12 filter">
                 <h3 class="section-subtitle filter-label">Filter Events</h3>
 

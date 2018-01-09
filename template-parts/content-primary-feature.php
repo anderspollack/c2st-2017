@@ -18,7 +18,8 @@ if ( 'post' === get_post_type() ) {
     $featured_item_type = get_post_type_object( get_post_type() ) -> labels -> singular_name;
 } else if ( 'give_forms' === get_post_type() ) {
     $featured_glyphicon = 'glyphicon-bullhorn';
-    $featured_item_type = get_post_type_object( get_post_type() ) -> labels -> singular_name;
+    // $featured_item_type = get_post_type_object( get_post_type() ) -> labels -> singular_name;
+    $featured_item_type = 'Donation Initiative';
 }
 ?>
 

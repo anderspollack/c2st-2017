@@ -48,6 +48,11 @@ if ( $primary_featured_post ) : ?>
                     <h1 class="page-title"><?php single_post_title(); ?></h1>
                 </header><!-- .entry-header -->
             </div>
+            <div class="col-lg-12">
+                <!-- <p>This is the repository for all things C2ST. You can learn with videos of our past events, read commentaries on our blog, check out C2ST in the news, and more! Use the Filter Media options below to browse C2ST’s content and discover something new!</p> -->
+                <?php the_field( 'intro_content', get_option('page_for_posts') ); ?>
+
+            </div>
             <div class="col-sm-12 filter">
                 <h3 class="section-subtitle filter-label">Filter Media</h3>
 

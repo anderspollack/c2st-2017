@@ -9,8 +9,9 @@ get_header(); ?>
 /* 
 Support Page Primary Features
 */
+$featured_post_toggle = get_field( 'featured_post_toggle' );
 $primary_featured_post = get_field( 'primary_featured_post' );
-if ( $primary_featured_post ) : ?>
+if ( $featured_post_toggle && $primary_featured_post ) : ?>
 
     <?php
     global $post;
@@ -42,12 +43,12 @@ while ( have_posts() ) : the_post(); ?>
                     <div class="row">
                         <div class="col-sm-6">
 
-    <?php the_content(); ?>
+                            <?php the_content(); ?>
 
                         </div>
                         <div class="col-sm-6">
 
-    <?php the_field( 'second_column' ); ?>
+                            <?php the_field( 'second_column' ); ?>
 
                         </div>
                     </div><!-- .row -->
