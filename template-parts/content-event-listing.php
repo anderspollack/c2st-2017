@@ -9,11 +9,15 @@
     <div class="row">
         <div class="col-sm-4 col-md-4 col-lg-4">
 
-<?php if ( has_post_thumbnail() ): ?>
+            <?php if ( has_post_thumbnail() ): ?>
 
-            <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
+                <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
 
-<?php endif; ?>
+            <?php else: ?>
+
+                <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image"></a>
+
+            <?php endif; ?>
             
         </div>
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
