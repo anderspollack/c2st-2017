@@ -75,6 +75,7 @@ if ( $primary_featured_post ) : ?>
         <div class="page-section">
             <div class="container">
                 <div class="row">
+                    <div class="col-sm-12"><hr></div>
                     <div class="col-sm-12">
                         <h2 class="section-title" id="board-of-directors">Board of Directors</h2>
                     </div>

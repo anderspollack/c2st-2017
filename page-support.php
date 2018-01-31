@@ -58,6 +58,7 @@ while ( have_posts() ) : the_post(); ?>
         <div class="page-section">
             <div class="container">
                 <div class="row">
+                    <div class="col-sm-12"><hr></div>
                     <div class="col-sm-12">
                         <h2 class="section-title" id="donate">Donate</h2>
                     </div>
@@ -65,11 +66,13 @@ while ( have_posts() ) : the_post(); ?>
                 <div class="row">
                     <div class="col-sm-6">
 
-    <?php the_field( 'donate_section' ); ?>
+                        <?php echo do_shortcode('[give_form id="10146"]'); ?>
 
-                        <p>
-                            <a href="/give-now/" class="btn btn-primary">Give now</a>
-                        </p>
+                    </div>
+                    <div class="col-sm-6">
+
+                        <?php the_field( 'donate_section' ); ?>
+
                     </div>
                 </div>
 
