@@ -64,6 +64,19 @@ if ( $primary_featured_post ) : ?>
         <div class="row"><div class="col-sm-12"><hr></div></div>
 
         <main id="main" class="site-main main-index" role="main">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <?php the_posts_pagination( array(
+                        'mid_size'  => 2,
+                        'prev_text' => __( 'Newer', 'textdomain' ),
+                        'next_text' => __( 'Older', 'textdomain' ),
+                    ) ); ?>
+
+                </div>
+                <div class="col-sm-12"><hr></div>
+            </div><!-- .row -->
+
 
                 <?php
                 while ( have_posts() ) : 
@@ -92,7 +105,9 @@ if ( $primary_featured_post ) : ?>
                     <?php endif; ?>
 
                 <?php endwhile; ?>
-
+                
+            <div class="row">
+                <div class="col-sm-12"><hr></div>
                 <div class="col-sm-12">
 
                     <?php the_posts_pagination( array(

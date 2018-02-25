@@ -551,9 +551,9 @@ div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all,
 }
 
 /* <main>  */
-.main-index {
+/*.main-index {
     margin-top: 30px;
-}
+}*/
 
 .section-title,
 h2 {
@@ -1035,6 +1035,7 @@ article.hentry,
 
 .nav-links {
     text-align: center;
+    margin-bottom: -1em;
 }
 
 span.page-numbers.current {
@@ -1043,7 +1044,8 @@ span.page-numbers.current {
 }
 
 .page-numbers {
-    margin: 0 4px;
+    margin: 0 4px 1em 4px;
+    display: inline-block;
 }
 
 a.page-numbers, 
@@ -1190,6 +1192,7 @@ a.content-subheading.indent::before {
 #partnership img {
     display: block;
     margin: 30px auto;
+    max-height: 150px;
 }
 
 .img-thumbnail {
@@ -1200,13 +1203,17 @@ a.content-subheading.indent::before {
     max-width: 75%
 }
 
+.guest-bio {
+    margin-top: 15px;
+}
+
 #partnership p {
     font-size: 18px;
     text-align: center;
     margin: 30px 0;
 }
 
-#partnership hr {
+.divider hr {
     margin: 60px 0;
 }
 

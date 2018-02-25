@@ -103,39 +103,45 @@ $upcoming_events = get_posts( array(
 
 ) ); ?>
 
-<?php 
-if ( $upcoming_events ) : ?>
+
     
     <div id="upcoming-events" class="page-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="section-title">Upcoming Events</h1>
-                </div>
-            </div>
+                <div class="col-sm-12"><hr></div>
+            </div><!-- .row -->
 
-            <?php
-            foreach ( $upcoming_events as $post ) : 
-                setup_postdata( $post );
-                $event_ID = get_the_id();
-                if ( 
-                    $event_ID !== $primary_featured_post && 
-                    $event_ID !== $secondary_featured_post_1 && 
-                    $event_ID !== $secondary_featured_post_2 ) : 
-                    get_template_part( 'template-parts/content', 'event-listing' );
-                endif;
-            endforeach;
-            wp_reset_postdata(); ?>
+            <?php 
+            if ( $upcoming_events ) : ?>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="section-title">Upcoming Events</h1>
+                    </div>
+                </div><!-- .row -->
+
+                <?php
+                foreach ( $upcoming_events as $post ) : 
+                    setup_postdata( $post );
+                    $event_ID = get_the_id();
+                    if ( 
+                        $event_ID !== $primary_featured_post && 
+                        $event_ID !== $secondary_featured_post_1 && 
+                        $event_ID !== $secondary_featured_post_2 ) : 
+                        get_template_part( 'template-parts/content', 'event-listing' );
+                    endif;
+                endforeach;
+                wp_reset_postdata(); ?>
+
+            <?php endif; ?>
 
             <div class="row see-all-events">
                 <div class="col-lg-2 col-lg-offset-5">
-                    <a href="http://c2st.dev/events/" id="see-all-events" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span>See All Events</a>
+                    <a href="<?php echo get_site_url(); ?>/events/" id="see-all-events" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span>See All Events</a>
                 </div>
-            </div>
-        </div>
-    </div>
-
-<?php endif; ?>
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .page-section -->
 
         <!-- <div class="row see-all-events">
             <div class="col-lg-2 col-lg-offset-5">

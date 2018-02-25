@@ -52,7 +52,7 @@ if ( $primary_featured_post ) : ?>
                 <h1 class="section-title">Upcoming Events</h1>
             </div>
         </div> -->
-        <main id="main" class="site-main main-index" role="main">
+        
 
             <?php
             $today = date('Ymd');
@@ -128,40 +128,59 @@ if ( $primary_featured_post ) : ?>
                 'orderby' => 'meta_value',
                 'search_filter_id' => '2131',
                 // 'order' => 'ASC',
-            ) );
+            ) ); ?>
 
+            <?php 
             if ( $wp_query -> have_posts() ) : ?>
 
-                <!-- <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="section-title">Past Events</h1>
-                    </div>
-                </div>--><!-- .row -->
+                <main id="main" class="site-main main-index" role="main">
+                    <div class="row">
+                        <div class="col-sm-12">
 
-                <?php 
-                while ( $wp_query -> have_posts() ) :
-                    $wp_query -> the_post();
-                    $event_ID = get_the_id(); ?>
+                            <?php 
+                            the_posts_pagination( array(
+                                'mid_size'  => 2,
+                                'prev_text' => __( 'Newer', 'textdomain' ),
+                                'next_text' => __( 'Older', 'textdomain' ),
+                            ) );
+                            ?>
 
-                    <?php if ( $event_ID !== $primary_featured_post ) : ?>
-                
-                        <?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
+                        </div><!-- .col -->
+                        <div class="col-sm-12"><hr></div>
+                    </div><!-- .row -->
 
-                    <?php endif; ?>
+                    <?php 
+                    while ( $wp_query -> have_posts() ) :
+                        $wp_query -> the_post();
+                        $event_ID = get_the_id(); ?>
 
-                <?php endwhile; ?>
+                        <?php if ( $event_ID !== $primary_featured_post ) : ?>
+                    
+                            <?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
 
-                <?php 
-                the_posts_pagination( array(
-                    'mid_size'  => 2,
-                    'prev_text' => __( 'Newer', 'textdomain' ),
-                    'next_text' => __( 'Older', 'textdomain' ),
-                ) ); ?>
+                        <?php endif; ?>
+
+                    <?php endwhile; ?>
+
+                    <div class="row">
+                        <div class="col-sm-12"><hr></div>
+                        <div class="col-sm-12">
+
+                            <?php 
+                            the_posts_pagination( array(
+                                'mid_size'  => 2,
+                                'prev_text' => __( 'Newer', 'textdomain' ),
+                                'next_text' => __( 'Older', 'textdomain' ),
+                            ) );
+                            ?>
+
+                        </div><!-- .col -->
+                    </div><!-- .row -->
+                </main><!-- .site-main -->
 
             <?php 
             endif; ?>
 
-        </main><!-- .site-main -->
     </div><!-- .container -->
 </div><!-- .page-section -->
 

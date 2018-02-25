@@ -110,15 +110,24 @@
         <div id="featured-guests" class="page-section">
             <div class="container">
                 <div class="row">
+                    <div class="col-sm-12"><hr></div>
                     <div class="col-sm-12">
                         <h2 class="section-title"><?php the_field('featured_guests_label'); ?></h2>
                     </div>
+                </div><!-- .row -->
                     
                     <?php 
                     // loop through the rows of data
-                    while ( have_rows('featured_guests') ) : the_row(); ?>
+                    $guest_counter = 0;
+                    while ( have_rows('featured_guests') ) : the_row();
+                        $guest_counter ++;
+                        if ( get_row_index() % 2 === 1 ) : ?>
 
-                        <div class="col-sm-6">
+                            <div class="row">
+
+                        <?php endif; ?>
+
+                        <div class="col-sm-6 guest-bio">
                             <h3 class="section-subtitle"><?php the_sub_field('name'); ?></h3>
 
                             <img src="<?php the_sub_field('photo'); ?>" align="left">
@@ -129,7 +138,18 @@
 
                         </div>
 
-                    <?php endwhile; ?>
+                        <?php if ( get_row_index() % 2 === 0 ) : ?>
+
+                            </div><!-- .row -->
+
+                        <?php endif; ?>
+
+                    <?php endwhile;
+                    if ( $guest_counter % 2 === 1) : ?>
+
+                        </div><!-- .row -->
+
+                    <?php endif;?>
 
                 </div>
             </div><!-- .container -->
@@ -145,22 +165,32 @@
         <div id="partnership" class="page-section">
             <div class="container">
                 <div class="row">
+                    <div class="col-sm-12"><hr></div>
                     <div class="col-sm-12">
                         <h2 class="section-title"><?php echo $partnership_section_label; ?></h2>
                     </div>
+                </div><!-- .row -->
                     
                     <?php 
                     // loop through the rows of data
-                    while ( have_rows('partnership') ) : the_row();
-                        // $partner_group_label = get_field('partner_group_label'); ?>
+                    $partner_counter = 0;
+                    while ( have_rows('partnership') ) : the_row(); ?>
 
-                        <div class="col-sm-12">
-                            <h3 class="section-subtitle"><?php the_sub_field( 'partner_group_label' ); ?></h3>
-                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3 class="section-subtitle"><?php the_sub_field( 'partner_group_label' ); ?></h3>
+                            </div>
+                        </div><!-- .row -->
 
                         <?php 
                         if( have_rows('partners') ): 
-                            while ( have_rows('partners') ) : the_row(); ?>
+                            while ( have_rows('partners') ) : the_row();
+                            $partner_counter ++;
+                            if ( get_row_index() % 2 === 1 ) : ?>
+
+                                <div class="row">
+
+                            <?php endif;  ?>
 
                                 <div class="col-sm-6">
 
@@ -177,11 +207,24 @@
 
                                 </div>
 
+                                <?php 
+                                if ( get_row_index() % 2 === 0 ) : ?>
+
+                                    </div><!-- .row -->
+
+                                <?php endif; ?>
+
                             <?php 
                             endwhile;
+                            if ( $partner_counter % 2 === 1) : ?>
+
+                                </div><!-- .row -->
+
+                            <?php 
+                            endif;
                         endif; ?>
 
-                        <div class="col-sm-12"><hr></div>
+                        <div class="col-sm-12 divider"><hr></div>
 
                     <?php endwhile; ?>
 
