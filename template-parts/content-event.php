@@ -132,7 +132,11 @@
                         <div class="col-sm-6 guest-bio">
                             <h3 class="section-subtitle"><?php the_sub_field('name'); ?></h3>
 
-                            <img src="<?php the_sub_field('photo'); ?>" align="left">
+                            <?php if ( get_sub_field('photo') ) :?>
+
+                                <img src="<?php the_sub_field('photo'); ?>" align="left">
+
+                            <?php endif; ?>
 
                             <?php the_sub_field('bio'); ?>
 

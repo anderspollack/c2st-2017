@@ -20,7 +20,7 @@
             <?php else: ?>
 
                 <a href="<?php echo esc_url( get_permalink() ); ?>" class="event-image">
-                    <img src="<?php echo esc_url( wp_get_attachment_url( 10270 ) ); ?>" height="100%">
+                    <img src="<?php echo esc_url( wp_get_attachment_url( 10286 ) ); ?>" height="100%">
                 </a>
 
             <?php endif; ?>
