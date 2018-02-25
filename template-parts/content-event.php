@@ -32,7 +32,9 @@
                 <div class="row">
                     <?php if ( has_post_thumbnail() ): ?>
                         <div class="col-sm-6">
-                          <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
+                            <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image-single">
+                                <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
+                            </a>
                         </div>
                     <?php endif; ?>
                     <div class="col-sm-6">

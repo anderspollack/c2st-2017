@@ -13,8 +13,9 @@ get_header(); ?>
 /* 
 Events Page Primary Features
 */
+$featured_post_toggle = get_field( 'featured_post_toggle' );
 $primary_featured_post = get_field( 'primary_featured_post' );
-if ( $primary_featured_post ) : ?>
+if ( $featured_post_toggle && $primary_featured_post) : ?>
 
     <?php
     global $post;

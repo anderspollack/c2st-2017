@@ -22,6 +22,7 @@ get_header(); ?>
 
             <?php endwhile; ?>
             
+            <div class="col-sm-12"><hr></div>
         </div>
 
         <?php

@@ -24,8 +24,9 @@ get_header(); ?>
 /* 
 Library Page Primary Features
 */
+$featured_post_toggle = get_field( 'featured_post_toggle', get_option('page_for_posts') );
 $primary_featured_post = get_field( 'primary_featured_post', get_option('page_for_posts') );
-if ( $primary_featured_post ) : ?>
+if ( $primary_featured_post && $featured_post_toggle ) : ?>
 
     <!-- <div id="featured-section" class="page-section featured-section"> -->
 
@@ -105,7 +106,7 @@ if ( $primary_featured_post ) : ?>
                     <?php endif; ?>
 
                 <?php endwhile; ?>
-                
+
             <div class="row">
                 <div class="col-sm-12"><hr></div>
                 <div class="col-sm-12">

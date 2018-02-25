@@ -44,8 +44,7 @@ if ( 'post' === get_post_type() ) {
                 // Post Thumbnail
                 if ( has_post_thumbnail() &&  'Video' !== get_field( 'content_type' ) ) : ?>
                 
-                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
-                    style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');"></a>
+                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() ); ?>);"></a>
 
                 <?php 
                 // Embedded Video Player

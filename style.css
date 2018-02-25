@@ -561,16 +561,60 @@ h2 {
     line-height: 30px;
 }
 
-.content-image {
-    display: block;
+.content-image, .event-image, .featured-event-image, .event-image-single {
+    display: inline-block;
     width: 100%;
-    /* padding-bottom is to keep a fixed aspect ratio on a div. see here: https://stackoverflow.com/questions/1495407/maintain-the-aspect-ratio-of-a-div-with-css#10441480 */
-    padding-bottom: 56.25%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     margin-bottom: 30px;
     background-color: #e1e1e1;
+}
+
+.content-image {
+    /* padding-bottom is to keep a fixed aspect ratio on a div. see here: https://stackoverflow.com/questions/1495407/maintain-the-aspect-ratio-of-a-div-with-css#10441480 */
+    padding-bottom: 56.25%;
+}
+
+.event-image, .event-image-single {
+    overflow: hidden;
+    border: 2px solid #f6f6f6;
+}
+.event-image:hover, .event-image-single:hover {
+    border-color: #898989;
+}
+
+.event-image img {
+    max-height: 184px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.event-image-single img {
+    max-height: 300px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.event-image:hover img {
+    border-color: #898989;
+}
+
+.featured-event-image {
+    width: 100%;
+}
+
+.featured-event-image img {
+    max-height: 350px;
+    max-width: 525px;
+    display: block;
+    border: 2px solid #898989;
+}
+
+.featured-event-image img:hover {
+    border-color: #252525;
 }
 
 .content-subheading,
@@ -595,7 +639,8 @@ h3 {
 }
 
 h3 {
-    margin-top: 40px;
+    /*margin-top: 40px;*/
+    margin-top: 0;
 }
 
 p {
@@ -838,12 +883,17 @@ article.hentry,
 }
 
 .primary-feature .container {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 15px;
     margin-top: -60px;
     -webkit-box-shadow: 0px 5px 10px 0px rgba(137,137,137,0.6);
     -moz-box-shadow: 0px 5px 10px 0px rgba(137,137,137,0.6);
     box-shadow: 0px 5px 10px 0px rgba(137,137,137,0.6);
+}
+
+.primary-feature .container .row:first-child {
+    float: left;
+    width: 100%;
+    margin-top: -30px;
 }
 
 .primary-feature .content-image,
@@ -1160,7 +1210,7 @@ a.content-subheading.indent::before {
 }
 
 .event-listing {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 /*--------------------------------------------------------------
@@ -1424,6 +1474,10 @@ embed,
 iframe,
 object {
     max-width: 100%;
+}
+
+.event-listing iframe {
+    max-height: 200px;
 }
 
 /*--------------------------------------------------------------
