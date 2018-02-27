@@ -1038,7 +1038,7 @@ article.hentry,
 }
 
 .entry-title {
-    /* font-family:  */
+    line-height: 1.2em;
 }
 
 .sticky {
