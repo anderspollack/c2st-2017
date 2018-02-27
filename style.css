@@ -1037,6 +1037,10 @@ article.hentry,
     color: #252525;
 }
 
+.content-title a:focus {
+    text-decoration: none;
+}
+
 .entry-title {
     line-height: 1.2em;
 }
