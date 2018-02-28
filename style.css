@@ -1223,8 +1223,9 @@ a.content-subheading.indent::before {
 
 #featured-guests img,
 .c2st-staff img {
-    width: 33%;
+    max-width: 33%;
     margin: 0 15px 10px 0;
+    max-height: 150px;
 }
 
 .c2st-staff h3 {
