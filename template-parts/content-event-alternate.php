@@ -68,7 +68,7 @@
             </header><!-- .entry-header -->
             <div class="entry-content">
                 <div class="row">
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-sm-6">
                         <?php
                             the_content( sprintf(
                                 wp_kses(
@@ -89,15 +89,11 @@
                             ) );
                         ?>
                     </div>
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-sm-6">
 
                         <?php if ( get_field( 'event_details' ) ) : ?>
 
-                            <?php if ( get_field( 'event_details_label' ) ) : ?>
-
-                                <h3><?php the_field( 'event_details_label' ); ?></h3>
-
-                            <?php endif; ?>                            
+                            <h3><?php the_field( 'event_details_label' ); ?></h3>
 
                             <?php the_field( 'event_details' ); ?>
 
@@ -111,63 +107,78 @@
 
     <?php
     // check if the repeater field has rows of data
-    if( have_rows('featured_guests') ): ?>
+    if( have_rows('featured_guests') || have_rows('partnership') ): ?>
 
         <div id="featured-guests" class="page-section">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12"><hr></div>
-                    <div class="col-sm-12">
-                        <h2 class="section-title"><?php the_field('featured_guests_label'); ?></h2>
-                    </div>
-                </div><!-- .row -->
-                    
-                    <?php 
-                    // loop through the rows of data
-                    $guest_counter = 0;
-                    while ( have_rows('featured_guests') ) : the_row();
-                        $guest_counter ++;
-                        if ( get_row_index() % 2 === 1 ) : ?>
 
-                            <div class="row">
+                    <?php if( have_rows('featured_guests') ): ?>
 
-                        <?php endif; ?>
+                        <div class="col-sm-6">
+                            <h2 class="section-title"><?php the_field('featured_guests_label'); ?></h2>
 
-                        <div class="col-md-6 col-sm-12 guest-bio">
-                            <h3 class="section-subtitle"><?php the_sub_field('name'); ?></h3>
+                            <?php 
+                            while ( have_rows('featured_guests') ) : the_row(); ?>
 
-                            <?php if ( get_sub_field('photo') ) :?>
+                                <h3 class="section-subtitle"><?php the_sub_field('name'); ?></h3>
 
-                                <img src="<?php the_sub_field('photo'); ?>" align="left">
+                                <?php if ( get_sub_field('photo') ) :?>
 
-                            <?php endif; ?>
+                                    <img src="<?php the_sub_field('photo'); ?>" align="left">
 
-                            <?php the_sub_field('bio'); ?>
+                                <?php endif; ?>
 
-                            <a href="mailto:<?php the_sub_field('email_address'); ?>" title="Email C2ST"><?php the_sub_field('email_address'); ?></a>
+                                <?php the_sub_field('bio'); ?>
+
+                                <a href="mailto:<?php the_sub_field('email_address'); ?>" title="Email C2ST"><?php the_sub_field('email_address'); ?></a>
+
+                            <?php endwhile; ?>
 
                         </div>
 
-                        <?php if ( get_row_index() % 2 === 0 ) : ?>
+                    <?php endif;
+                    if( have_rows('partnership') ): ?>
 
-                            </div><!-- .row -->
+                        <div class="col-sm-6">
+                            <h2 class="section-title"><?php the_field('partnership_section_label') ?></h2>
+                            
+                            <?php 
+                            while ( have_rows('partnership') ) : the_row(); ?>
 
-                        <?php endif; ?>
+                                    <h3 class="section-subtitle"><?php the_sub_field( 'partner_group_label' ); ?></h3>
 
-                    <?php endwhile;
-                    if ( $guest_counter % 2 === 1) : ?>
+                                <?php 
+                                if( have_rows('partners') ): 
+                                    while ( have_rows('partners') ) : the_row();
 
-                        </div><!-- .row -->
+                                        if ( get_sub_field('partner_logo') ): ?>
+
+                                            <img src="<?php the_sub_field('partner_logo'); ?>" align="center" class="img-thumbnail">
+
+                                        <?php else : ?>
+
+                                            <p><?php the_sub_field('partner_name'); ?></p>
+
+                                        <?php 
+                                        endif;
+                                    endwhile;
+                                endif;
+                            endwhile; ?>
+
+                        </div>
 
                     <?php endif;?>
 
-                </div>
+                </div><!-- .row -->
             </div><!-- .container -->
         </div><!-- .page-section -->
 
     <?php endif; ?>
 
     <?php
+    $partnership_section_label = get_field('partnership_section_label');
     // check if the repeater field has rows of data
     if( have_rows('partnership') ): ?>
 
@@ -176,68 +187,68 @@
                 <div class="row">
                     <div class="col-sm-12"><hr></div>
                     <div class="col-sm-12">
-                        <h2 class="section-title"><?php the_field('partnership_section_label'); ?></h2>
+                        <h2 class="section-title"><?php echo $partnership_section_label; ?></h2>
                     </div>
                 </div><!-- .row -->
                     
-                <?php 
-                // loop through the rows of data
-                $partner_counter = 0;
-                while ( have_rows('partnership') ) : the_row(); ?>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h3 class="section-subtitle"><?php the_sub_field( 'partner_group_label' ); ?></h3>
-                        </div>
-                    </div><!-- .row -->
-
                     <?php 
-                    if( have_rows('partners') ):
-                        $row_counter = 0; 
-                        while ( have_rows('partners') ) : the_row();
+                    // loop through the rows of data
+                    $partner_counter = 0;
+                    while ( have_rows('partnership') ) : the_row(); ?>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3 class="section-subtitle"><?php the_sub_field( 'partner_group_label' ); ?></h3>
+                            </div>
+                        </div><!-- .row -->
+
+                        <?php 
+                        if( have_rows('partners') ): 
+                            while ( have_rows('partners') ) : the_row();
                             $partner_counter ++;
-                            $row_counter ++;
                             if ( get_row_index() % 2 === 1 ) : ?>
 
                                 <div class="row">
 
                             <?php endif;  ?>
 
-                            <div class="col-sm-6">
+                                <div class="col-sm-6">
 
-                                <?php if ( get_sub_field('partner_logo') ): ?>
+                                    <?php 
+                                    if ( get_sub_field('partner_logo') ): ?>
 
-                                    <img src="<?php the_sub_field('partner_logo'); ?>" align="center" class="img-thumbnail">
+                                        <img src="<?php the_sub_field('partner_logo'); ?>" align="center" class="img-thumbnail">
 
-                                <?php else : ?>
+                                    <?php else : ?>
 
-                                    <p><?php the_sub_field('partner_name'); ?></p>
+                                        <p><?php the_sub_field('partner_name'); ?></p>
 
                                 <?php endif; ?>
 
-                            </div>
+                                </div>
 
-                            <?php if ( get_row_index() % 2 === 0 ) : ?>
+                                <?php 
+                                if ( get_row_index() % 2 === 0 ) : ?>
+
+                                    </div><!-- .row -->
+
+                                <?php endif; ?>
+
+                            <?php 
+                            endwhile;
+                            if ( $partner_counter % 2 === 1) : ?>
 
                                 </div><!-- .row -->
 
-                            <?php endif;
-                        endwhile;
-                        if ( $row_counter % 2 === 1) : ?>
-
-                            </div><!-- .row -->
-
-                        <?php 
+                            <?php 
+                            endif;
                         endif; ?>
 
-                        <div class="row">
-                            <div class="col-sm-12"><hr></div>
-                        </div><!-- .row -->
+                        <div class="col-sm-12 divider"><hr></div>
 
-                    <?php 
-                    endif;
-                endwhile; ?>
+                    <?php endwhile; ?>
 
+                </div>
             </div><!-- .container -->
         </div><!-- .page-section -->
 

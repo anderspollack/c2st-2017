@@ -31,7 +31,7 @@
 <?php get_template_part( 'template-parts/content' , 'event-details' ); ?>
 
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 content-excerpt">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 content-excerpt">
 
 <?php the_content( 'Read more…' ); ?>
 
