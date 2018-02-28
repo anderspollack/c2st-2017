@@ -65,7 +65,7 @@
     // echo 'style="' . 'background-image: url(' . esc_url( home_url( '/' ) ) /*$header_image_url*/ . 'img/c2st-10-year-banner.jpg' . ');"' ;
     echo 'style="' . 'background-image: url(' . get_template_directory_uri() . '/img/c2st-10-year-banner.jpg' . ');"' ; ?>
      data-type="background" data-speed="10">
-         <div class="banner-dimmer"></div>
+        <!-- <div class="banner-dimmer"></div> -->
         <div class="site-branding">
             <div class="container">
                 <div class="row">
