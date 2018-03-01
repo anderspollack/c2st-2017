@@ -347,6 +347,10 @@ footer {
       margin: 1em auto;
     }
 
+    .featured-section {
+        margin-top: 70px;
+    }
+
 }
 
 @media screen and (min-width: 800px) {
@@ -410,6 +414,10 @@ footer {
 
     #site-logo a {
       margin: 1em auto 2em auto;
+    }
+
+    .featured-section {
+        margin-top: 0;
     }
 
 }
@@ -853,9 +861,6 @@ article.hentry,
 /*--------------------------------------------------------------
 ## Featured content
 --------------------------------------------------------------*/
-.featured-section {
-    /*margin-top: 70px;*/
-}
 
 .featured-section {
     padding-bottom: 40px;
