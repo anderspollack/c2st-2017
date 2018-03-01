@@ -52,7 +52,12 @@ if ( $featured_post_toggle && $primary_featured_post) : ?>
                         <div class="row">
                             <div class="col-lg-12">
                                 <header class="entry-header">
-                                    <h1 class="page-title"><?php the_title(); ?></h1>
+
+                                    <h1 class="page-title" style="<?php 
+                                    if ( get_field( 'featured_post_toggle' ) ) {
+                                        echo 'margin-top: -60px;';
+                                    } ?>"><?php the_title(); ?></h1>
+
                                 </header><!-- .entry-header -->
                             </div>
                             <div class="col-sm-12"><hr></div>

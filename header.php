@@ -93,4 +93,12 @@
         </div><!-- .site-branding -->
     </header><!-- #masthead -->
 
-    <div id="content" class="site-content">
+    <?php 
+    if ( !get_field( 'featured_post_toggle' ) && !is_home() ) {
+        echo '<div id="content" class="site-content" style="top: -90px; margin-bottom: -90px;">';
+        // echo '<div id="content" class="site-content" style=" margin-bottom: -90px;">';
+    } else if ( is_home() && !get_field( 'featured_post_toggle', get_option('page_for_posts') ) ) {
+        echo '<div id="content" class="site-content" style="top: -90px; margin-bottom: -90px;">';
+    } else {
+        echo '<div id="content" class="site-content">';
+    }?>

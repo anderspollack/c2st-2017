@@ -26,27 +26,30 @@ Library Page Primary Features
 */
 $featured_post_toggle = get_field( 'featured_post_toggle', get_option('page_for_posts') );
 $primary_featured_post = get_field( 'primary_featured_post', get_option('page_for_posts') );
+// $has_featured_post = false;
 if ( $primary_featured_post && $featured_post_toggle ) : ?>
 
-    <!-- <div id="featured-section" class="page-section featured-section"> -->
-
     <?php
+    $has_featured_post = true;
     global $post;
     $post = $primary_featured_post;
     setup_postdata( $post );
     get_template_part( 'template-parts/content', 'primary-feature' );
     wp_reset_postdata(); ?>
 
-    <!-- </div> -->
-
 <?php endif; ?>
 
-<div class="page-section events-heading">
+<div class="page-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <header class="entry-header">
-                    <h1 class="page-title"><?php single_post_title(); ?></h1>
+
+                    <h1 class="page-title" style="<?php 
+                    if ( $has_featured_post ) {
+                        echo 'margin-top: -60px;';
+                    } ?>"><?php single_post_title(); ?></h1>
+
                 </header><!-- .entry-header -->
             </div>
             <div class="col-lg-12">
