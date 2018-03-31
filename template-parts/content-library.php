@@ -6,16 +6,13 @@
  *
  * @package C2ST_2017
  */
-$terms = get_the_terms($post, 'content_type');
+$terms = get_the_terms($post, 'content_type_taxonomy');
 // add label to account for display on single initiative pages
 if ( 'event' === get_post_type() ) :
     $item_type = get_post_type_object( get_post_type() ) -> labels -> singular_name;
 else :
-    if ($terms) {
-        foreach ($terms as $term) {
-           $content_type = $term;
-        }
-        $item_type = $content_type->name;
+    if (get_field('content_type_taxonomy')) {
+        $item_type = get_field('content_type_taxonomy') -> name;
     }
 endif; 
 ?>
@@ -40,7 +37,7 @@ endif;
 
         <?php 
         // Post Thumbnail
-        if ( has_post_thumbnail() &&  'Video' !== get_field( 'content_type' ) ) : ?>
+        if ( has_post_thumbnail() &&  'Video' !== get_field( 'content_type_taxonomy' ) -> name ) : ?>
         
             <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
             style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
@@ -48,7 +45,7 @@ endif;
 
         <?php 
         // Embedded Video Player
-        elseif ( 'Video' === get_field( 'content_type' ) ) : 
+        elseif ('Video' === get_field( 'content_type_taxonomy') -> name) : 
             $video_url = get_field( 'youtube_video_url' );
             $code_pos = strrpos( $video_url, 'watch?v=' );
             $embed_video_url = substr_replace( $video_url, 'embed/', $code_pos, 8 )

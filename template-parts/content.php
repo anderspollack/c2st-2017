@@ -37,13 +37,13 @@
 
         <?php 
         // Post Thumbnail
-        if ( has_post_thumbnail() && 'Video' !== get_field( 'content_type' ) ) : ?>
+        if ( has_post_thumbnail() && 'Video' !== get_field( 'content_type_taxonomy' ) -> name ) : ?>
         
             <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
             style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
             </a>
 
-        <?php elseif ( 'Video' === get_field( 'content_type' ) ) : 
+        <?php elseif ( 'Video' === get_field( 'content_type_taxonomy' ) -> name ) : 
             $video_url = get_field( 'youtube_video_url' );
             $code_pos = strrpos( $video_url, 'watch?v=' );
             $embed_video_url = substr_replace( $video_url, 'embed/', $code_pos, 8 ); ?>
@@ -107,7 +107,7 @@
         <!-- End Linkedin Button -->
 
         <?php 
-        if ( 'Blog Post' === get_field( 'content_type' ) ) :
+        if ( 'Blog Post' === get_field( 'content_type_taxonomy' ) ) :
 
             $other_blog_posts = new WP_Query( array(
                 'post_type' => array( 'post' ),

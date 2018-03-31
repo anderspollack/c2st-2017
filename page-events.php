@@ -34,7 +34,7 @@ if ( $featured_post_toggle && $primary_featured_post) : ?>
 
                     <h1 class="page-title" style="<?php 
                     if ( get_field( 'featured_post_toggle' ) ) {
-                        echo 'margin-top: -60px;';
+                        echo 'margin-top: -60px; display: inline-block;';
                     } ?>"><?php the_title(); ?></h1>
 
                 </header><!-- .entry-header -->
@@ -163,7 +163,7 @@ if ( $featured_post_toggle && $primary_featured_post) : ?>
                         $wp_query -> the_post();
                         $event_ID = get_the_id(); ?>
 
-                        <?php if ( $event_ID !== $primary_featured_post ) : ?>
+                        <?php if ( $event_ID !== $primary_featured_post || !$featured_post_toggle ) : ?>
                     
                             <?php get_template_part( 'template-parts/content', 'event-listing' ); ?>
 

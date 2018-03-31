@@ -47,7 +47,7 @@ if ( $primary_featured_post && $featured_post_toggle ) : ?>
 
                     <h1 class="page-title" style="<?php 
                     if ( $has_featured_post ) {
-                        echo 'margin-top: -60px;';
+                        echo 'margin-top: -60px; display: inline-block;';
                     } ?>"><?php single_post_title(); ?></h1>
 
                 </header><!-- .entry-header -->
@@ -65,7 +65,7 @@ if ( $primary_featured_post && $featured_post_toggle ) : ?>
             </div>
         </div><!-- .row -->
 
-        <div class="row"><div class="col-sm-12"><hr></div></div>
+        <!-- <div class="row"><div class="col-sm-12"><hr></div></div> -->
 
         <main id="main" class="site-main main-index" role="main">
             <div class="row">

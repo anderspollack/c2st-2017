@@ -67,7 +67,7 @@
                 </div>
             </header><!-- .entry-header -->
             <div class="entry-content">
-                <div class="row">
+                <div class="row top-margin">
                     <div class="col-md-6 col-sm-12">
                         <?php
                             the_content( sprintf(
@@ -95,7 +95,7 @@
 
                             <?php if ( get_field( 'event_details_label' ) ) : ?>
 
-                                <h3><?php the_field( 'event_details_label' ); ?></h3>
+                                <h3 class="details"><?php the_field( 'event_details_label' ); ?></h3>
 
                             <?php endif; ?>                            
 

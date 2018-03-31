@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
 
-            <h2 class="content-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title() ?></a></h2>
+            <h3 class="content-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title() ?></a></h3>
 
         </div>
     </div>

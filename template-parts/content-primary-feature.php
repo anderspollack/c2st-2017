@@ -1,4 +1,5 @@
 <?php 
+$featured_item_type = 'Post';
 if ( 'post' === get_post_type() ) {
     $terms = get_the_terms($post, 'content_type');
     foreach ($terms as $term) {
