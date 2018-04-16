@@ -1037,6 +1037,10 @@ div.video-container {
     border-color: #252525;
 }
 
+.content-title {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .content-title, 
 .section-subtitle {
     font-size: 24px;
