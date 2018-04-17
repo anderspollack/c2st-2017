@@ -658,6 +658,7 @@ h3 {
 
 p {
     margin-bottom: 18px;
+    overflow-wrap: break-word;
 }
 
 a {
@@ -700,6 +701,10 @@ div.fb-share-button {
 
 .no-bold {
     font-weight: normal;
+}
+
+.original-article-url {
+    font-size: 0.75em;
 }
 
 div.video-container {
@@ -1535,7 +1540,7 @@ object {
 ## Captions
 --------------------------------------------------------------*/
 .wp-caption {
-    margin-bottom: 1.5em;
+    /*margin-bottom: 1.5em;*/
     max-width: 100%;
 }
 
@@ -1550,7 +1555,8 @@ object {
 }
 
 .wp-caption-text {
-    text-align: center;
+    text-align: left;
+    font-size: 0.75em;
 }
 
 /*--------------------------------------------------------------

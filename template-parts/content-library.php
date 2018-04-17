@@ -73,6 +73,11 @@ endif;
             <p class="bold">By <?php the_field( 'author' ); ?></p>
 
         <?php endif; ?>
+        <?php if ( get_field( 'original_article_url' ) ) : ?>
+
+            <p class="original-article-url">Originally published at: <a href="<?php echo esc_url(get_field('original_article_url')); ?>"><?php the_field( 'original_article_url' ); ?></a></p>
+
+        <?php endif; ?>
 
         <?php
         the_content( sprintf(
