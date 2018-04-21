@@ -95,7 +95,7 @@
 
                             <?php if ( get_field( 'event_details_label' ) ) : ?>
 
-                                <h3 class="details"><?php the_field( 'event_details_label' ); ?></h3>
+                                <h2 class="details"><?php the_field( 'event_details_label' ); ?></h2>
 
                             <?php endif; ?>                            
 
