@@ -792,10 +792,11 @@ div.video-container {
 .site-header {
     /*padding-bottom: 30px;*/
     /*background-image: url(img/chicago-skyline.jpg);*/
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     background-attachment: fixed;
-    background-position: 50% 0px;
-    background-size: /*cover*/;
+    /*background-position: 50% 0px;*/
+    /*background-size: cover;*/
+
 }
 
 #site-logo a {
