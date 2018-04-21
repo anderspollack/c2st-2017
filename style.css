@@ -284,6 +284,7 @@ footer {
 
 .main-navigation.toggled {
     padding-bottom: 30px;
+    display: inline-block;
 }
 
 .main-navigation.toggled ul {
@@ -395,10 +396,6 @@ footer {
 
     .site-description {
       font-size: 1.3em;
-    }
-
-    .site-header {
-        background-size: cover;
     }
 
     .secondary-features {
@@ -798,7 +795,7 @@ div.video-container {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 0px;
-    /*background-size: cover;*/
+    background-size: cover;
 }
 
 #site-logo a {
