@@ -45,10 +45,7 @@ if ( $primary_featured_post && $featured_post_toggle ) : ?>
             <div class="col-lg-12">
                 <header class="entry-header">
 
-                    <h1 class="page-title" style="<?php 
-                    if ( $has_featured_post ) {
-                        echo 'margin-top: -60px; display: inline-block;';
-                    } ?>"><?php single_post_title(); ?></h1>
+                    <h1 class="page-title"><?php single_post_title(); ?></h1>
 
                 </header><!-- .entry-header -->
             </div>
@@ -63,6 +60,7 @@ if ( $primary_featured_post && $featured_post_toggle ) : ?>
                 <?php echo do_shortcode('[searchandfilter id="2154"]'); ?>
 
             </div>
+            <!-- <div class="col-sm-12"><hr></div> -->
         </div><!-- .row -->
 
         <!-- <div class="row"><div class="col-sm-12"><hr></div></div> -->
@@ -111,7 +109,6 @@ if ( $primary_featured_post && $featured_post_toggle ) : ?>
                 <?php endwhile; ?>
 
             <div class="row">
-                <div class="col-sm-12"><hr></div>
                 <div class="col-sm-12">
 
                     <?php the_posts_pagination( array(

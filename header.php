@@ -60,45 +60,36 @@
         ?>
     </nav><!-- #site-navigation -->
 
-    <header id="masthead" class="site-header<?php if ( is_front_page() ) { echo ' home-page'; } ?>" role="banner" <?php 
-    // $header_image_url = get_header_image();
-    // echo 'style="' . 'background-image: url(' . esc_url( home_url( '/' ) ) /*$header_image_url*/ . 'img/c2st-10-year-banner.jpg' . ');"' ;
-    echo 'style="' . 'background-image: url(' . get_header_image() . ');"' ; ?>
+    <header id="masthead" class="site-header<?php if ( is_front_page() ) { echo ' home-page'; } else if (get_field('featured_post_toggle')) {echo ' has-featured-post';} ?>" role="banner" <?php echo 'style="' . 'background-image: url(' . get_header_image() . ');"' ; ?>
      data-type="background" data-speed="10">
-        <!-- <div class="banner-dimmer"></div> -->
-        <div class="site-branding">
+        <div class="banner">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 branding">
                         <div id="site-logo">
                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>
                         </div>
-                        <?php
-                        // if ( is_front_page() ) : ?>
                             <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-                        <?php 
-                        // else : ?>
-                            <!-- <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p> -->
-                        <?php
-                        // endif;
 
-                        $description = get_bloginfo( 'description', 'display' );
-                        if ( $description || is_customize_preview() ) : ?>
-                            <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-                        <?php
-                        endif; ?>
+                            <?php 
+                            $description = get_bloginfo( 'description', 'display' );
+                            if ( $description || is_customize_preview() ) : ?>
+
+                                <p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+                                
+                            <?php
+                            endif; ?>
+
                     </div>
                 </div><!-- .row -->
             </div><!-- .container -->
-        </div><!-- .site-branding -->
-    </header><!-- #masthead -->
 
-    <?php 
-    if ( !get_field( 'featured_post_toggle' ) && !is_home() ) {
-        echo '<div id="content" class="site-content" style="top: -90px; margin-bottom: -90px;">';
-        // echo '<div id="content" class="site-content" style=" margin-bottom: -90px;">';
-    } else if ( is_home() && !get_field( 'featured_post_toggle', get_option('page_for_posts') ) ) {
-        echo '<div id="content" class="site-content" style="top: -90px; margin-bottom: -90px;">';
-    } else {
-        echo '<div id="content" class="site-content">';
-    }?>
+            <?php if (get_field('featured_post_toggle') || is_front_page()): ?>
+
+                <div class="featured-post-spacer"></div>
+
+            <?php endif; ?>
+
+        </div><!-- .banner -->
+    </header><!-- #masthead -->
+    <div id="content" class="site-content">

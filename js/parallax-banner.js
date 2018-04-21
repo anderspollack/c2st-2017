@@ -12,4 +12,19 @@ jQuery(document).ready(function() {
             $bgobj.css({ backgroundPosition: coords });
         });
     });
+    // move the featured post as you scroll
+    jQuery('.container[data-type="foreground"]').each(function () {
+        var $fgobj = jQuery(this);
+
+        jQuery(window).scroll(function() {
+            var yPos = -(jQuery(window).scrollTop() / $fgobj.data('speed')); 
+            
+            // Put together our final background position
+            var slide = -(yPos + 120) + 'px';
+
+            // Move the background
+            $fgobj.css({ top: slide });
+
+        });
+    });
 });

@@ -72,6 +72,10 @@ footer {
     background-color: #e1e1e1;
 }
 
+.primary-feature {
+    margin-bottom: 2em;
+}
+
 .primary-feature .container:first-child {
     position: relative;
     top: -120px;
@@ -154,7 +158,7 @@ footer {
 ## Menus
 --------------------------------------------------------------*/
 .main-navigation {
-    float: left;
+    /*float: left;*/
     clear: both;
     width: 100%;
     /*background-color: #ebebeb;*/
@@ -289,6 +293,7 @@ footer {
 @media screen and (min-width: 240px) {
     .main-navigation {
         padding: 15px 40px 5px 40px;
+        float: none;
     }
 
     .main-navigation.toggled ul {
@@ -335,16 +340,12 @@ footer {
 
     .site-description {
       font-size: 1em;
-      margin-bottom: 90px;
+      /*margin-bottom: 90px;*/
     }
 
     .site-branding,
     .site-header.home-page .site-branding {
       margin: 10px 0 70px 0;
-    }
-
-    #site-logo a {
-      margin: 1em auto;
     }
 
     .featured-section {
@@ -360,6 +361,7 @@ footer {
 
     .main-navigation {
         padding: 25px 40px 15px 40px;
+        float: left;
     }
 
     .main-navigation ul {
@@ -410,10 +412,6 @@ footer {
 
     .site-header.home-page .site-branding {
         margin: 120px 0 180px 0;
-    }
-
-    #site-logo a {
-      margin: 1em auto 2em auto;
     }
 
     .featured-section {
@@ -533,10 +531,11 @@ div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all,
 --------------------------------------------------------------*/
 /* 783px is when it goes to size sm  */
 
-/*.site-header, */.site-content {
+.site-content {
     background-color: #f6f6f6;
     position: relative;
     z-index: 1;
+    padding-top: 40px;
 }
 
 #main {
@@ -564,7 +563,10 @@ div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all,
 }
 
 .page-title, 
-.entry-title,
+.entry-title {
+    margin-bottom: 1em;
+}
+
 .c2st-collaborators h2 {
     margin: 60px 0 40px 0;
 }
@@ -756,6 +758,10 @@ div.video-container {
     /*margin-right: 60px;*/
 }
 
+.filter {
+    margin-top: 30px;
+}
+
 .filter .searchandfilter ul li {
     margin-right: 30px;
     /*margin-bottom: 30px;*/
@@ -782,10 +788,6 @@ div.video-container {
     width: 100%;
 }
 
-.filter {
-
-}
-
 .program-series-link {
     font-weight: bold;
 }
@@ -802,14 +804,6 @@ div.video-container {
 /*--------------------------------------------------------------
 ## Masthead
 --------------------------------------------------------------*/
-
-.banner-dimmer {
-    position: absolute;
-    width: 100%;
-    /*height: 100%;*/
-    opacity: 0.5;
-    background-color: #252525;
-}
 
 .site-header {
     /*padding-bottom: 30px;*/
@@ -838,7 +832,9 @@ div.video-container {
 #site-logo a {
     width: 215px;
     height: 94px;
+    display: block;
     position: relative;
+    margin: 1em auto 1em auto;
     background-image: url('img/c2st-logo-light.png');
     background-image: -webkit-image-set(url('img/c2st-logo-light.png') 1x, url('img/c2st-logo-light@2x.png') 2x, url('img/c2st-logo-light@3x.png') 3x );
     /*margin: 1em auto 2em auto;*/
@@ -926,6 +922,22 @@ div.video-container {
 
 #featured-section {
     /*margin-top: 0;*/
+}
+
+.home-page .branding {
+    margin: 80px auto 50px auto;
+}
+
+.has-featured-post .branding {
+    margin: 30px auto 0 auto;
+}
+
+.branding {
+    margin: 30px auto;
+}
+
+.featured-post-spacer {
+    height: 120px;
 }
 
 .primary-feature .container {
@@ -1135,7 +1147,9 @@ div.video-container {
 
 .pagination {
     display: block;
-    margin: 0;
+    margin: 20px 0 0 0;
+    padding-top: 2em;
+    border-top: 2px solid #E1E1E1;
 }
 
 .nav-links {
@@ -1210,12 +1224,12 @@ a.content-subheading.indent::before {
 ## Home Page Template
 --------------------------------------------------------------*/
 .secondary-features {
-    display: inline-block;
-    margin-top: -60px;
+    /*display: inline-block;*/
+    margin-top: 2em;
 }
 
 .secondary-features .col-sm-6 {
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
 }
 
 /*--------------------------------------------------------------
