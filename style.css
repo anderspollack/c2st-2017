@@ -409,6 +409,9 @@ footer {
         margin-top: 2em;
     }
 
+    .secondary-features div:last-child {
+        margin-top: 0;
+    }
 }
 
 @media screen and (min-width: 1140px) {
