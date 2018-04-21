@@ -523,7 +523,7 @@ div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all,
     background-color: #f6f6f6;
     position: relative;
     z-index: 1;
-    padding-top: 40px;
+    /*padding-top: 40px;*/
 }
 
 #main {
@@ -552,7 +552,7 @@ div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all,
 
 .page-title, 
 .entry-title {
-    margin-bottom: 1em;
+    margin: 1em 0;
 }
 
 .c2st-collaborators h2 {
