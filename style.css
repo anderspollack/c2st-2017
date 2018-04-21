@@ -343,9 +343,9 @@ footer {
       /*margin-bottom: 90px;*/
     }
 
-    /*.featured-section {
-        margin-top: 70px;
-    }*/
+    .secondary-features {
+        margin-top: 4em;
+    }
 
 }
 
@@ -401,9 +401,9 @@ footer {
         background-size: cover;
     }
 
-    /*.featured-section {
-        margin-top: 0;
-    }*/
+    .secondary-features {
+        margin-top: 2em;
+    }
 
 }
 
@@ -1191,10 +1191,6 @@ a.content-subheading.indent::before {
 /*--------------------------------------------------------------
 ## Home Page Template
 --------------------------------------------------------------*/
-.secondary-features {
-    /*display: inline-block;*/
-    margin-top: 2em;
-}
 
 .secondary-features .col-sm-6 {
     /*margin-bottom: 60px;*/
