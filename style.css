@@ -333,7 +333,9 @@ footer {
         width: auto;
     }
 
-    /* shorten banner on all mobile displays */
+    .site-header {
+        background-size: 1000px 586px;
+    }
 
     .site-title {
       font-size: 1.3em;
@@ -388,7 +390,9 @@ footer {
         margin-left: 0;
     }
 
-    /* reset banner to normal size */
+    .site-header {
+        background-size: cover;
+    }
 
     .site-title {
       font-size: 1.5em;
@@ -795,8 +799,6 @@ div.video-container {
     background-repeat: repeat-y;
     background-attachment: fixed;
     background-position: 50% 0px;
-    background-size: cover;
-
 }
 
 #site-logo a {
