@@ -794,8 +794,8 @@ div.video-container {
     /*background-image: url(img/chicago-skyline.jpg);*/
     background-repeat: repeat-y;
     background-attachment: fixed;
-    /*background-position: 50% 0px;*/
-    /*background-size: cover;*/
+    background-position: 50% 0px;
+    background-size: cover;
 
 }
 
