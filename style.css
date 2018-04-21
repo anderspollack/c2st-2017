@@ -795,7 +795,7 @@ div.video-container {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 0px;
-    background-size: cover;
+    background-size: /*cover*/;
 }
 
 #site-logo a {
