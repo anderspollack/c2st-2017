@@ -793,7 +793,7 @@ div.video-container {
 
 .site-header {
     background-repeat: repeat-y;
-    background-position: 50% 0px;
+    /*background-position: 50% 0px;*/
     background-size: cover;
 }
 
