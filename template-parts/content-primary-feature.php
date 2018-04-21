@@ -25,7 +25,7 @@ if ( 'post' === get_post_type() ) {
 ?>
 
 <section class="primary-feature">
-    <div class="container" data-type="foreground" data-speed="10">
+    <div class="container" data-type="foreground" data-speed="12">
         <div class="row">
             <div class="col-sm-12">
 
