@@ -333,10 +333,6 @@ footer {
         width: auto;
     }
 
-    .site-header {
-        background-size: 1000px 586px;
-    }
-
     .site-title {
       font-size: 1.3em;
     }
@@ -391,10 +387,6 @@ footer {
     }
     .main-navigation .social {
         margin-left: 0;
-    }
-
-    .site-header {
-        background-size: cover;
     }
 
     .site-title {
@@ -800,11 +792,9 @@ div.video-container {
 --------------------------------------------------------------*/
 
 .site-header {
-    /*padding-bottom: 30px;*/
-    /*background-image: url(img/chicago-skyline.jpg);*/
     background-repeat: repeat-y;
-    background-attachment: fixed;
     background-position: 50% 0px;
+    background-size: cover;
 }
 
 #site-logo a {
