@@ -90,7 +90,7 @@ if ( get_field( 'address' ) ) : ?>
 
 <?php if ( get_field( 'registration_url' ) ): ?>
 
-    <p class="content-subheading program-series-link"><a href="<?php the_field( 'registration_url' ); ?>" class="btn btn-primary"><?php the_field( 'registration_button_text' ); ?></a></p>
+    <p class="content-subheading"><a href="<?php the_field( 'registration_url' ); ?>" class="btn btn-primary"><?php the_field( 'registration_button_text' ); ?></a></p>
 
 <?php endif; ?>
 

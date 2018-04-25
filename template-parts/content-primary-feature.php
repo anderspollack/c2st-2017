@@ -44,8 +44,12 @@ if ( 'post' === get_post_type() ) {
                 <?php 
                 // Post Thumbnail
                 if ( has_post_thumbnail() &&  'Video' !== get_field( 'content_type' ) ) : ?>
-                
-                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php echo esc_url( the_post_thumbnail_url() );  ?>);"></a>
+                    
+                    <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image-feature">
+                        <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
+                    </a>
+
+                    <!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php //echo esc_url( the_post_thumbnail_url() );  ?>);"></a> -->
 
                 <?php 
                 // Embedded Video Player
@@ -73,7 +77,7 @@ if ( 'post' === get_post_type() ) {
                 } ?>
 
             </div><!-- .col- -->
-            <div class="col-sm-6">
+            <div class="col-sm-12 col-md-6">
 
                 <?php 
                 if ( get_post_type() === 'give_forms' ) {

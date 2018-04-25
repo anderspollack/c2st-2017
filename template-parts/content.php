@@ -39,9 +39,13 @@
         // Post Thumbnail
         if ((has_post_thumbnail() && 'initiative' === get_post_type()) || (has_post_thumbnail() && 'Video' !== get_field('content_type_taxonomy') -> name )) : ?>
         
-            <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
-            style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
+            <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image">
+                <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
             </a>
+
+            <!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" 
+            style="background-image: url('<?php //esc_url( the_post_thumbnail_url() ); ?>');">
+            </a> -->
 
         <?php elseif ( 'Video' === get_field( 'content_type_taxonomy' ) -> name ) : 
             $video_url = get_field( 'youtube_video_url' );

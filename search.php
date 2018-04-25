@@ -49,14 +49,16 @@ get_header(); ?>
 
                 <?php endwhile; ?>
 
-                <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-12">
 
-                    <?php the_posts_pagination( array(
-                        'mid_size'  => 2,
-                        'prev_text' => __( 'Newer', 'textdomain' ),
-                        'next_text' => __( 'Older', 'textdomain' ),
-                    ) ); ?>
+                        <?php the_posts_pagination( array(
+                            'mid_size'  => 2,
+                            'prev_text' => __( 'Newer', 'textdomain' ),
+                            'next_text' => __( 'Older', 'textdomain' ),
+                        ) ); ?>
 
+                    </div>
                 </div>
 
             <?php 

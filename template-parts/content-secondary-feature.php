@@ -34,10 +34,14 @@ if ( get_post_type() === 'event' ) {
 <?php 
 // Post Thumbnail
 if ( has_post_thumbnail() ) : ?>
-            
-    <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
-    style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
+     
+    <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image">
+        <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
     </a>
+
+    <!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" 
+    style="background-image: url('<?php //esc_url( the_post_thumbnail_url() ); ?>');">
+    </a> -->
 
 <?php endif; ?>
 

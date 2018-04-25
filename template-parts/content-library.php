@@ -56,14 +56,22 @@ endif;
             // Post Thumbnail for non-Video posts
             elseif (has_post_thumbnail()): ?>
 
-                <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');"></a>
+                <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image-single">
+                    <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
+                </a>
+
+                <!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url('<?php //esc_url( the_post_thumbnail_url() ); ?>');"></a> -->
 
             <?php 
             endif;
         // Post Thumbnail for Events
         elseif (has_post_thumbnail()) : ?>
 
-            <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');"></a>
+            <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image-single">
+                <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
+            </a>
+            
+            <!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url('<?php //esc_url( the_post_thumbnail_url() ); ?>');"></a> -->
 
         <?php 
         endif; ?>

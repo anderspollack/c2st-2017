@@ -349,6 +349,26 @@ footer {
     .secondary-features div:last-child {
         margin-top: 60px;
     }
+
+    .event-image-single img,
+    .event-image img {
+        max-height: 180px;
+        min-height: 180px;
+    }
+}
+
+@media screen and (min-width: 414px) {
+    .event-image-single img,
+    .event-image img {
+        max-height: 240px;
+    }    
+}
+
+@media screen and (min-width: 768px) {
+    .event-image-single img,
+    .event-image img {
+        max-height: 180px;
+    }   
 }
 
 @media screen and (min-width: 800px) {
@@ -403,6 +423,16 @@ footer {
 
     .secondary-features div:last-child {
         margin-top: 0;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+    .event-image img {
+        max-height: 320px;
+    }
+    .event-image-single img {
+        max-height: 240px;
     }
 }
 
@@ -524,7 +554,7 @@ div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all,
     /*padding-top: 40px;*/
 }
 
-#main {
+.site-main {
     padding-bottom: 30px;
 }
 
@@ -584,6 +614,11 @@ h2 {
     margin: 0 0 30px 0;
 }
 
+.event-image-feature img {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
 .content-image, .event-image, .featured-event-image, .event-image-single  {
     display: inline-block;
     width: 100%;
@@ -608,14 +643,14 @@ h2 {
 }
 
 .event-image img {
-    max-height: 185px;
+    /*max-height: 210px;*/
     max-width: 100%;
     margin: 0 auto;
     display: block;
 }
 
 .event-image-single img {
-    max-height: 300px;
+    /*max-height: 300px;*/
     max-width: 100%;
     margin: 0 auto;
     display: block;
@@ -776,6 +811,7 @@ div.video-container {
 
 .program-series-link {
     font-weight: bold;
+    margin-bottom: 2em;
 }
 
 /*article.hentry,*/
@@ -941,7 +977,7 @@ div.video-container {
 .see-all-events {
     text-align: center;
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 #see-all-events {
