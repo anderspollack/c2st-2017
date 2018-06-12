@@ -107,12 +107,16 @@ footer {
     border-radius: 8px;
     line-height: 1.4em;
     font-size: inherit;
+    color: white;
+    border: 0 solid transparent;
 }
 
 .btn-primary {
     background-color: #3599d5;
-    color: white;
-    border: 0 solid transparent;
+}
+
+.btn-secondary {
+    background-color: #898989;
 }
 
 .filters .control-label {
@@ -205,13 +209,13 @@ footer {
 }
 
 
-.main-navigation .give {
+.main-navigation .give, .main-navigation .signup {
     line-height: 1.4em;
     font-size: inherit;
     padding: 4px 8px;
 }
 
-.main-navigation .give a {
+.main-navigation .give a, .main-navigation .signup a {
     color: white;
 }
 
@@ -300,19 +304,24 @@ footer {
     .main-navigation.toggled ul {
 
     }
-    .main-navigation.toggled .menu-item-object-page {
+    .main-navigation.toggled .menu-item-object-page,
+    .main-navigation.toggled .menu-item-type-taxonomy {
         /*width: 50%;*/
         width: 100%;
         float: left;
         line-height: 2em;
     }
-    .main-navigation.toggled .give {
+    .main-navigation.toggled .give,
+    .main-navigation.toggled .signup {
         width: auto;
         margin-top: 1em;
         margin-bottom: 0;
         white-space: nowrap;
         float: left;
         line-height: 1.4em
+    }
+    .main-navigation.toggled .give {
+        margin-right: 15px;
     }
     .main-navigation.toggled .facebook {
         clear: left;
@@ -371,7 +380,7 @@ footer {
     }   
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 960px) {
     .menu-toggle {
         display: none;
     }
@@ -392,9 +401,14 @@ footer {
         line-height: 1.8em;
         margin-bottom: 20px;
     }
-    .main-navigation li.give {
+    .main-navigation li.give, .main-navigation li.signup {
         line-height: 1.4em;
+    }
+    .main-navigation li.give {
         margin: 0 30px 0 15px;
+    }
+    .main-navigation li.signup {
+        margin: 0 30px 0 0;
     }
     .main-navigation li.search-form {
         line-height: 30px;

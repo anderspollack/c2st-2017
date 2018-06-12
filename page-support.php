@@ -53,10 +53,10 @@ while ( have_posts() ) : the_post(); ?>
                             <?php the_field( 'second_column' ); ?>
 
                         </div>
-                    </div><!-- .row -->
-                </div><!-- .entry-content -->
-            </div><!-- .container -->
-        </div><!-- .page-section -->
+                    </div> <!-- .row -->
+                </div> <!-- .entry-content -->
+            </div> <!-- .container -->
+        </div> <!-- .page-section -->
         <div class="page-section">
             <div class="container">
                 <div class="row">
