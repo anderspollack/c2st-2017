@@ -193,9 +193,10 @@ footer {
 }
 
 .menu-item-object-page a:hover,
+.menu-item-type-taxonomy a:hover, 
 .menu-item-object-page.current-menu-item a {
-    color: #252525;
-    border-bottom-color: #252525;
+  color: #252525;
+  border-bottom-color: #252525;
 }
 
 .give a:hover,
