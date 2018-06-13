@@ -42,32 +42,44 @@ if ( 'post' === get_post_type() ) {
             <div class="col-sm-6">
 
                 <?php 
-                // Post Thumbnail
-                if ( has_post_thumbnail() &&  'Video' !== get_field( 'content_type' ) ) : ?>
-                    
-                    <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image-feature">
-                        <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
-                    </a>
+		if (get_field('content_type_taxonomy')):
+		    if ('Video' === get_field( 'content_type_taxonomy') -> name): 
+			if (get_field('youtube_video_url')): 
+			    $video_url = get_field( 'youtube_video_url' );
+			    $code_pos = strrpos( $video_url, 'watch?v=' );
+			    $embed_video_url = substr_replace( $video_url, 'embed/', $code_pos, 8 );
+			    ?>
 
-                    <!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php //echo esc_url( the_post_thumbnail_url() );  ?>);"></a> -->
+			    <div class="video-container">
+				<iframe class="video" src="<?php echo $embed_video_url; ?>" frameborder="0" allowfullscreen></iframe>
+			    </div>
 
-                <?php 
-                // Embedded Video Player
-                elseif ( 'Video' === get_field( 'content_type' ) ) : 
-                    $video_url = get_field( 'youtube_video_url' );
-                    $code_pos = strrpos( $video_url, 'watch?v=' );
-                    $embed_video_url = substr_replace( $video_url, 'embed/', $code_pos, 8 )
-                 ?>
+			<?php endif; ?>
+			
+		    <?php 
+		    // Post Thumbnail for non-Video posts
+		    elseif (has_post_thumbnail()): ?>
 
-                    <div class="video-container">
+			<a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image-single">
+			    <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
+			</a>
 
-                        <iframe class="video" src="<?php echo $embed_video_url; ?>" frameborder="0" allowfullscreen></iframe>
+			<!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url('<?php //esc_url( the_post_thumbnail_url() ); ?>');"></a> -->
 
-                    </div>
+		    <?php 
+		    endif;
+		// Post Thumbnail for Events
+		elseif (has_post_thumbnail()) : ?>
 
-                <?php 
-                endif; ?>
+		    <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image-single">
+			<img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
+		    </a>
 
+		    <!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url('<?php //esc_url( the_post_thumbnail_url() ); ?>');"></a> -->
+
+		<?php 
+		endif; ?>
+ 
             </div><!-- .col- -->
             <div class="col-sm-6">
     
