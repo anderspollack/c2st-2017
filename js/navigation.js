@@ -49,24 +49,13 @@
     };
 
     window.onresize = function() {
-      if ( -1 !== container.className.indexOf( 'toggled' ) && window.innerWidth >= 960) {
+      if ( -1 !== container.className.indexOf( 'toggled' ) && window.innerWidth >= 800) {
 	console.log('big window, toggled nav');
         container.className = container.className.replace( ' toggled', '' );
         button.setAttribute( 'aria-expanded', 'false' );
         menu.setAttribute( 'aria-expanded', 'false' );
         icon.className = icon.className.replace( 'glyphicon glyphicon-remove', 'glyphicon-chevron-down' );
       }
-      /* if (window.innerWidth < 960) {
-	 console.log('small screen');
-       *   if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-       *     container.className = container.className.replace( ' toggled', '' );
-	 } else {
-	 container.className += ' toggled';
-	 }
-       * } else {
-	 console.log('big screen');
-       *   container.className = container.className.replace( ' toggled', '' );
-       * } */
     }
 
     // Get all the link elements within the menu.
