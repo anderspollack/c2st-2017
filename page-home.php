@@ -75,7 +75,8 @@ $date_next_week = date('Y-m-d H:i:s', $time_next_week);
 global $post;
 
 $upcoming_events = get_posts( array(
-    'posts_per_page'    => -1,
+  'exclude' => array($primary_featured_post, $secondary_featured_post_1, $secondary_featured_post_2),
+  'posts_per_page'    => -1,
     // 'post_type'            => 'event',
     // 'meta_query'         => array(
     //     array(
@@ -107,18 +108,19 @@ $upcoming_events = get_posts( array(
     
     <div id="upcoming-events" class="page-section">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12"><hr></div>
-            </div><!-- .row -->
-
             <?php 
             if ( $upcoming_events ) : ?>
+		<div class="row">
+                    <div class="col-sm-12"><hr></div>
+		</div>
+		<!-- .row -->
 
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="section-title">Upcoming Events</h1>
                     </div>
-                </div><!-- .row -->
+                </div>
+		<!-- .row -->
 
                 <?php
                 foreach ( $upcoming_events as $post ) : 
