@@ -123,16 +123,11 @@ $upcoming_events = get_posts( array(
 		<!-- .row -->
 
                 <?php
-                foreach ( $upcoming_events as $post ) : 
-                    setup_postdata( $post );
-                    $event_ID = get_the_id();
-                    if ( 
-                        $event_ID !== $primary_featured_post && 
-                        $event_ID !== $secondary_featured_post_1 && 
-                        $event_ID !== $secondary_featured_post_2 ) : 
-                        get_template_part( 'template-parts/content', 'event-listing' );
-                    endif;
-                endforeach;
+                foreach ( $upcoming_events as $post ) { 
+                  setup_postdata( $post );
+                  $event_ID = get_the_id();
+		  get_template_part( 'template-parts/content', 'event-listing' );
+                }
                 wp_reset_postdata(); ?>
 
             <?php endif; ?>
