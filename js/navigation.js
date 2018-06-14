@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-    var container, button, menu, links, i, len, icon;
+    var container, button, menu, links, i, len, icon, toggleExpanded;
 
     container = document.getElementById( 'site-navigation' );
     if ( ! container ) {
@@ -20,6 +20,8 @@
     menu = container.getElementsByTagName( 'ul' )[0];
 
     icon = container.getElementsByClassName( 'glyphicon' )[0];
+
+    toggleExpanded = false;
 
     // Hide menu toggle button if menu is empty and return early.
     if ( 'undefined' === typeof menu ) {
@@ -38,14 +40,34 @@
             button.setAttribute( 'aria-expanded', 'false' );
             menu.setAttribute( 'aria-expanded', 'false' );
             icon.className = icon.className.replace( 'glyphicon glyphicon-remove', 'glyphicon-chevron-down' );
-            console.log('clicked');
         } else {
-            container.className += ' toggled';
+	    container.className += ' toggled';
             button.setAttribute( 'aria-expanded', 'true' );
-            menu.setAttribute( 'aria-expanded', 'true' );
-            icon.className = icon.className.replace( 'glyphicon-chevron-down', 'glyphicon glyphicon-remove' );
+	    menu.setAttribute( 'aria-expanded', 'true' );
+	    icon.className = icon.className.replace( 'glyphicon-chevron-down', 'glyphicon glyphicon-remove' );
         }
     };
+
+    window.onresize = function() {
+      if ( -1 !== container.className.indexOf( 'toggled' ) && window.innerWidth >= 960) {
+	console.log('big window, toggled nav');
+        container.className = container.className.replace( ' toggled', '' );
+        button.setAttribute( 'aria-expanded', 'false' );
+        menu.setAttribute( 'aria-expanded', 'false' );
+        icon.className = icon.className.replace( 'glyphicon glyphicon-remove', 'glyphicon-chevron-down' );
+      }
+      /* if (window.innerWidth < 960) {
+	 console.log('small screen');
+       *   if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+       *     container.className = container.className.replace( ' toggled', '' );
+	 } else {
+	 container.className += ' toggled';
+	 }
+       * } else {
+	 console.log('big screen');
+       *   container.className = container.className.replace( ' toggled', '' );
+       * } */
+    }
 
     // Get all the link elements within the menu.
     links    = menu.getElementsByTagName( 'a' );
