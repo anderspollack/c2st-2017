@@ -49,17 +49,19 @@ if ( has_post_thumbnail() ) : ?>
     if ( get_post_type() === 'event' ) {
         get_template_part( 'template-parts/content' , 'event-details' ); 
     } ?>
-                   
 
-    <?php 
-    if ( get_post_type() === 'give_forms' ) {
-        the_excerpt(); ?>
+    <div class="secondary-featured-excerpt">
 
-        <a href="<?php echo get_permalink(); ?>" class="btn btn-primary">Give Now</a>
-
-    <?php
-    } else {
-        the_content( 'Read more…' );
-    } ?>
-
+        <?php 
+        if ( get_post_type() === 'give_forms' ) {
+          the_excerpt(); ?>
+            
+            <a href="<?php echo get_permalink(); ?>" class="btn btn-primary">Give Now</a>
+            
+        <?php
+        } else {
+          the_content( 'Read more…' );
+        } ?>
+        
+    </div>
 </div><!-- .row -->

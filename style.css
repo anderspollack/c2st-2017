@@ -699,15 +699,13 @@ div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all,
 }*/
 
 .section-title,
-.details,
-h2 {
+.details {
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
     line-height: 30px;
 }
 
-.section-title,
-h2 {
+.section-title {
     font-size: 30px;
 }
 
@@ -1798,4 +1796,23 @@ object {
 }
 .event-page-image img {
   width: 100%;
+}
+
+/* HEADINGS */
+
+.secondary-features h1 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: normal;
+}
+.secondary-features h2 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: normal;
+}
+
+.secondary-features h3,
+.secondary-features h4,
+.secondary-features h1 {
+  
 }
