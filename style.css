@@ -1808,7 +1808,9 @@ object {
   border: 2px solid #252525
 }
 
-.event-image
+.secondary-features img {
+  margin-bottom: 30px;
+}
 
 /* EVENT IMAGES */
 
