@@ -13,7 +13,7 @@ if ( get_post_type() === 'event' ) {
   $featured_glyphicon = 'glyphicon-gift';
   $featured_item_type = 'Donation Initiative';
 } else if ( get_post_type() === 'initiative' ) {
-  $featured_glyphicon = 'glyphicon-tree-conifer';
+  $featured_glyphicon = 'glyphicon-grain';
   $featured_item_type = 'Initiative';
 } else {
   $featured_glyphicon = 'glyphicon-bullhorn';
