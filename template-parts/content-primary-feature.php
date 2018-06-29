@@ -22,6 +22,8 @@ if ( 'post' === get_post_type() ) {
     // $featured_item_type = get_post_type_object( get_post_type() ) -> labels -> singular_name;
     $featured_item_type = 'Donation Initiative';
 }
+
+$is_youtube_video = false;
 ?>
 
 <section class="primary-feature">
@@ -39,57 +41,68 @@ if ( 'post' === get_post_type() ) {
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
+
+            <?php 
+	    if (get_field('content_type_taxonomy')):
+                if ('Video' === get_field( 'content_type_taxonomy') -> name): 
+                    if (get_field('youtube_video_url')): 
+                      $is_youtube_video = true;
+                      $video_url = get_field( 'youtube_video_url' );
+                      $code_pos = strrpos( $video_url, 'watch?v=' );
+                      $embed_video_url = substr_replace( $video_url, 'embed/', $code_pos, 8 ); ?>
+
+                        <div class="col-sm-6">
+                            <div class="video-container">
+                                <iframe class="video" src="<?php echo $embed_video_url; ?>" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div><!-- .col- -->
+
+                    <?php
+                    endif; ?>
 
                 <?php 
-		if (get_field('content_type_taxonomy')):
-		    if ('Video' === get_field( 'content_type_taxonomy') -> name): 
-			if (get_field('youtube_video_url')): 
-			    $video_url = get_field( 'youtube_video_url' );
-			    $code_pos = strrpos( $video_url, 'watch?v=' );
-			    $embed_video_url = substr_replace( $video_url, 'embed/', $code_pos, 8 );
-			    ?>
+                // Post Thumbnail for non-Video posts
+                elseif (has_post_thumbnail()): ?>
 
-			    <div class="video-container">
-				<iframe class="video" src="<?php echo $embed_video_url; ?>" frameborder="0" allowfullscreen></iframe>
-			    </div>
-
-			<?php endif; ?>
-			
-		    <?php 
-		    // Post Thumbnail for non-Video posts
-		    elseif (has_post_thumbnail()): ?>
-
-			<a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image-single">
-			    <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
-			</a>
+                        <div class="col-sm-6">
+			    <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="primary-featured-image">
+			        <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
+			    </a>
+                        </div><!-- .col- -->
 
 			<!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url('<?php //esc_url( the_post_thumbnail_url() ); ?>');"></a> -->
 
-		    <?php 
-		    endif;
-		// Post Thumbnail for Events
-		elseif (has_post_thumbnail()) : ?>
-
-		    <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image-single">
-			<img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
-		    </a>
-
-		    <!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url('<?php //esc_url( the_post_thumbnail_url() ); ?>');"></a> -->
-
 		<?php 
-		endif; ?>
- 
-            </div><!-- .col- -->
-            <div class="col-sm-6">
-    
-                <?php 
-                if ( get_post_type() === 'event' ) {
-                    get_template_part( 'template-parts/content' , 'event-details' ); 
-                } ?>
+		endif;
+            // Post Thumbnail for Events
+            elseif (has_post_thumbnail()) : ?>
 
-            </div><!-- .col- -->
-            <div class="col-sm-12 col-md-6">
+                <div class="col-sm-6">
+                    <a href="<?php echo esc_url( get_permalink() ); ?>" class="primary-featured-image">
+                        <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
+                    </a>
+                </div><!-- .col- -->
+
+                <!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url('<?php //esc_url( the_post_thumbnail_url() ); ?>');"></a> -->
+
+            <?php 
+            endif; ?>
+
+            <?php if (!$is_youtube_video): ?>
+                <div class="col-sm-6">
+                    <?php 
+                    if ( get_post_type() === 'event' ) {
+                      get_template_part( 'template-parts/content' , 'event-details' ); 
+                    } ?>
+                </div><!-- .col- -->
+            <?php endif; ?>
+
+
+            <?php if ($is_youtube_video): ?>
+                <div class="col-sm-6">
+            <?php else: ?>
+                <div class="col-sm-12 col-md-6 primary-featured-excerpt">
+            <?php endif; ?>
 
                 <?php 
                 if ( get_post_type() === 'give_forms' ) {

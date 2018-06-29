@@ -728,7 +728,7 @@ h2 {
     background-size: cover;
     background-position: center;
     margin-bottom: 30px;
-    background-color: #e1e1e1;
+  /*     background-color: #e1e1e1; */
 }
 
 .content-image {
@@ -738,7 +738,7 @@ h2 {
 
 .event-image, .event-image-single {
     overflow: hidden;
-    border: 2px solid #f6f6f6;
+  /*     border: 2px solid #f6f6f6; */
 }
 .event-image:hover, .event-image-single:hover {
     border-color: #898989;
@@ -747,14 +747,14 @@ h2 {
 .event-image img {
     /*max-height: 210px;*/
     max-width: 100%;
-    margin: 0 auto;
+  /*     margin: 0 auto; */
     display: block;
 }
 
 .event-image-single img {
     /*max-height: 300px;*/
     max-width: 100%;
-    margin: 0 auto;
+  /*     margin: 0 auto; */
     display: block;
 }
 
@@ -909,7 +909,6 @@ div.video-container {
 
 .program-series-link {
     font-weight: bold;
-    margin-bottom: 2em;
 }
 
 /*article.hentry,*/
@@ -1040,7 +1039,7 @@ div.video-container {
 
 .primary-feature .container {
     padding-top: 25px;
-    padding-bottom: 15px;
+    padding-bottom: 30px;
     /*margin-top: -60px;*/
     -webkit-box-shadow: 0px 5px 10px 0px rgba(137,137,137,0.6);
     -moz-box-shadow: 0px 5px 10px 0px rgba(137,137,137,0.6);
@@ -1063,6 +1062,24 @@ div.video-container {
 #static-page-featured-section .primary-feature .content-image:hover {
     border-color: #252525;
 }
+
+/* UGHHHHHH */
+
+.primary-featured-image img {
+  width: 100%;
+  
+}
+
+.primary-featured-excerpt {
+  margin-top: 2em;
+}
+
+
+
+
+
+
+
 
 /*--------------------------------------------------------------
 ## Upcoming events
