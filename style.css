@@ -719,7 +719,7 @@ div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all,
     margin-bottom: 2em;
 }
 
-.content-image, .featured-event-image, .event-image-single  {
+.content-image, .featured-event-image, .event-image-single {
     display: inline-block;
     width: 100%;
     background-repeat: no-repeat;
@@ -750,17 +750,18 @@ div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all,
 }
 
 .event-image img {
-    /*max-height: 210px;*/
-    max-width: 100%;
-  /*     margin: 0 auto; */
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
 .event-image-single img {
-    /*max-height: 300px;*/
-    max-width: 100%;
-  /*     margin: 0 auto; */
-    display: block;
+  border: 2px solid #e1e1e1;
+  max-width: 100%;
+  display: block;
+}
+
+.event-image-single img:hover {
+    border-color: #252525;
 }
 
 .event-image:hover img {
@@ -1814,16 +1815,23 @@ object {
 
 /* EVENT IMAGES */
 
-.event-page-image {
+.event-page-image,
+.post-image {
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.event-page-image img:hover {
+.event-page-image img:hover,
+.post-image img:hover {
   border: 2px solid #252525
 }
 
-.event-page-image img {
+.event-page-image img,
+.post-image img {
   border: 2px solid #e1e1e1;
   width: 100%;
 }
+
+/* POST IMAGES */
+
+.post-image 
