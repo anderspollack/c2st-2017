@@ -1769,10 +1769,6 @@ object {
 
 /* PRIMARY FEATURED CONTENT */
 
-img {
-  width: 100%;
-}
-
 .primary-featured-image {
   display: block;
   margin-bottom: 30px;
