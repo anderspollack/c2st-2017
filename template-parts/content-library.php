@@ -56,7 +56,7 @@ endif;
             // Post Thumbnail for non-Video posts
             elseif (has_post_thumbnail()): ?>
 
-                <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image-single">
+                <a href="<?php echo esc_url( get_permalink() ); ?>" class="event-image-single">
                     <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
                 </a>
 
@@ -67,7 +67,7 @@ endif;
         // Post Thumbnail for Events
         elseif (has_post_thumbnail()) : ?>
 
-            <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image-single">
+            <a href="<?php echo esc_url( get_permalink() ); ?>" class="event-image-single">
                 <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
             </a>
             

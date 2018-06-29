@@ -719,14 +719,21 @@ div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all,
     margin-bottom: 2em;
 }
 
-.content-image, .event-image, .featured-event-image, .event-image-single  {
+.content-image, .featured-event-image, .event-image-single  {
     display: inline-block;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     margin-bottom: 30px;
-  /*     background-color: #e1e1e1; */
+}
+
+.event-image {
+    display: inline-block;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .content-image {
@@ -1052,13 +1059,13 @@ div.video-container {
 
 .primary-feature .content-image,
 .primary-feature .video {
-    border-color: #898989;
+  /*     border-color: #898989; */
 }
 }
 
 #featured-section .primary-feature .content-image:hover,
 #static-page-featured-section .primary-feature .content-image:hover {
-    border-color: #252525;
+  /*     border-color: #252525; */
 }
 
 /*--------------------------------------------------------------
@@ -1782,11 +1789,26 @@ object {
 
 .primary-featured-image img {
   width: 100%;
+  border: 2px solid transparent;
+}
+
+.primary-featured-image img:hover {
+  border-color: #252525;
 }
 
 .primary-featured-excerpt {
   margin-top: 2em;
 }
+
+.event-image img {
+  border: 2px solid #e1e1e1;
+}
+
+.event-image img:hover {
+  border: 2px solid #252525
+}
+
+.event-image
 
 /* EVENT IMAGES */
 
@@ -1794,25 +1816,12 @@ object {
   display: block;
   margin-bottom: 20px;
 }
+
+.event-page-image img:hover {
+  border: 2px solid #252525
+}
+
 .event-page-image img {
+  border: 2px solid #e1e1e1;
   width: 100%;
-}
-
-/* HEADINGS */
-
-.secondary-features h1 {
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: normal;
-}
-.secondary-features h2 {
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: normal;
-}
-
-.secondary-features h3,
-.secondary-features h4,
-.secondary-features h1 {
-  
 }

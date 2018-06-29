@@ -6,14 +6,14 @@
 
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-4">
+    <div class="row event-row">
+        <div class="col-sm-4">
 
             <?php if ( has_post_thumbnail() ): ?>
 
                 <!-- <a href="<?php //echo esc_url( get_permalink() ); ?>" class="content-image" style="background-image: url(<?php //echo esc_url( the_post_thumbnail_url() ); ?>);"></a> -->
 
-                <a href="<?php echo esc_url( get_permalink() ); ?>" class="event-image-single">
+                <a href="<?php echo esc_url( get_permalink() ); ?>" class="event-image">
                     <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
                 </a>
 
@@ -26,12 +26,12 @@
             <?php endif; ?>
             
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-8 col-md-4">
 
 <?php get_template_part( 'template-parts/content' , 'event-details' ); ?>
 
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 content-excerpt">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-4 col-md-offset-0 content-excerpt">
 
 <?php the_content( 'Read more…' ); ?>
 

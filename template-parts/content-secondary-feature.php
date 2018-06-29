@@ -35,7 +35,7 @@ if ( get_post_type() === 'event' ) {
 // Post Thumbnail
 if ( has_post_thumbnail() ) : ?>
      
-    <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="event-image">
+    <a href="<?php echo esc_url( get_permalink() ); ?>" class="event-image">
         <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
     </a>
 
