@@ -1,4 +1,4 @@
-<p class="content-subheading">
+<p class="content-subheading date-time">
 
 <?php 
 // Event Date
@@ -44,16 +44,13 @@ if ( get_field( 'event_time' ) ) : ?>
 
 <?php endif; ?>
 
+<p class="content-subheading">
+
 <?php
 // Event Location 
 if ( get_field( 'location_name' ) ) : ?>
 
-<p class="content-subheading">
     <span class="event-location"><?php echo the_field( 'location_name' ); ?></span><br>
-
-<?php else : ?>
-
-<p class="content-subheading">
 
 <?php endif; ?>
 

@@ -1063,24 +1063,6 @@ div.video-container {
     border-color: #252525;
 }
 
-/* UGHHHHHH */
-
-.primary-featured-image img {
-  width: 100%;
-  
-}
-
-.primary-featured-excerpt {
-  margin-top: 2em;
-}
-
-
-
-
-
-
-
-
 /*--------------------------------------------------------------
 ## Upcoming events
 --------------------------------------------------------------*/
@@ -1768,4 +1750,52 @@ object {
 
 .gallery-caption {
     display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* NEW TINGS. START FRESH */
+
+/* PRIMARY FEATURED CONTENT */
+
+.primary-featured-image {
+  display: block;
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .primary-featured-image {
+    margin-bottom: 0;
+  }
+}
+
+.primary-featured-image img {
+  width: 100%;
+}
+
+.primary-featured-excerpt {
+  margin-top: 2em;
+}
+
+/* EVENT IMAGES */
+
+.event-page-image {
+  display: block;
+  margin-bottom: 20px;
+}
+.event-page-image img {
+  width: 100%;
 }
