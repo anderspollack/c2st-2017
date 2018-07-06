@@ -18,17 +18,13 @@ get_header(); ?>
                     while ( have_posts() ) : the_post();
 
                     get_template_part( 'template-parts/content', get_post_format() );
-
-                        // Previous and Next Links for Posts
-                        // the_post_navigation();
-
-                        // If comments are open or we have at least one comment, load up the comment template.
-                    
-                    comments_template();
-                    
-
-                    endwhile; // End of the loop.
                     ?>
+
+                        <div class="col-sm-12">
+                            <?php comments_template(); ?>
+                        </div>
+
+                    <?php endwhile; ?>
 
                 </div><!-- .row -->
             </div><!-- .container -->
