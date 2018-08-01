@@ -235,27 +235,32 @@ footer {
 }
 
 .main-navigation .facebook a {
-    background-image: url('img/facebook.gif');
+    background-image: url('img/facebook@2x.gif');
     background-image: -webkit-image-set(url('img/facebook.gif') 1x, url('img/facebook@2x.gif') 2x, url('img/facebook@3x.gif') 3x );
 } 
 
+.main-navigation .instagram a {
+    background-image: url('img/instagram@2x.gif');
+    background-image: -webkit-image-set(url('img/instagram.gif') 1x, url('img/instagram@2x.gif') 2x, url('img/instagram@3x.gif') 3x );
+} 
+
 .main-navigation .twitter a {
-    background-image: url('img/twitter.gif');
+    background-image: url('img/twitter@2x.gif');
     background-image: -webkit-image-set(url('img/twitter.gif') 1x, url('img/twitter@2x.gif') 2x, url('img/twitter@3x.gif') 3x );
 }
 
 .main-navigation .linkedin a {
-    background-image: url('img/linkedin.gif');
+    background-image: url('img/linkedin@2x.gif');
     background-image: -webkit-image-set(url('img/linkedin.gif') 1x, url('img/linkedin@2x.gif') 2x, url('img/linkedin@3x.gif') 3x );
 }
 
 .main-navigation .youtube a {
-    background-image: url('img/youtube.gif');
+    background-image: url('img/youtube@2x.gif');
     background-image: -webkit-image-set(url('img/youtube.gif') 1x, url('img/youtube@2x.gif') 2x, url('img/youtube@3x.gif') 3x );
 }
 
 .main-navigation .rss a {
-    background-image: url('img/rss.gif');
+    background-image: url('img/rss@2x.gif');
     background-image: -webkit-image-set(url('img/rss.gif') 1x, url('img/rss@2x.gif') 2x, url('img/rss@3x.gif') 3x );
 }
 
@@ -469,18 +474,21 @@ footer {
   }
 }
 
-@media screen and (min-width: 1121px) and (max-width: 1349px) {
+@media screen and (min-width: 1121px) and (max-width: 1399px) {
   .main-navigation .give, .main-navigation .signup {
     position: relative;
     top: 17px;
   }
 }
 
-@media screen and (min-width: 800px) and (max-width: 1349px) {
+@media screen and (min-width: 800px) and (max-width: 1399px) {
   .main-navigation .social {
     position: absolute;
   }
   .main-navigation .facebook {
+    right: 216px;
+  }
+  .main-navigation .instagram {
     right: 172px;
   }
   .main-navigation .twitter {
@@ -511,7 +519,7 @@ footer {
     }
 }
 
-@media screen and (min-width: 1350px) {
+@media screen and (min-width: 1400px) {
   .main-navigation {
     padding: 25px 15px 15px 25px;
     height: auto;
