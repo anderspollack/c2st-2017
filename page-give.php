@@ -25,16 +25,8 @@ if ( $primary_featured_post ) : ?>
             <div class="page-section">
                 <div class="container">
 
-                    <div class="donation-header">
-                        <h1 class="entry-title"><?php echo $page_title; ?></h1>
+                    <h1 class="entry-title"><?php echo $page_title; ?></h1>
 
-                        <div class="guidestar">
-                            <a href="https://www.guidestar.org/profile/20-8490697" target="_blank">
-                                <img src="<?php echo get_theme_file_uri('img/gximage2.png')?>" />
-                            </a>
-                        </div>
-                    </div>
-                    
                     <?php
                     echo do_shortcode( '[give_form id="' . $post . '"]' ); ?>
 
