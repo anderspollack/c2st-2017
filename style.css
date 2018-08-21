@@ -1339,6 +1339,28 @@ footer .guidestar {
   padding: 2em 0;
 }
 
+/* Guidestar seal */
+
+.guidestar img {
+}
+
+@media screen and (max-width: 767px) {
+  h1 + .guidestar {
+    margin: 0 0 2em 0;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .donation-header {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .guidestar {
+    margin-top: 2em;
+    margin-left: calc(25vw);
+  }
+}
+
 /*--------------------------------------------------------------
    ## Home Page Template
    --------------------------------------------------------------*/
