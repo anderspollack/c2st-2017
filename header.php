@@ -30,7 +30,7 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body id="bootstrap-override" <?php body_class(); ?>>
 
 <!-- For Facebook Share Buttons -->
 <div id="fb-root"></div>

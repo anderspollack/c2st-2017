@@ -69,6 +69,11 @@
                             C2ST is a nonprofit organization with 501 (c) 3 tax status. Your donation is tax deductible as provided by law.
                         </p> -->
                         <a href="<?php echo get_site_url(); ?>/give-now/" class="btn btn-primary">Give now</a>
+                        <div class="guidestar">
+                            <a href="https://www.guidestar.org/profile/20-8490697" target="_blank">
+                                <img src="https://widgets.guidestar.org/gximage2?o=8562088&l=v4" />
+                            </a>
+                        </div>
                     </div>
                     <div class="col-sm-4">
                         <p class="content-subheading">Site Map</p>
