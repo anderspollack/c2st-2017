@@ -1871,6 +1871,9 @@ object {
   width: 100%;
 }
 
-/* POST IMAGES */
+/* blog post spacing */
+.page-template-page-blog article {
+  margin-bottom: 60px;
+}
 
-.post-image 
+
