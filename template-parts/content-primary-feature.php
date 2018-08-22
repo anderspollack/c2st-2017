@@ -101,7 +101,7 @@ $is_youtube_video = false;
             <?php if ($is_youtube_video): ?>
                 <div class="col-sm-6">
             <?php else: ?>
-                <div class="col-sm-12 col-md-6 primary-featured-excerpt">
+                <div class="col-lg-12 primary-featured-excerpt">
             <?php endif; ?>
 
                 <?php 
