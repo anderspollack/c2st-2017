@@ -16,11 +16,11 @@ get_header();
 $featured_post_toggle = get_field( 'featured_post_toggle' );
 $primary_featured_post = get_field( 'primary_featured_post' );
 if ( $featured_post_toggle && $primary_featured_post) {
-  global $post;
-  $post = $primary_featured_post;
-  setup_postdata( $post );
+  /* global $post;
+   * $post = $primary_featured_post;
+   * setup_postdata( $post ); */
   get_template_part( 'template-parts/content', 'primary-feature' );
-  wp_reset_postdata();
+  /*   wp_reset_postdata(); */
 }
 
 $args =  array(
