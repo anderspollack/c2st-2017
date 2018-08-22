@@ -13,15 +13,15 @@ get_header();
 /* 
    Blog Page Primary Feature
  */
-$featured_post_toggle = get_field( 'featured_post_toggle' );
-$primary_featured_post = get_field( 'primary_featured_post' );
-if ( $featured_post_toggle && $primary_featured_post) {
+/* $featured_post_toggle = get_field( 'featured_post_toggle' ); */
+/* $primary_featured_post = get_field( 'primary_featured_post' ); */
+/* if ( $featured_post_toggle && $primary_featured_post) { */
   /* global $post;
    * $post = $primary_featured_post;
    * setup_postdata( $post ); */
-  get_template_part( 'template-parts/content', 'primary-feature' );
+/* get_template_part( 'template-parts/content', 'primary-feature' ); */
   /*   wp_reset_postdata(); */
-}
+/* } */
 
 $args =  array(
   'tax_query' => array(
@@ -33,7 +33,7 @@ $args =  array(
   ),
   'posts_per_page' => 6,
   'paged' => 'paged',
-  /*   'post__not_in' => $primary_featured_post, */
+  /* 'post__not_in' => $primary_featured_post, */
 );
 $blog_posts = new WP_Query( $args );
 ?>
