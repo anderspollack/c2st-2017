@@ -33,7 +33,7 @@ $args =  array(
   ),
   'posts_per_page' => 6,
   'paged' => 'paged',
-  /* 'post__not_in' => $primary_featured_post, */
+  'post__not_in' => array($primary_featured_post),
 );
 $blog_posts = new WP_Query( $args );
 global $blog_posts;
