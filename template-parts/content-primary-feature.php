@@ -101,7 +101,11 @@ $is_youtube_video = false;
             <?php if ($is_youtube_video): ?>
                 <div class="col-sm-6">
             <?php else: ?>
-                <div class="col-lg-12 primary-featured-excerpt">
+                <?php if (has_post_thumbnail()): ?>
+                    <div class="col-sm-6 primary-featured-excerpt">
+                <?php else: ?>
+                    <div class="col-lg-12 primary-featured-excerpt text-2-cols">
+                <?php endif; ?>
             <?php endif; ?>
 
                 <?php 

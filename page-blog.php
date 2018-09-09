@@ -50,7 +50,9 @@ global $blog_posts;
                 </header><!-- .page-header -->
             </div>
             <div class="col-sm-12">
-                <?php the_content(); ?>
+                <div class="text-2-cols">
+                    <?php the_content(); ?>
+                </div>
             </div>
 
             <div class="col-sm-12"><hr></div>

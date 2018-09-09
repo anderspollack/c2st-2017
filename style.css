@@ -1876,4 +1876,9 @@ object {
   margin-bottom: 60px;
 }
 
-
+@media screen and (min-width: 992px) {
+  .text-2-cols {
+    column-count: 2;
+    column-gap: 60px
+  }
+}
