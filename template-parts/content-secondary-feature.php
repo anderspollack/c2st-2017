@@ -20,7 +20,7 @@ if ( get_post_type() === 'event' ) {
   $featured_item_type = get_field( 'content_type' );
 } ?>
         
-<div class="col-sm-6 col-md-6 col-lg-6">
+<div class="secondary-featured-item col-sm-6 col-md-6 col-lg-6">
 
     <span class="feature-label">
 
@@ -67,4 +67,4 @@ if ( has_post_thumbnail() ) : ?>
         } ?>
         
     </div>
-</div><!-- .row -->
+</div><!-- .col -->
