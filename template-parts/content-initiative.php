@@ -8,68 +8,64 @@
  */
 
 ?>
-<div class="col-sm-6">
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <header class="entry-header">
-            <?php
-            // if ( is_singular() ) :
-                // the_title( '<h1 class="entry-title">', '</h1>' );
-            // else :
-                the_title( '<h3 class="content-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-            // endif;
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div class="row">
+        <div class="col-sm-12">
+            <header class="entry-header">
+                <?php
+                the_title( '<h1 class="entry-title">', '</h1>' );
+                if ( 'post' === get_post_type() ) : ?>
+                    <div class="entry-meta">
+                        <?php c2st_2017_posted_on(); ?>
+                    </div><!-- .entry-meta -->
+                <?php endif; ?>
+            </header><!-- .entry-header -->
+        </div>
+        <div class="col-sm-6">
+            <?php if ( has_post_thumbnail() ) : ?>
+                <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
+                  style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
+                </a>
+            <?php endif; ?>
+        </div>
+        <div class="col-sm-6">
+            <div class="share-block">
+                <h3>Share</h3>
 
-            if ( 'post' === get_post_type() ) : ?>
-            <div class="entry-meta">
-                <?php c2st_2017_posted_on(); ?>
-            </div><!-- .entry-meta -->
-            <?php
-            endif; ?>
-        </header><!-- .entry-header -->
+                <!-- FB Share Button -->
+                <div class="fb-share-button" data-href="<?php the_permalink(); ?>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>
+                <!-- End FB Share Button -->
 
-        <?php 
-        // Post Thumbnail
-        if ( has_post_thumbnail() &&  'Video' !== get_field( 'content_type' ) ) : ?>
-        
-            <a href="<?php echo esc_url( get_permalink() ); ?>" class="content-image" 
-            style="background-image: url('<?php esc_url( the_post_thumbnail_url() ); ?>');">
-            </a>
+                <!-- Tweet Button -->
+                <a class="twitter-share-button"
+                  href="https://twitter.com/intent/tweet"
+                  data-size="large"
+                  data-text="<?php get_the_title(); ?>"
+                  data-url="<?php get_the_permalink(); ?>">
+                    Tweet
+                </a>
+                <!-- End Tweet Button -->
 
-        <?php 
-        // Embedded Video Player
-        elseif ( 'Video' === get_field( 'content_type' ) ) : 
-            $video_url = get_field( 'youtube_video_url' );
-            $code_pos = strrpos( $video_url, 'watch?v=' );
-            $embed_video_url = substr_replace( $video_url, 'embed/', $code_pos, 8 )
-         ?>
-
-            <div class="video-container">
-
-                <iframe class="video" src="<?php echo $embed_video_url; ?>" frameborder="0" allowfullscreen></iframe>
-
+                <!-- Linkedin Button -->
+                <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+                <script type="IN/Share" data-url="<?php get_the_permalink(); ?>"></script>
+                <!-- End Linkedin Button -->
             </div>
-
-        <?php 
-        endif; ?>
-
-        <?php if ( get_field( 'author' ) ) : ?>
-
-            <p class="bold">By <?php the_field( 'author' ); ?></p>
-
-        <?php endif; ?>
-
-        <?php
-        the_content( sprintf(
-            wp_kses(
-                /* translators: %s: Name of current post. Only visible to screen readers */
-                __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'c2st-2017' ),
-                array(
-                    'span' => array(
-                        'class' => array(),
-                    ),
-                )
-            ),
-            get_the_title()
-        ) ); ?>
-        
-    </article><!-- #post-<?php the_ID(); ?> -->
-</div>
+            
+            <?php
+            the_content( sprintf(
+                wp_kses(
+                    /* translators: %s: Name of current post. Only visible to screen readers */
+                    __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'c2st-2017' ),
+                    array(
+                        'span' => array(
+                            'class' => array(),
+                        ),
+                    )
+                ),
+                get_the_title()
+            ) ); ?>
+            
+        </div>
+    </div>
+</article><!-- #post-<?php the_ID(); ?> -->

@@ -1294,6 +1294,10 @@ div.video-container {
   padding-bottom: 40px;
 }
 
+.share-block {
+  margin-bottom: 30px;
+}
+
 .pagination {
   display: block;
   margin: 20px 0 0 0;
