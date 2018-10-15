@@ -1936,6 +1936,8 @@ object {
   text-align: center;
   width: 24px;
   margin-right: 8px;
+  position: relative;
+  top: 0px;
 }
 .footer-sitemap-heading a {
   display: inline-block;
