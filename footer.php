@@ -80,13 +80,17 @@
 
                         <?php $about = get_permalink( 1710 ); ?>
 
-                        <a href="<?php echo esc_url( $about ); ?>" class="content-subheading">About</a>
-                        <a href="<?php echo esc_url( $about ) . '#mission'?>" class="content-subheading indent">Mission</a>
-                        <a href="<?php echo esc_url( $about ) . '#board-of-directors'?>" class="content-subheading indent">Board of Directors</a>
-                        <a href="<?php echo esc_url( $about ) . '#auxiliary-board'?>" class="content-subheading indent">Auxiliary Board</a>
-                        <a href="<?php echo esc_url( $about ) . '#c2st-collaborators'?>" class="content-subheading indent">C2ST Collaborators</a>
+                        <div class="footer-sitemap-heading about">
+                            <i class="expander about glyphicon glyphicon-triangle-right" data-heading="about"></i><a id="about" href="<?php echo esc_url( $about ); ?>" class="content-subheading">About</a>
+                        </div>
+                        <div class="footer-sitemap-section about" data-section="about">
+                            <a href="<?php echo esc_url( $about ) . '#mission'?>" class="content-subheading indent">Mission</a>
+                            <a href="<?php echo esc_url( $about ) . '#board-of-directors'?>" class="content-subheading indent">Board of Directors</a>
+                            <a href="<?php echo esc_url( $about ) . '#auxiliary-board'?>" class="content-subheading indent">Auxiliary Board</a>
+                            <a href="<?php echo esc_url( $about ) . '#c2st-collaborators'?>" class="content-subheading indent">C2ST Collaborators</a>
 
-                        <a href="<?php echo esc_url( $about ) . '#c2st-staff'?>" class="content-subheading indent">Staff</a>
+                            <a href="<?php echo esc_url( $about ) . '#c2st-staff'?>" class="content-subheading indent">Staff</a>
+                        </div>
 
                         <a href="<?php echo esc_url( get_permalink( 1714 ) ); ?>" class="content-subheading">Events</a>
 
@@ -94,23 +98,34 @@
 
                         <a href="<?php echo esc_url( get_permalink( 2034 ) ); ?>" class="content-subheading">Library</a>
 
-                        <a href="<?php echo esc_url( get_permalink( 1787 ) ); ?>" class="content-subheading">Support</a>
-                        <a href="<?php echo esc_url( get_permalink( 1787 ) ) . '#donate'; ?>" class="content-subheading indent">Donate</a>
+                        <div class="footer-sitemap-heading support">
+                            <i class="expander support glyphicon glyphicon-triangle-right" data-heading="support"></i><a id="support" href="<?php echo esc_url( get_permalink( 1787 ) ); ?>" class="content-subheading">Support</a>
+                        </div>
+                        <div class="footer-sitemap-section support" data-section="support">
+                            <a href="<?php echo esc_url( get_permalink( 1787 ) ) . '#donate'; ?>" class="content-subheading indent">Donate</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- <a href="<?php // echo esc_url( __( 'https://wordpress.org/', 'c2st-2017' ) ); ?>"><?php
-            //     /* translators: %s: CMS name, i.e. WordPress. */
-            //     printf( esc_html__( 'Proudly powered by %s', 'c2st-2017' ), 'WordPress' );
-            // ?></a>
-            // <span class="sep"> | </span>
-            // <?php
-            //     /* translators: 1: Theme name, 2: Theme author. */
-            //     printf( esc_html__( 'Theme: %1$s by %2$s.', 'c2st-2017' ), 'c2st-2017', '<a href="https://automattic.com/">Anders Pollack</a>' );
-            ?> -->
         </div><!-- .site-info -->
     </footer><!-- #colophon -->
 </div><!-- #page -->
+<script>
+ (function($) {
+     $(document).ready(function(){
+         $('.expander').click(function() {
+             var section = $('[data-section="' + $(this).data('heading') + '"]');
+             if (section.hasClass('expanded')) {
+                 section.removeClass('expanded');
+                 $(this).css('transform', 'rotate(0)')
+             } else {
+                 section.addClass('expanded');
+                 $(this).css('transform', 'rotate(90deg)')
+             }
+         });
+     });
+ })( jQuery );
+</script>
 
 <?php wp_footer(); ?>
 

@@ -1359,9 +1359,12 @@ a.page-numbers:hover {
   margin-bottom: 12px;
 }
 
+a.content-subheading.indent {
+  font-weight: normal;
+}
 a.content-subheading.indent::before {
-  content: "-";
-  margin-right: 2em;
+  content: "";
+  margin-right: 24px;
 }
 
 .site-footer form > input,
@@ -1921,4 +1924,32 @@ object {
     column-count: 2;
     column-gap: 60px
   }
+}
+
+/* Footer collapsible sitemap */
+.footer-sitemap-heading {
+  position: relative;
+  left: -8px;
+}
+.footer-sitemap-heading i {
+  font-size: 12px; 
+  text-align: center;
+  width: 24px;
+  margin-right: 8px;
+}
+.footer-sitemap-heading a {
+  display: inline-block;
+}
+.expander {
+  transform: rotate(0);
+  transition: transform 0.1s ease;
+}
+.footer-sitemap-section {
+  opacity: 0;
+  max-height: 0;
+  transition: opacity 0.2s linear, max-height 0.2s ease;
+}
+.footer-sitemap-section.expanded {
+  opacity: 1;
+  max-height: 500px;
 }
