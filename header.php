@@ -33,7 +33,7 @@
          function gtag(){dataLayer.push(arguments);}
          gtag('js', new Date());
 
-         gtag('config', 'GA_TRACKING_ID');
+         gtag('config', 'UA-9688975-1');
         </script>
 
         <?php wp_head(); ?>
