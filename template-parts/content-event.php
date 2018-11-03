@@ -205,16 +205,19 @@
 
                             <div class="col-sm-6">
 
-                                <?php if ( get_sub_field('partner_logo') ): ?>
+                                <?php echo get_sub_field('partner_url') ? '<a href="' . get_sub_field('partner_url') . '" target="_blank">' : ''?>
+                                    <?php if ( get_sub_field('partner_logo') ): ?>
 
-                                    <img src="<?php the_sub_field('partner_logo'); ?>" align="center" class="img-thumbnail">
+                                        <img src="<?php the_sub_field('partner_logo'); ?>" align="center" class="img-thumbnail">
 
-                                <?php else : ?>
+                                    <?php else : ?>
 
-                                    <p><?php the_sub_field('partner_name'); ?></p>
+                                        <p><?php the_sub_field('partner_name'); ?></p>
 
-                                <?php endif; ?>
-
+                                    <?php endif; ?>
+                                <?php echo get_sub_field('partner_url') ? '</a>' : ''?>
+                                </a>
+                                
                             </div>
 
                             <?php if ( get_row_index() % 2 === 0 ) : ?>
