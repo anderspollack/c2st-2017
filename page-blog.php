@@ -22,7 +22,7 @@ if ( $featured_post_toggle && $primary_featured_post) {
   get_template_part( 'template-parts/content', 'primary-feature' );
   wp_reset_postdata();
 }
-
+$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $args =  array(
   'tax_query' => array(
     array(
@@ -32,7 +32,7 @@ $args =  array(
     ),
   ),
   'posts_per_page' => 6,
-  'paged' => 'paged',
+  'paged' => $paged,
   'post__not_in' => array($primary_featured_post),
 );
 $blog_posts = new WP_Query( $args );
@@ -93,19 +93,19 @@ global $blog_posts;
 
                             <?php 
                             echo paginate_links( array(
-                              'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-                              'total'        => $blog_posts ->max_num_pages,
-                              'current'      => max( 1, get_query_var( 'paged' ) ),
-                              'format'       => '?paged=%#%',
-                              'show_all'     => false,
-                              'type'         => 'plain',
-                              'end_size'     => 2,
-                              'mid_size'     => 1,
-                              'prev_next'    => true,
-                              'prev_text'    => sprintf( '<i></i> %1$s', __( 'Newer', 'text-domain' ) ),
-                              'next_text'    => sprintf( '%1$s <i></i>', __( 'Older', 'text-domain' ) ),
-                              'add_args'     => false,
-                              'add_fragment' => '',
+                                'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+                                'total'        => $blog_posts ->max_num_pages,
+                                'current'      => max( 1, get_query_var( 'paged' ) ),
+                                'format'       => '?paged=%#%',
+                                'show_all'     => false,
+                                'type'         => 'plain',
+                                'end_size'     => 2,
+                                'mid_size'     => 1,
+                                'prev_next'    => true,
+                                'prev_text'    => sprintf( '<i></i> %1$s', __( 'Newer', 'text-domain' ) ),
+                                'next_text'    => sprintf( '%1$s <i></i>', __( 'Older', 'text-domain' ) ),
+                                'add_args'     => false,
+                                'add_fragment' => '',
                             ) );
                             ?>
                             
