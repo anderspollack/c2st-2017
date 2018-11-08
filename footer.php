@@ -71,7 +71,7 @@
                         <a href="<?php echo get_site_url(); ?>/give-now/" class="btn btn-primary">Give now</a>
                         <div class="guidestar">
                             <a href="https://www.guidestar.org/profile/20-8490697" target="_blank">
-                                <img src="<?php echo home_url('/wp-content/uploads/2018/11/put-platinum2018-seal.png'); ?>" />
+                                <img style="width: 135px; height: auto" src="<?php echo home_url('/wp-content/uploads/2018/11/put-platinum2018-seal.png'); ?>" />
                             </a>
                         </div>
                     </div>
