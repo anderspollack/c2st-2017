@@ -21,10 +21,10 @@
                         <p class="content-subheading">Sign up for our email list</p>
                         <form class="form-inline">
                             <!-- <label class="sr-only" for="emailInput">Email address</label>
-                            <input type="email" class="form-control" id="emailInput" placeholder="Email address">
+                                 <input type="email" class="form-control" id="emailInput" placeholder="Email address">
 
-                            <label class="sr-only" for="emailInput">Submit</label>
-                            <button type="submit" class="btn btn-primary">Submit</button> -->
+                                 <label class="sr-only" for="emailInput">Submit</label>
+                                 <button type="submit" class="btn btn-primary">Submit</button> -->
                             <a href="https://visitor.r20.constantcontact.com/d.jsp?llr=4robuocab&amp;p=oi&amp;m=1102149892671&amp;sit=edw9ypldb&amp;f=0a0a2dfa-e9dd-492a-a572-03c724f6fcd3" class="btn btn-primary">Sign Up Now</a>
 
                         </form>
@@ -39,7 +39,7 @@
                         $fax_number = get_theme_mod( 'fax_number' );
                         $email_address = get_theme_mod( 'email_address' );
 
-                         ?>
+                        ?>
                         <address>
                             <p>
                                 <?php echo $address_line_1; ?><br>
@@ -63,15 +63,15 @@
                         echo '<p>' . $footer_donation_text . '</p>' ?>
 
                         <!-- <p>
-                            Your tax deductable contribution enables C2ST to continue our work. Your philanthropy helps C2ST bring science to you. Please consider making a donation to the organization. 
-                        </p>
-                        <p>
-                            C2ST is a nonprofit organization with 501 (c) 3 tax status. Your donation is tax deductible as provided by law.
-                        </p> -->
+                             Your tax deductable contribution enables C2ST to continue our work. Your philanthropy helps C2ST bring science to you. Please consider making a donation to the organization. 
+                             </p>
+                             <p>
+                             C2ST is a nonprofit organization with 501 (c) 3 tax status. Your donation is tax deductible as provided by law.
+                             </p> -->
                         <a href="<?php echo get_site_url(); ?>/give-now/" class="btn btn-primary">Give now</a>
                         <div class="guidestar">
                             <a href="https://www.guidestar.org/profile/20-8490697" target="_blank">
-                                <img src="<?php echo get_theme_file_uri('img/gximage2.png')?>" />
+                                <img src="<?php echo home_url('/wp-content/uploads/2018/11/put-platinum2018-seal.png'); ?>" />
                             </a>
                         </div>
                     </div>
@@ -109,25 +109,25 @@
             </div>
         </div><!-- .site-info -->
     </footer><!-- #colophon -->
-</div><!-- #page -->
-<script>
- (function($) {
-     $(document).ready(function(){
-         $('.expander').click(function() {
-             var section = $('[data-section="' + $(this).data('heading') + '"]');
-             if (section.hasClass('expanded')) {
-                 section.removeClass('expanded');
-                 $(this).css('transform', 'rotate(0)')
-             } else {
-                 section.addClass('expanded');
-                 $(this).css('transform', 'rotate(90deg)')
-             }
+    </div><!-- #page -->
+    <script>
+     (function($) {
+         $(document).ready(function(){
+             $('.expander').click(function() {
+                 var section = $('[data-section="' + $(this).data('heading') + '"]');
+                 if (section.hasClass('expanded')) {
+                     section.removeClass('expanded');
+                     $(this).css('transform', 'rotate(0)')
+                 } else {
+                     section.addClass('expanded');
+                     $(this).css('transform', 'rotate(90deg)')
+                 }
+             });
          });
-     });
- })( jQuery );
-</script>
+     })( jQuery );
+    </script>
 
-<?php wp_footer(); ?>
+    <?php wp_footer(); ?>
 
 </body>
 </html>
