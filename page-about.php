@@ -155,6 +155,20 @@ if ( $featured_post_toggle && $primary_featured_post) : ?>
 
                                 <a href="mailto:<?php get_sub_field('email_address'); ?>"><?php the_sub_field('email_address'); ?></a>
 
+                                <?php
+                                $person = get_sub_field('person'); 
+                                if ( $person ) {
+                                    $post = $person;
+                                    setup_postdata( $post );
+                                    echo get_field( 'photo' ) ? '<img alt="' . get_the_title() . '" src="' . get_field( 'photo' ) . '" align="left" />' : '';
+                                    echo '<a href="' . get_permalink() . '"><h3 class="section-subtitle">' . get_the_title() . '</h3></a>';
+                                    echo get_field( 'title' ) ? get_field( 'title' ) . '<br/>' : '';
+                                    echo get_field( 'email_address' ) ? '<a href="mailto:' . get_field( 'email_address' ) . '" class="email-link">' . get_field( 'email_address' ) . '</a>' : '';
+                                    echo get_field('phone') ? '<a href="tel:' . get_field( 'phone' ) . '" class="email-link">' . get_field( 'email_address' ) . '</a>' : '';
+                                    wp_reset_postdata();
+                                }
+                                ?>
+
                             </div>
 
                         <?php endwhile; ?>
