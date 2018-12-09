@@ -49,12 +49,14 @@ get_header(); ?>
 </style>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'person' ); ?>>
     <main id="main" class="site-main" role="main">
-        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-        <div class="avatar">
-            <img alt="<?php the_title(); ?>" src="<?php the_field( 'photo' ); ?>"/>
-        </div>
+        <?php the_title( '<h1 class="entry-title">', '</h1>' );
+        if (get_field( 'photo' )): ?>
+            <div class="avatar">
+                <img alt="<?php the_title(); ?>" src="<?php the_field( 'photo' ); ?>"/>
+            </div>
+        <?php endif; ?>
         <div class="info">
-            <div class="title">
+            <div class="title preformatted">
                 <?php the_field( 'title' ); ?>
             </div>
             <div class="email">
@@ -68,10 +70,11 @@ get_header(); ?>
                 </a>
             </div>
         </div>
-        <div class="bio">
-            <?php the_field( 'bio' ); ?>
-            Leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero, id faucibus nisl tincidunt eget nullam non. Egestas purus viverra accumsan in nisl nisi, scelerisque eu ultrices vitae!
-        </div>
+        <?php if (get_field( 'bio' )): ?>
+            <div class="bio">
+                <?php the_field( 'bio' ); ?>
+            </div>
+        <?php endif; ?>
     </main><!-- #main -->
 </article>
 <?php
