@@ -732,7 +732,15 @@ div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all,
 }
 
 .c2st-collaborators h2 {
-    margin: 60px 0 40px 0;
+    margin: 50px 0 30px 0;
+}
+
+.c2st-collaborators h2:first-of-type {
+    margin-top: 0;
+}
+
+.c2st-collaborators p:last-of-type {
+    margin-bottom: 30px;
 }
 
 .section-title {
@@ -1422,10 +1430,6 @@ footer .guidestar {
    --------------------------------------------------------------*/
 .c2st-collaborators h2 {
     margin-bottom: 18px;
-}
-
-.c2st-collaborators p:last-child{
-    margin-bottom: 50px;
 }
 
 .c2st-staff {
