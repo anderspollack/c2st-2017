@@ -143,17 +143,6 @@ if ( $featured_post_toggle && $primary_featured_post) : ?>
                         while ( have_rows('c2st_staff') ) : the_row(); ?>
 
                             <div class="col-sm-4 c2st-staff">
-                                <?php /*if ( get_sub_field('photo') ):*/ ?>
-
-                                <!-- <img src="<?php the_sub_field('photo'); ?>" align="left"> -->
-
-                                <?php /*endif;*/ ?>
-
-                                <!-- <h3 class="section-subtitle"><?php the_sub_field('name'); ?></h3> -->
-
-                                <?php /*the_sub_field('title');*/ ?>
-
-                                <!-- <a href="mailto:<?php get_sub_field('email_address'); ?>"><?php the_sub_field('email_address'); ?></a> -->
 
                                 <?php
                                 $person = get_sub_field('staff_member'); 

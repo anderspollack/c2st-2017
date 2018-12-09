@@ -20,6 +20,7 @@ get_header(); ?>
  }
  .person .avatar {
      max-width: 180px;
+     margin-right: 40px;
      margin-bottom: 40px;
  }
  .person img {
@@ -28,8 +29,8 @@ get_header(); ?>
  }
  .person .info {
      max-width: 180px;
-     margin-left: 40px;
      margin-right: 80px;
+     margin-bottom: 20px;
  }
  .person .title {
      font-size: 21px;
