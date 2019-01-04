@@ -56,9 +56,7 @@ get_header(); ?>
             </div>
         <?php endif; ?>
         <div class="info">
-            <div class="title preformatted">
-                <?php the_field( 'title' ); ?>
-            </div>
+            <div class="title preformatted"><?php the_field( 'title' ); ?></div>
             <div class="email">
                 <a href="mailto:<?php the_field( 'email_address' ); ?>">
                     <?php the_field( 'email_address' ); ?>
