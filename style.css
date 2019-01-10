@@ -1000,13 +1000,15 @@ div.video-container {
     display: block;
     position: relative;
     margin: 1em auto 1em auto;
-    background-image: url('img/c2st-logo-light.png');
-    background-image: -webkit-image-set(url('img/c2st-logo-light.png') 1x, url('img/c2st-logo-light@2x.png') 2x, url('img/c2st-logo-light@3x.png') 3x );
+    background-image: url('img/c2st-logo-drop-shadow.svg');
+    /* background-image: -webkit-image-set(url('img/c2st-logo-light.png') 1x, url('img/c2st-logo-light@2x.png') 2x, url('img/c2st-logo-light@3x.png') 3x ); */
     /*margin: 1em auto 2em auto;*/
+    opacity : 1;
+    transition: opacity 0.2s ease;
 }
 
 #site-logo a:hover {
-    background-image: none;
+    opacity : 0.5;
 } 
 
 #site-logo a:after {
@@ -1015,7 +1017,7 @@ div.video-container {
     position: absolute;
     width: 215px;
     height: 94px;  
-    background-image: url('img/c2st-logo-light.png');
+    /* background-image: url('img/c2st-logo-light.png'); */
     opacity : 0.5;
 }
 
