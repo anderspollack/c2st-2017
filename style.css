@@ -1041,6 +1041,7 @@ div.video-container {
 
 .site-title a {
     text-decoration: none;
+    transition: opacity 0.2s ease;
 }
 
 .site-title a:hover {
