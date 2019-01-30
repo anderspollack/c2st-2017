@@ -14,7 +14,7 @@
     </div><!-- #content -->
 
     <footer id="colophon" class="site-footer" role="contentinfo">
-        <div class="site-info">
+	<div class="site-info">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4">
@@ -48,9 +48,15 @@
                                 <?php echo $address_line_4; ?>
                             </p>
                             <p>
-                                <abbr title="Telephone:">t:</abbr><a class="tel" href="tel:<?php echo $telephone_number; ?>"> <?php echo $telephone_number; ?></a><br>
-                                <abbr title="Fax:">f:</abbr> <?php echo $fax_number; ?><br>
-                                <abbr title="Email:">e:</abbr> <a href="mailto:<?php echo $email_address; ?>" title="Email C2ST"><?php echo $email_address; ?></a>
+<!--
+                                <abbr title="Telephone:">t:</abbr>
+--><span>t:</span> <a class="tel" href="tel:<?php echo $telephone_number; ?>"> <?php echo $telephone_number; ?></a><br>
+<!--
+                                <abbr title="Fax:">f:</abbr> 
+--><span>t:</span> <?php echo $fax_number; ?><br>
+<!--
+                                <abbr title="Email:">e:</abbr> 
+--><span>e:</span> <a href="mailto:<?php echo $email_address; ?>" title="Email C2ST"><?php echo $email_address; ?></a>
                             </p>
                         </address>
                     </div>

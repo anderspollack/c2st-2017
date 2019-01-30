@@ -1976,3 +1976,8 @@ object {
     opacity: 1;
     max-height: 500px;
 }
+
+/* footer abbrevs */
+abbr {
+    border-bottom: none !important;
+}
