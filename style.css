@@ -975,6 +975,14 @@ div.video-container {
     font-weight: bold;
 }
 
+.program-series-link a:after {
+    content: ", ";
+}
+
+.program-series-link a:last-child:after {
+    content: "";
+}
+
 /*article.hentry,*/
 .program-series {
     margin: 30px 0;

@@ -97,8 +97,9 @@ if ( get_field( 'address' ) ) : ?>
     $program_series = get_the_terms( get_the_ID(), 'program_series' );
 
     if ( $program_series ) {
-        foreach ($program_series as $term ) {
-        echo 'Program Series: <br>' . '<a href="' . get_site_url() . '/program-series/">' . $term->name . '</a>';  
+	echo 'Program Series: <br>';
+	foreach ($program_series as $term ) {
+        echo '<a href="' . get_site_url() . '/program-series/">' . $term->name . '</a>';  
         }
     } ?>
 
