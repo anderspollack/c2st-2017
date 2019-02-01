@@ -49,14 +49,14 @@
                             </p>
                             <p>
 <!--
-                                <abbr title="Telephone:">t:</abbr>
---><span>t:</span> <a class="tel" href="tel:<?php echo $telephone_number; ?>"> <?php echo $telephone_number; ?></a><br>
+                                <abbr title="Telephone:">Phone:</abbr>
+--><span>Phone:</span> <a class="tel" href="tel:<?php echo $telephone_number; ?>"> <?php echo $telephone_number; ?></a><br>
 <!--
-                                <abbr title="Fax:">f:</abbr> 
---><span>t:</span> <?php echo $fax_number; ?><br>
+                                <abbr title="Fax:">Fax:</abbr> 
+--><span>Fax:</span> <?php echo $fax_number; ?><br>
 <!--
-                                <abbr title="Email:">e:</abbr> 
---><span>e:</span> <a href="mailto:<?php echo $email_address; ?>" title="Email C2ST"><?php echo $email_address; ?></a>
+                                <abbr title="Email:">Email:</abbr> 
+--><span>Email:</span> <a href="mailto:<?php echo $email_address; ?>" title="Email C2ST"><?php echo $email_address; ?></a>
                             </p>
                         </address>
                     </div>
