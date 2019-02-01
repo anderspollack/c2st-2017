@@ -143,11 +143,6 @@ $upcoming_events = get_posts( array(
         <div class="container">
             <?php 
             if ( $upcoming_events ) : ?>
-		<div class="row">
-                    <div class="col-sm-12"><hr></div>
-		</div>
-		<!-- .row -->
-
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="section-title">Upcoming Events</h1>
