@@ -903,6 +903,10 @@ div.fb-share-button {
   align-items: center;
 }
 
+.share-block__buttons > * {
+  margin-right: 8px;
+}
+
 .bold {
     font-weight: bold;
 }
