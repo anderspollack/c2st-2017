@@ -895,6 +895,13 @@ hr {
 div.fb-share-button {
     padding: 0;
 }
+.twitter-share-button {
+  
+}
+.share-block__buttons {
+  display: flex;
+  align-items: center;
+}
 
 .bold {
     font-weight: bold;
