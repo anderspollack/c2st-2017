@@ -66,9 +66,7 @@ get_header(); ?>
                     </div>
                     <div class="col-sm-6">
                         <?php if (get_field( 'second_column' )) : ?>
-                            <div class="col-sm-6">
-                                <?php the_field( 'second_column' ); ?>
-                            </div>
+                            <?php the_field( 'second_column' ); ?>
                         <?php endif; ?>
                     </div>
                 </div>
