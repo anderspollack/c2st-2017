@@ -17,7 +17,7 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
+<div id="primary" class="content-area layout-two-columns">
     <main id="main" class="site-main" role="main">
         <div class="container">
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
