@@ -900,7 +900,7 @@ div.fb-share-button {
 }
 .share-block__buttons {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .share-block__buttons > * {
