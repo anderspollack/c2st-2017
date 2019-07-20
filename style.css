@@ -1176,21 +1176,75 @@ div.video-container {
 /*--------------------------------------------------------------
    ## C2ST Supporters
    --------------------------------------------------------------*/
-.previous-supporters {
-  float: left;
-}
-.next-supporters {
-  float: right;
+.supporter-carousel {
+    display: flex;
+    width: 100%;
+    --carousel-height: 120px;
 }
 
-.supporter {
-  float: left;
-  display: block;
-  width: 100%;
-  height: 84px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+.supporter-carousel__navigation {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    cursor: pointer;
+}
+
+.supporter-carousel__items {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: var(--carousel-height);
+    grid-column-gap: 40px;
+    align-items: stretch;
+    position: relative;
+    height: var(--carousel-height);
+    overflow: hidden;
+}
+@media screen and (min-width: 560px) {
+    .supporter-carousel__items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (min-width: 720px) {
+    .supporter-carousel__items {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (min-width: 960px) {
+    .supporter-carousel__items {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media screen and (min-width: 1200px) {
+    .supporter-carousel__items {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.supporter-carousel__item {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: var(--carousel-height);
+}
+.supporter-carousel__item img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: calc(100% - 20px);
+    object-fit: contain;
+}
+
+.supporter-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: normal;
+    text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -1450,9 +1504,12 @@ footer .guidestar {
 }
 
 /* Supporter Carousel */
-.supporter-carousel {
-    background: cyan;
+#supporter-carousel-section {
+    border-top: 1px solid #e1e1e1;
+    background: #fff;
+    padding: 45px 0;
 }
+
 
 /* /Supporter Carousel */
 

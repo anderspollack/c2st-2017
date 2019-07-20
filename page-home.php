@@ -165,40 +165,13 @@ $upcoming_events = get_posts( array(
                     <a href="<?php echo get_site_url(); ?>/events/" id="see-all-events" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span>See All Events</a>
                 </div>
             </div><!-- .row -->
-
-            <div class="supporter-carousel">
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <a href="#" class="previous-supporters"><span class="glyphicon glyphicon-chevron-left"></span></a>
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
-                    <a href="#" class="supporter" style="background-image: url(https://www.c2st.org/wp-content/themes/c2st-2017/img/test-images/horizon-pharma.jpg);"></a>
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <a href="#" class="supporter" style="background-image: url(https://www.c2st.org/wp-content/themes/c2st-2017/img/test-images/argonne.jpg);"></a>
-                </div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <a href="#" class="supporter" style="background-image: url(https://www.c2st.org/wp-content/themes/c2st-2017/img/test-images/adler.jpg);"></a>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <a href="#" class="supporter" style="background-image: url(https://www.c2st.org/wp-content/themes/c2st-2017/img/test-images/field-museum.jpg);"></a>
-                </div>
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <a href="#" class="next-supporters"><span class="glyphicon glyphicon-chevron-right"></span></a>                
-                </div>
-            </div>
         </div><!-- .container -->
     </div><!-- .page-section -->
 
-        <!-- <div class="row see-all-events">
-            <div class="col-lg-2 col-lg-offset-5">
-                <a href="http://c2st.dev/events/" id="see-all-events" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign"></span>See All Events</a>
-            </div>
-        </div>
-    </div>
-</div> -->
+    <div id="supporter-carousel-section" class="page-section">
+        <?php include( 'includes/supporter-carousel.php' ); ?>
+    </div><!-- .page-section -->
 
-
-    <!-- </div><!-- .container -->
 </section>
 
 <?php get_footer(); ?>
