@@ -169,6 +169,7 @@ $upcoming_events = get_posts( array(
     </div><!-- .page-section -->
 
     <div id="supporter-carousel-section" class="page-section">
+        <h2 class="content-title supporter-heading">C2ST Supporters</h1>
         <?php include( 'includes/supporter-carousel.php' ); ?>
     </div><!-- .page-section -->
 
