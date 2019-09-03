@@ -91,9 +91,9 @@ if ( get_field( 'address' ) ) : ?>
         <?php if ( get_field( 'is_eventbrite' ) ) : ?>
             <!-- Embedded eventbrite form -->
             <!-- Noscript content for added SEO -->
-            <noscript><a href="https://www.eventbrite.com/e/urban-nature-walk-tickets-70703049725" rel="noopener noreferrer" target="_blank"></noscript>
+            <noscript><a href="https://www.eventbrite.com/e/urban-nature-walk-tickets-<?php the_field( 'eventbrite_event_id' ); ?>" rel="noopener noreferrer" target="_blank"></noscript>
                 <!-- You can customize this button any way you like -->
-                <button id="eventbrite-widget-modal-trigger-70703049725" type="button" class="btn btn-primary"><?php the_field( 'registration_button_text' ); ?></button>
+                <button id="eventbrite-widget-modal-trigger-<?php the_field( 'eventbrite_event_id' ); ?>" type="button" class="btn btn-primary"><?php the_field( 'registration_button_text' ); ?></button>
                 <noscript></a>Buy Tickets on Eventbrite</noscript>
 
                 <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
@@ -105,9 +105,9 @@ if ( get_field( 'address' ) ) : ?>
 
                 window.EBWidgets.createWidget({
                     widgetType: 'checkout',
-                    eventId: '70703049725',
+                    eventId: '<?php the_field( 'eventbrite_event_id' ); ?>',
                     modal: true,
-                    modalTriggerElementId: 'eventbrite-widget-modal-trigger-70703049725',
+                    modalTriggerElementId: 'eventbrite-widget-modal-trigger-<?php the_field( 'eventbrite_event_id' ); ?>',
                     onOrderComplete: exampleCallback
                 });
                 </script>
