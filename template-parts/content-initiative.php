@@ -70,4 +70,16 @@
             
         </div>
     </div>
+    <?php if( have_rows('initiative_extra') ): ?>
+        <div class="row initiative__extra">
+            <?php while( have_rows('initiative_extra') ): the_row(); ?>
+                <div class="col-sm-12 initiative__column">
+                    <?php the_sub_field('column_1'); ?>
+                </div>
+                <div class="col-sm-12 initiative__column">
+                    <?php the_sub_field('column_2'); ?>
+                </div>
+            <?php endwhile; ?>
+        </div>
+    <?php endif; ?>
 </article><!-- #post-<?php the_ID(); ?> -->

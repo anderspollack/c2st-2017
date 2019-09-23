@@ -1667,14 +1667,26 @@ article article {
 /*--------------------------------------------------------------
    ## Single Event Template
    --------------------------------------------------------------*/
-.initiative {
-  margin-bottom: 60px;
-}
-
 /*.single article,
    .single-initiative article {
    padding-bottom: 30px;
    }*/
+
+/*--------------------------------------------------------------
+   ## Single Initiative Template
+   --------------------------------------------------------------*/
+.initiative {
+  margin-bottom: 60px;
+}
+
+.initiative__extra {
+    display: flex;
+    justify-content: space-between;
+}
+
+.initiative__column {
+    flex-basis: 50%;
+}
 
 /*--------------------------------------------------------------
    ## Library
