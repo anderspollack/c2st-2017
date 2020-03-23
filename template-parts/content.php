@@ -37,7 +37,7 @@
 
         <?php 
         // Post Thumbnail
-        if ((has_post_thumbnail() && 'initiative' === get_post_type()) || (has_post_thumbnail() && 'Video' !== get_field('content_type_taxonomy') -> name )) : ?>
+        if ((has_post_thumbnail() && 'initiative' === get_post_type()) || (has_post_thumbnail() && 'video' !== get_field('content_type_taxonomy') -> name )) : ?>
         
             <a href="<?php echo esc_url( the_post_thumbnail_url() ); ?>" class="post-image">
                 <img src="<?php echo esc_url( the_post_thumbnail_url() ); ?>">
