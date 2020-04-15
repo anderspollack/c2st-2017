@@ -68,7 +68,8 @@ while ( have_posts() ) : the_post(); ?>
                 <div class="row">
                     <div class="col-sm-6">
 
-                        <a id="kindful-donate-btn-62bb6964-7fa5-40e9-a607-c89f53ecbcd5" class="btn btn-primary">Donate</a>
+                      <!-- <a id="kindful-donate-btn-62bb6964-7fa5-40e9-a607-c89f53ecbcd5" class="btn btn-primary">Donate</a> -->
+                      <a href="https://c2st.kindful.com/?campaign=1034743" target="_blank" class="btn btn-primary">Donate</a>
 
                     </div>
                     <div class="col-sm-6">

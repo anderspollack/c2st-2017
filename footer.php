@@ -75,7 +75,8 @@
                              C2ST is a nonprofit organization with 501 (c) 3 tax status. Your donation is tax deductible as provided by law.
                              </p> -->
                         <!-- <a href="<?php echo get_site_url(); ?>/give-now/" class="btn btn-primary">Give now</a> -->
-                        <a id="kindful-donate-btn-62bb6964-7fa5-40e9-a607-c89f53ecbcd5" class="btn btn-primary">Donate</a>
+                        <!-- <a id="kindful-donate-btn-62bb6964-7fa5-40e9-a607-c89f53ecbcd5" class="btn btn-primary">Donate</a> -->
+                        <a href="https://c2st.kindful.com/?campaign=1034743" target="_blank" class="btn btn-primary">Give now</a>
                         <div class="guidestar">
                             <a
                                 href="https://www.guidestar.org/profile/20-8490697"
@@ -114,7 +115,7 @@
                             <i class="expander support glyphicon glyphicon-triangle-right" data-heading="support"></i><a id="support" href="<?php echo esc_url( get_permalink( 1787 ) ); ?>" class="content-subheading">Support</a>
                         </div>
                         <div class="footer-sitemap-section support" data-section="support">
-                            <a href="<?php echo esc_url( get_permalink( 1787 ) ) . '#donate'; ?>" class="content-subheading indent">Donate</a>
+                            <a href="https://c2st.kindful.com/?campaign=1034743" class="content-subheading indent">Donate</a>
                         </div>
                     </div>
                 </div>
@@ -135,14 +136,10 @@
                     $(this).css('transform', 'rotate(90deg)')
                 }
             });
-
-            $('.kindful-form-button').click(function () {
-                document.getElementById('kindful-donate-btn-62bb6964-7fa5-40e9-a607-c89f53ecbcd5').click();
-            });
         });
      })(jQuery);
     </script>
-    <script src='https://c2st.kindful.com/embeds/62bb6964-7fa5-40e9-a607-c89f53ecbcd5/init.js' data-embed-id='62bb6964-7fa5-40e9-a607-c89f53ecbcd5' data-lookup-type='jquery-selector' data-lookup-value='#kindful-donate-btn-62bb6964-7fa5-40e9-a607-c89f53ecbcd5'></script>
+    <!-- <script src='https://c2st.kindful.com/embeds/62bb6964-7fa5-40e9-a607-c89f53ecbcd5/init.js' data-embed-id='62bb6964-7fa5-40e9-a607-c89f53ecbcd5' data-lookup-type='jquery-selector' data-lookup-value='#kindful-donate-btn-62bb6964-7fa5-40e9-a607-c89f53ecbcd5'></script> -->
 
     <?php wp_footer(); ?>
 
