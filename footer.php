@@ -25,7 +25,7 @@
 
                                  <label class="sr-only" for="emailInput">Submit</label>
                                  <button type="submit" class="btn btn-primary">Submit</button> -->
-                            <a href="https://visitor.r20.constantcontact.com/d.jsp?llr=4robuocab&amp;p=oi&amp;m=1102149892671&amp;sit=edw9ypldb&amp;f=0a0a2dfa-e9dd-492a-a572-03c724f6fcd3" class="btn btn-primary">Sign Up Now</a>
+                            <a href="https://www.c2st.org/constant-contact/" target="_blank" class="btn btn-primary">Sign Up Now</a>
 
                         </form>
                         <p class="content-subheading">Contact us</p>
@@ -140,6 +140,11 @@
      })(jQuery);
     </script>
     <!-- <script src='https://c2st.kindful.com/embeds/62bb6964-7fa5-40e9-a607-c89f53ecbcd5/init.js' data-embed-id='62bb6964-7fa5-40e9-a607-c89f53ecbcd5' data-lookup-type='jquery-selector' data-lookup-value='#kindful-donate-btn-62bb6964-7fa5-40e9-a607-c89f53ecbcd5'></script> -->
+
+    <!-- Begin Constant Contact Active Forms -->
+    <script> var _ctct_m = "d5024a4c68b7a4fbe8417deee156d9b5"; </script>
+    <script id="signupScript" src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+    <!-- End Constant Contact Active Forms -->
 
     <?php wp_footer(); ?>
 
